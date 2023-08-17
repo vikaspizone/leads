@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:leads/ui/common/widgets/bottom_bar.dart';
 import 'package:stacked/stacked.dart';
 
 import 'home_viewmodel.dart';
@@ -12,10 +13,11 @@ class HomeView extends StackedView<HomeViewModel> {
     HomeViewModel viewModel,
     Widget? child,
   ) {
-    return const Scaffold(
-      body: SafeArea(
+    return Scaffold(
+      body: const SafeArea(
         child: SizedBox(),
       ),
+      bottomNavigationBar: BottomBar(),
     );
   }
 

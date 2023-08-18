@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:stacked/stacked.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+import '/ui/common/app_strings.dart';
+import '/ui/common/images.dart';
 import '/ui/common/ui_helpers.dart';
 import 'home_viewmodel.dart';
 
@@ -16,191 +19,306 @@ class HomeView extends StackedView<HomeViewModel> {
   ) {
     return Scaffold(
       appBar: AppBar(
-        systemOverlayStyle:
-            const SystemUiOverlayStyle(statusBarColor: Colors.teal),
+        systemOverlayStyle: const SystemUiOverlayStyle(
+            statusBarColor: Color.fromARGB(255, 158, 99, 58)),
         elevation: 0,
         toolbarHeight: 0,
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        height: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(Images().backgroundImage), fit: BoxFit.fill),
+        ),
         child: Column(
           children: [
-            verticalSpaceMedium,
-            //users card
-            renderCard(
-                buttonTitle: 'View All',
-                leadsName: 'Users',
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Row(children: [
-                        renderCircleWithText(
-                            circleBgColor:
-                                const Color.fromARGB(255, 219, 255, 231),
-                            text: '8',
-                            textColor: const Color.fromARGB(255, 6, 95, 36)),
-                        horizontalSpaceSmall,
-                        RichText(
-                            textAlign: TextAlign.center,
-                            text: const TextSpan(
-                                text: 'DST',
-                                style: TextStyle(
-                                  color: Color.fromARGB(255, 105, 97, 94),
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 12,
-                                ),
-                                children: [
-                                  TextSpan(
-                                      text: "\nUsers",
-                                      style: TextStyle(
-                                        fontSize: 8,
-                                        fontWeight: FontWeight.w500,
-                                        color: Color.fromARGB(255, 105, 97, 94),
-                                      ))
-                                ])),
-                      ]),
-                      horizontalSpaceMedium,
-                      Row(children: [
-                        renderCircleWithText(
-                            circleBgColor:
-                                const Color.fromARGB(255, 254, 235, 179),
-                            text: '25',
-                            textColor: const Color.fromARGB(255, 07, 80, 0)),
-                        horizontalSpaceSmall,
-                        RichText(
-                            textAlign: TextAlign.center,
-                            text: const TextSpan(
-                                text: 'Channel Partner ',
-                                style: TextStyle(
-                                  color: Color.fromARGB(255, 105, 97, 94),
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 12,
-                                ),
-                                children: [
-                                  TextSpan(
-                                      text: "\nUsers",
-                                      style: TextStyle(
-                                        fontSize: 8,
-                                        fontWeight: FontWeight.w500,
-                                        color: Color.fromARGB(255, 105, 97, 94),
-                                      ))
-                                ])),
-                      ])
-                    ],
-                  ),
-                )),
+            //app bar
+            renderCustomAppBar(),
             verticalSpaceSmall,
-            //schedule and follow up cards
-            Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: renderCard(
-                      child: Row(
-                        children: [
-                          renderCircleWithText(
-                              circleBgColor:
-                                  const Color.fromARGB(255, 255, 221, 201),
-                              textColor: const Color.fromARGB(255, 128, 52, 10),
-                              text: '8'),
-                          horizontalSpaceSmall,
-                          const Text('Site Visits \nScheduled',
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 105, 97, 94),
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12,
-                              )),
-                        ],
-                      ),
-                      buttonTitle: 'View Scheduled',
-                      leadsName: ''),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: renderCard(
-                      child: Row(
-                        children: [
-                          renderCircleWithText(
-                              circleBgColor:
-                                  const Color.fromARGB(255, 255, 237, 201),
-                              textColor: const Color.fromARGB(255, 147, 97, 0),
-                              text: '18'),
-                          horizontalSpaceSmall,
-                          const Text('Upcoming\nFollow ups',
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 105, 97, 94),
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12,
-                              )),
-                        ],
-                      ),
-                      buttonTitle: 'View Follow ups',
-                      leadsName: ''),
-                ),
-              ],
-            ),
-            verticalSpaceSmall,
-            //my team card
-            renderCard(
-                buttonTitle: 'View All',
-                leadsName: 'My Team',
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 60,
-                          width: MediaQuery.of(context).size.width / 2,
-                          child: Stack(
-                            alignment: Alignment.centerLeft,
+                    //users card
+                    renderCard(
+                        buttonTitle: viewAll,
+                        leadsName: users,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              renderContainerWithImage(),
-                              Positioned(
-                                left: 20,
-                                child: renderContainerWithImage(),
-                              ),
-                              Positioned(
-                                left: 40,
-                                child: renderContainerWithImage(),
-                              ),
-                              Positioned(
-                                left: 60,
-                                child: renderContainerWithImage(),
-                              ),
-                              Positioned(
-                                left: 80,
-                                child: renderContainerWithImage(),
-                              ),
-                              Positioned(
-                                left: 100,
-                                child: renderContainerWithImage(
-                                    child: const Center(
-                                  child: Text(
-                                    '+5',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                )),
-                              ),
+                              Row(children: [
+                                renderCircleWithText(
+                                    circleBgColor: const Color.fromARGB(
+                                        255, 219, 255, 231),
+                                    text: '8',
+                                    textColor:
+                                        const Color.fromARGB(255, 6, 95, 36)),
+                                const SizedBox(width: 10),
+                                RichText(
+                                    textAlign: TextAlign.center,
+                                    text: const TextSpan(
+                                        text: 'DST',
+                                        style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 105, 97, 94),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 12,
+                                        ),
+                                        children: [
+                                          TextSpan(
+                                              text: "\n$users",
+                                              style: TextStyle(
+                                                fontSize: 8,
+                                                fontWeight: FontWeight.w500,
+                                                color: Color.fromARGB(
+                                                    255, 105, 97, 94),
+                                              ))
+                                        ])),
+                              ]),
+                              // horizontalSpaceMedium,
+                              Row(children: [
+                                renderCircleWithText(
+                                    circleBgColor: const Color.fromARGB(
+                                        255, 254, 235, 179),
+                                    text: '25',
+                                    textColor:
+                                        const Color.fromARGB(255, 07, 80, 0)),
+                                const SizedBox(width: 10),
+                                RichText(
+                                    textAlign: TextAlign.center,
+                                    text: const TextSpan(
+                                        text: 'Channel Partner ',
+                                        style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 105, 97, 94),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 12,
+                                        ),
+                                        children: [
+                                          TextSpan(
+                                              text: "\n$users",
+                                              style: TextStyle(
+                                                fontSize: 8,
+                                                fontWeight: FontWeight.w500,
+                                                color: Color.fromARGB(
+                                                    255, 105, 97, 94),
+                                              ))
+                                        ])),
+                              ])
                             ],
                           ),
+                        )),
+                    //schedule and follow up cards
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: renderCard(
+                              child: Row(
+                                children: [
+                                  renderCircleWithText(
+                                      circleBgColor: const Color.fromARGB(
+                                          255, 255, 221, 201),
+                                      textColor: const Color.fromARGB(
+                                          255, 128, 52, 10),
+                                      text: '8'),
+                                  horizontalSpaceSmall,
+                                  const Text('Site Visits \nScheduled',
+                                      style: TextStyle(
+                                        color: Color.fromARGB(255, 105, 97, 94),
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12,
+                                      )),
+                                ],
+                              ),
+                              buttonTitle: 'View Scheduled',
+                              leadsName: ''),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: renderCard(
+                              child: Row(
+                                children: [
+                                  renderCircleWithText(
+                                      circleBgColor: const Color.fromARGB(
+                                          255, 255, 237, 201),
+                                      textColor:
+                                          const Color.fromARGB(255, 147, 97, 0),
+                                      text: '18'),
+                                  horizontalSpaceSmall,
+                                  const Text('Upcoming\nFollow ups',
+                                      style: TextStyle(
+                                        color: Color.fromARGB(255, 105, 97, 94),
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12,
+                                      )),
+                                ],
+                              ),
+                              buttonTitle: 'View Follow ups',
+                              leadsName: ''),
                         ),
                       ],
                     ),
-                    renderCircleWithText(
-                      circleBgColor: const Color.fromARGB(255, 250, 231, 202),
-                      text: '10',
-                      textColor: const Color.fromARGB(255, 147, 97, 0),
-                    )
+
+                    //my team card
+                    renderCard(
+                        buttonTitle: viewAll,
+                        leadsName: 'My Team',
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height: 60,
+                                  width: MediaQuery.of(context).size.width / 2,
+                                  child: Stack(
+                                    alignment: Alignment.centerLeft,
+                                    children: [
+                                      renderContainerWithImage(
+                                        child: SvgPicture.asset(
+                                          Images().userImage,
+                                        ),
+                                      ),
+                                      Positioned(
+                                        left: 20,
+                                        child: renderContainerWithImage(
+                                          child: SvgPicture.asset(
+                                            Images().userImage,
+                                          ),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        left: 40,
+                                        child: renderContainerWithImage(
+                                          child: SvgPicture.asset(
+                                            Images().userImage,
+                                          ),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        left: 60,
+                                        child: renderContainerWithImage(
+                                          child: SvgPicture.asset(
+                                            Images().userImage,
+                                          ),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        left: 80,
+                                        child: renderContainerWithImage(
+                                          child: SvgPicture.asset(
+                                            Images().userImage,
+                                          ),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        left: 100,
+                                        child: renderContainerWithImage(
+                                            child: const Center(
+                                          child: Text(
+                                            '+5',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        )),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            renderCircleWithText(
+                              circleBgColor:
+                                  const Color.fromARGB(255, 250, 231, 202),
+                              text: '10',
+                              textColor: const Color.fromARGB(255, 147, 97, 0),
+                            )
+                          ],
+                        )),
                   ],
-                ))
+                ),
+              ),
+            ),
           ],
         ),
+      ),
+    );
+  }
+
+//app bar
+  ListTile renderCustomAppBar() {
+    return ListTile(
+      title: const Text(
+        'Welcome',
+        style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+            height: 0.5),
+      ),
+      subtitle: const Text(
+        'Ravi Kumar',
+        style: TextStyle(
+          fontSize: 22,
+          fontWeight: FontWeight.w500,
+          color: Colors.white,
+        ),
+      ),
+      leading: CircleAvatar(
+        backgroundColor: Colors.transparent,
+        child: SvgPicture.asset(
+          Images().userImage,
+          height: 34,
+          width: 34,
+        ),
+      ),
+      trailing: Wrap(
+        children: <Widget>[
+          const Icon(
+            Icons.power_settings_new_outlined,
+            size: 20,
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 60,
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                const Icon(
+                  Icons.notifications,
+                  size: 20,
+                  color: Colors.white,
+                ),
+                Positioned(
+                  top: 0,
+                  right: 6,
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 247, 148, 30),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Text(
+                      "100",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 8,
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -257,9 +375,9 @@ class HomeView extends StackedView<HomeViewModel> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: Colors.white,
-            ),
+                borderRadius: BorderRadius.circular(12),
+                color: Colors.white,
+                border: Border.all(color: Colors.white)),
             child: child,
           ),
           Padding(

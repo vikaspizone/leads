@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.7
   stacked: ^3.4.0
   stacked_services: ^1.1.0
 
@@ -28,3 +29,6 @@ flutter:
     - family: Nexa-Bold
       fonts:
         - asset: assets/fonts/Nexa-Bold.ttf
+
+  assets:
+    - assets/images/

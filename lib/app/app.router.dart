@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart' as _i5;
 import 'package:flutter/material.dart';
 import 'package:leads/ui/views/home/home_view.dart' as _i2;
-import 'package:leads/ui/views/leads/leads_view.dart' as _i4;
+import 'package:leads/ui/views/leads/leads_view.dart' as _i5;
 import 'package:leads/ui/views/startup/startup_view.dart' as _i3;
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i6;
@@ -39,7 +39,7 @@ class StackedRouter extends _i1.RouterBase {
     ),
     _i1.RouteDef(
       Routes.leadsView,
-      page: _i4.LeadsView,
+      page: _i5.LeadsView,
     ),
   ];
 
@@ -56,9 +56,9 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
-    _i4.LeadsView: (data) {
+    _i5.LeadsView: (data) {
       return _i5.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i4.LeadsView(),
+        builder: (context) => const _i5.LeadsView(),
         settings: data,
       );
     },

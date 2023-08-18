@@ -174,7 +174,9 @@ class BackSide extends StatelessWidget {
         width: 360,
         // height: 170,
         child: GridView.builder(
-          physics: NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.symmetric(vertical: 5),
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: 6,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               mainAxisExtent: 50,

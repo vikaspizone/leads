@@ -22,6 +22,12 @@ class HomeView extends StackedView<HomeViewModel> {
   ) {
     return Scaffold(
       bottomNavigationBar: const BottomBar(),
+      // appBar: AppBar(
+      //   systemOverlayStyle:
+      //       const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+      //   elevation: 0,
+      //   toolbarHeight: 0,
+      // ),
       body: Container(
         height: double.infinity,
         decoration: BoxDecoration(
@@ -43,7 +49,7 @@ class HomeView extends StackedView<HomeViewModel> {
                       children: [
                         //leads trend graph
                         const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 5),
+                          padding: EdgeInsets.symmetric(vertical: 2),
                           child: Graph(),
                         ),
 
@@ -57,7 +63,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                 .HORIZONTAL, // Change this to your desired flip direction
                             flipOnTouch: true,
                             speed: 1000,
-                            front: PieChartPage(),
+                            front: const PieChartPage(),
                             back: BackSide(
                               gridDetail: viewModel.gridDetail,
                             ),
@@ -288,73 +294,123 @@ class HomeView extends StackedView<HomeViewModel> {
 //app bar
   ListTile renderCustomAppBar() {
     return ListTile(
-      title: const Text(
-        'Welcome',
-        style: TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.w500,
-            color: Colors.white,
-            height: 0.5),
-      ),
-      subtitle: const Text(
-        'Ravi Kumar',
-        style: TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.w500,
-          color: Colors.white,
+        contentPadding: const EdgeInsets.only(left: 12),
+        title: const Text(
+          'Welcome',
+          style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
+              height: 0.7),
         ),
-      ),
-      leading: CircleAvatar(
-        backgroundColor: Colors.transparent,
-        child: SvgPicture.asset(
-          Images().userImage,
-          height: 34,
-          width: 34,
+        subtitle: const Text(
+          'Ravi Kumar',
+          style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
+              height: 1.2),
         ),
-      ),
-      trailing: Wrap(
-        children: <Widget>[
-          const Icon(
-            Icons.power_settings_new_outlined,
-            size: 20,
-            color: Colors.white,
+        leading: CircleAvatar(
+          backgroundColor: Colors.transparent,
+          child: SvgPicture.asset(
+            Images().userImage,
+            height: 34,
+            width: 34,
           ),
-          SizedBox(
-            width: 60,
-            child: Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                const Icon(
-                  Icons.notifications,
-                  size: 20,
-                  color: Colors.white,
-                ),
-                Positioned(
-                  top: 0,
-                  right: 6,
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 247, 148, 30),
-                      borderRadius: BorderRadius.circular(10),
+        ),
+        trailing: SizedBox(
+          width: 80,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Icon(
+                Icons.power_settings_new_outlined,
+                size: 20,
+                color: Colors.white,
+              ),
+              Spacer(),
+              SizedBox(
+                width: 30,
+                child: Stack(
+                  alignment: Alignment.centerLeft,
+                  children: <Widget>[
+                    const Icon(
+                      Icons.notifications,
+                      size: 20,
+                      color: Colors.white,
                     ),
-                    child: const Text(
-                      "100",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 8,
-                          fontWeight: FontWeight.w400),
+                    Positioned(
+                      top: 0,
+                      right: 0,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 4, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 247, 148, 30),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: const Text(
+                          "100",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 8,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+              SizedBox(width: 20)
+            ],
           ),
-        ],
-      ),
-    );
+        )
+
+        // : Wrap(
+        //   children: <Widget>[
+        //     const Icon(
+        //       Icons.power_settings_new_outlined,
+        //       size: 20,
+        //       color: Colors.white,
+        //     ),
+        //     SizedBox(
+        //       width: 50,
+        //       child: Stack(
+        //         alignment: Alignment.centerLeft,
+        //         children: <Widget>[
+        //           const Icon(
+        //             Icons.notifications,
+        //             size: 20,
+        //             color: Colors.white,
+        //           ),
+        //           Positioned(
+        //             top: 0,
+        //             right: 12,
+        //             child: Container(
+        //               padding:
+        //                   const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+        //               decoration: BoxDecoration(
+        //                 color: const Color.fromARGB(255, 247, 148, 30),
+        //                 borderRadius: BorderRadius.circular(10),
+        //               ),
+        //               child: const Text(
+        //                 "100",
+        //                 textAlign: TextAlign.center,
+        //                 style: TextStyle(
+        //                     color: Colors.white,
+        //                     fontSize: 8,
+        //                     fontWeight: FontWeight.w400),
+        //               ),
+        //             ),
+        //           ),
+        //         ],
+        //       ),
+        //     ),
+        //   ],
+        // ),
+        );
   }
 
 //circle container with image

@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:leads/ui/common/ui_helpers.dart';
-import 'package:leads/ui/views/leads/leads_view.form.dart';
-import 'package:leads/widgets/input.dart';
-import 'package:leads/widgets/slidable_tile.dart';
-import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter/material.dart';
+import 'package:stacked/stacked.dart';
+
+import '/ui/common/ui_helpers.dart';
+import '/ui/views/leads/leads_view.form.dart';
+import '/widgets/input.dart';
+import '/widgets/slidable_tile.dart';
 import '../../../widgets/custom_lead_tile.dart';
 import 'leads_viewmodel.dart';
 
@@ -76,9 +76,19 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                           padding: EdgeInsets.zero,
                           labelPadding: EdgeInsets.zero,
                           tabs: [
-                            Tab(text: 'Channel Partner'),
-                            Tab(text: 'DST'),
-                            Tab(text: 'Referrals'),
+                            // Tab(
+                            //   child: Text('Channel Partner'),
+                            // ),
+                            // Tab(
+                            //   child: Text('DST'),
+                            // ),
+                            // Tab(
+                            //   child: Text('Referrals'),
+                            // ),
+                            Text('Channel Partner',
+                                style: TextStyle(fontSize: 14)),
+                            Text('DST', style: TextStyle(fontSize: 14)),
+                            Text('Referrals', style: TextStyle(fontSize: 14))
                           ],
                           indicatorWeight: 3,
                           indicatorColor: Color.fromARGB(255, 196, 22, 28),
@@ -136,7 +146,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                             },
                           ),
                         ),
-                        verticalSpaceSmall,
+                        verticalSpaceTiny,
                         Container(
                           alignment: Alignment.centerLeft,
                           child: Text(
@@ -152,23 +162,55 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                             itemCount: viewModel.leadsList.length,
                             shrinkWrap: true,
                             physics: const BouncingScrollPhysics(),
-                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            padding: const EdgeInsets.symmetric(vertical: 10),
                             itemBuilder: (context, index) {
                               return Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: const Color.fromARGB(
+                                        255, 245, 148, 30)),
                                 margin: const EdgeInsets.only(bottom: 15),
                                 child: SlidableTile(
                                   action: [
-                                    SlidableAction(
-                                      onPressed: (context) {},
-                                      borderRadius: const BorderRadius.only(
-                                          topRight: Radius.circular(10),
-                                          bottomRight: Radius.circular(10)),
-                                      backgroundColor: const Color.fromARGB(
-                                          255, 245, 148, 30),
-                                      foregroundColor: Colors.white,
-                                      icon: Icons.add_circle,
-                                      padding: const EdgeInsets.all(5),
-                                      label: 'Follow Up',
+                                    // SlidableAction(
+                                    //   onPressed: (context) {},
+                                    //   borderRadius: const BorderRadius.only(
+                                    //       topRight: Radius.circular(10),
+                                    //       bottomRight: Radius.circular(10)),
+                                    //   backgroundColor: const Color.fromARGB(
+                                    //       255, 245, 148, 30),
+                                    //   foregroundColor: Colors.white,
+                                    //   icon: Icons.add_circle,
+                                    //   padding: const EdgeInsets.all(5),
+                                    //   label: 'Follow Up',
+                                    // ),
+                                    Container(
+                                      decoration: const BoxDecoration(
+                                        color:
+                                            Color.fromARGB(255, 245, 148, 30),
+                                        borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(10),
+                                            bottomRight: Radius.circular(10)),
+                                      ),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10),
+                                      child: const Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(
+                                              Icons.add_circle,
+                                              color: Colors.white,
+                                            ),
+                                            Text(
+                                              'Follow Up',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 10),
+                                            )
+                                          ]),
                                     ),
                                   ],
                                   valueKey: index,

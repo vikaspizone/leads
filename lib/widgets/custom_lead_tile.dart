@@ -139,20 +139,33 @@ class _CustomTileState extends State<CustomTile>
                               height: 15,
                             ),
                             const Expanded(child: SizedBox()),
-                            Container(
-                              width: 80,
-                              height: 25,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color: widget.statusColor,
-                                  borderRadius: BorderRadius.circular(12),
-                                  border: Border.all(
-                                      color: widget.statusBorderColor)),
-                              child: Text(widget.status,
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                  )),
-                            ),
+                            widget.status == 'Sold'
+                                ? Container(
+                                    width: 80,
+                                    height: 25,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                        color: widget.statusColor,
+                                        borderRadius: BorderRadius.circular(12),
+                                        border: Border.all(
+                                            color: widget.statusBorderColor)),
+                                    child: Text(widget.status,
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                        )))
+                                : Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 15),
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                        color: widget.statusColor,
+                                        borderRadius: BorderRadius.circular(12),
+                                        border: Border.all(
+                                            color: widget.statusBorderColor)),
+                                    child: Text(widget.status,
+                                        style: const TextStyle(
+                                            fontSize: 12, height: 2)),
+                                  ),
                           ],
                         ),
                         Row(
@@ -258,10 +271,7 @@ class _CustomTileState extends State<CustomTile>
                           children: [
                             verticalSpaceTiny,
                             SvgPicture.asset(
-                              'assets/all-leads-icons/follow-up-icon.svg',
-                              height: 20,
-                              width: 20,
-                            ),
+                                'assets/all-leads-icons/follow-up-icon.svg'),
                             const Text('Follow Up',
                                 style: TextStyle(
                                     fontSize: 13,

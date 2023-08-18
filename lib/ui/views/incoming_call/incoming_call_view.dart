@@ -79,7 +79,10 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                       verticalSpaceSmall,
                       const Text(
                         'Showing 2 records',
-                        style: TextStyle(fontFamily: 'Nexa-Bold'),
+                        style: TextStyle(
+                            fontFamily: 'Nexa-Bold',
+                            color: Color.fromARGB(255, 67, 67, 67),
+                            fontWeight: FontWeight.w400),
                       ),
                       verticalSpaceTiny,
                       Expanded(
@@ -91,72 +94,81 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                           itemBuilder: (context, index) {
                             return Container(
                               margin: const EdgeInsets.only(bottom: 15),
-                              child: SlidableTile(
-                                action: [
-                                  Expanded(
-                                      child: Container(
-                                    decoration: const BoxDecoration(
-                                      color: Color.fromARGB(255, 196, 22, 28),
-                                      borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(10),
-                                        bottomRight: Radius.circular(10),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: const Color.fromARGB(255, 196, 22, 28),
+                                  borderRadius: BorderRadius.circular(
+                                    10,
+                                  ),
+                                ),
+                                child: SlidableTile(
+                                  action: [
+                                    Expanded(
+                                        child: Container(
+                                      decoration: const BoxDecoration(
+                                        color: Color.fromARGB(255, 196, 22, 28),
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(10),
+                                          bottomRight: Radius.circular(10),
+                                        ),
                                       ),
-                                    ),
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/incoming-call-icons/discard-icon.svg',
-                                            height: 15,
-                                          ),
-                                          const Text(
-                                            'Disqualify',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 10),
-                                          )
-                                        ]),
-                                  )),
-                                  Expanded(
-                                      child: Container(
-                                    decoration: const BoxDecoration(
-                                      color: Color.fromARGB(255, 245, 148, 30),
-                                      borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(10),
-                                        bottomRight: Radius.circular(10),
+                                      child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            SvgPicture.asset(
+                                              'assets/incoming-call-icons/discard-icon.svg',
+                                              height: 20,
+                                            ),
+                                            const Text(
+                                              'Disqualify',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12),
+                                            )
+                                          ]),
+                                    )),
+                                    Expanded(
+                                        child: Container(
+                                      decoration: const BoxDecoration(
+                                        color:
+                                            Color.fromARGB(255, 245, 148, 30),
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(10),
+                                          bottomRight: Radius.circular(10),
+                                        ),
                                       ),
-                                    ),
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/incoming-call-icons/check-icon.svg',
-                                            height: 15,
-                                          ),
-                                          verticalSpaceTiny,
-                                          const Text(
-                                            'Create\nProspect',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 10),
-                                            textAlign: TextAlign.center,
-                                          )
-                                        ]),
-                                  )),
-                                ],
-                                valueKey: index,
-                                child: CallDetailCard(
-                                  callDuration:
-                                      viewModel.leadsList[index].callDuration,
-                                  personName:
-                                      viewModel.leadsList[index].personName,
-                                  visitTime:
-                                      viewModel.leadsList[index].visitTime,
-                                  visitDate:
-                                      viewModel.leadsList[index].visitDate,
-                                  status: viewModel.leadsList[index].status,
+                                      child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            SvgPicture.asset(
+                                              'assets/incoming-call-icons/check-icon.svg',
+                                              height: 20,
+                                            ),
+                                            verticalSpaceTiny,
+                                            const Text(
+                                              'Create\nProspect',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12),
+                                              textAlign: TextAlign.center,
+                                            )
+                                          ]),
+                                    )),
+                                  ],
+                                  valueKey: index,
+                                  child: CallDetailCard(
+                                    callDuration:
+                                        viewModel.leadsList[index].callDuration,
+                                    personName:
+                                        viewModel.leadsList[index].personName,
+                                    visitTime:
+                                        viewModel.leadsList[index].visitTime,
+                                    visitDate:
+                                        viewModel.leadsList[index].visitDate,
+                                    status: viewModel.leadsList[index].status,
+                                  ),
                                 ),
                               ),
                             );
@@ -281,7 +293,10 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    SvgPicture.asset(Images().menuIcon),
+                    SvgPicture.asset(
+                      Images().menuIcon,
+                      color: const Color.fromARGB(255, 80, 80, 80),
+                    ),
                     const Icon(Icons.arrow_drop_down, color: Colors.black26)
                   ],
                 ),

@@ -46,6 +46,7 @@ class Input extends StatelessWidget {
               },
               icon: const Icon(
                 Icons.close,
+                size: 20,
                 color: Color.fromARGB(255, 165, 165, 165),
               ))
         ],

@@ -25,7 +25,7 @@ class CallDetailCard extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 90,
+          height: 95,
           alignment: Alignment.bottomLeft,
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: BoxDecoration(
@@ -36,7 +36,7 @@ class CallDetailCard extends StatelessWidget {
               style: const TextStyle(color: Colors.white, fontSize: 11)),
         ),
         Container(
-          height: 65,
+          height: 70,
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10), color: Colors.white),
@@ -49,7 +49,7 @@ class CallDetailCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text('Call from',
-                      style: TextStyle(fontSize: 8, color: Color(0xFF818080))),
+                      style: TextStyle(fontSize: 9, color: Color(0xFF818080))),
                   Row(
                     children: [
                       Text(personName, style: const TextStyle(fontSize: 15)),
@@ -92,11 +92,14 @@ class CallDetailCard extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          SvgPicture.asset(Images().incomingCallIcon),
+                          SvgPicture.asset(
+                            Images().incomingCallIcon,
+                            height: 12,
+                          ),
                           horizontalSpaceTiny,
                           Text(callDuration,
                               style: const TextStyle(
-                                  fontSize: 8, color: Color(0xFF818080)))
+                                  fontSize: 9, color: Color(0xFF818080)))
                         ],
                       ),
                       verticalSpaceTiny,

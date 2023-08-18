@@ -20,31 +20,26 @@ class HomeView extends StackedView<HomeViewModel> {
     HomeViewModel viewModel,
     Widget? child,
   ) {
+    var height = MediaQuery.of(context).viewPadding.top;
+
     return Scaffold(
       bottomNavigationBar: const BottomBar(),
-      // appBar: AppBar(
-      //   systemOverlayStyle:
-      //       const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
-      //   elevation: 0,
-      //   toolbarHeight: 0,
-      // ),
-      body: Container(
-        height: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(Images().backgroundImage), fit: BoxFit.fill),
-        ),
-        child: Column(
-          children: [
-            verticalSpaceLarge,
-            renderCustomAppBar(),
-            // verticalSpaceSmall,
-            Expanded(
-              child: SingleChildScrollView(
-                child: Container(
+      body: Stack(
+        children: [
+          SizedBox(
+              width: double.infinity,
+              child: Image.asset(Images().backgroundImage, fit: BoxFit.fill)),
+          verticalSpaceLarge,
+          Column(
+            children: [
+              SizedBox(height: height - 5),
+              renderCustomAppBar(),
+              verticalSpaceSmall,
+              Expanded(
+                child: SingleChildScrollView(
                   child: Padding(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
                     child: Column(
                       children: [
                         //leads trend graph
@@ -77,15 +72,18 @@ class HomeView extends StackedView<HomeViewModel> {
                               padding: const EdgeInsets.all(8),
                               child: Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(children: [
-                                    renderCircleWithText(
-                                        circleBgColor: const Color.fromARGB(
-                                            255, 219, 255, 231),
-                                        text: '8',
-                                        textColor: const Color.fromARGB(
-                                            255, 6, 95, 36)),
+                                    Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: renderCircleWithText(
+                                          circleBgColor: const Color.fromARGB(
+                                              255, 219, 255, 231),
+                                          text: '8',
+                                          textColor: const Color.fromARGB(
+                                              255, 6, 95, 36)),
+                                    ),
                                     const SizedBox(width: 10),
                                     RichText(
                                         textAlign: TextAlign.center,
@@ -95,6 +93,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                               color: Color.fromARGB(
                                                   255, 105, 97, 94),
                                               fontWeight: FontWeight.w500,
+                                              letterSpacing: 0.5,
                                               fontSize: 12,
                                             ),
                                             children: [
@@ -126,6 +125,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                                   255, 105, 97, 94),
                                               fontWeight: FontWeight.w500,
                                               fontSize: 12,
+                                              letterSpacing: 0.5,
                                             ),
                                             children: [
                                               TextSpan(
@@ -149,20 +149,23 @@ class HomeView extends StackedView<HomeViewModel> {
                               child: renderCard(
                                   child: Row(
                                     children: [
-                                      renderCircleWithText(
-                                          circleBgColor: const Color.fromARGB(
-                                              255, 255, 221, 201),
-                                          textColor: const Color.fromARGB(
-                                              255, 128, 52, 10),
-                                          text: '8'),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: renderCircleWithText(
+                                            circleBgColor: const Color.fromARGB(
+                                                255, 255, 221, 201),
+                                            textColor: const Color.fromARGB(
+                                                255, 128, 52, 10),
+                                            text: '8'),
+                                      ),
                                       horizontalSpaceSmall,
                                       const Text('Site Visits \nScheduled',
                                           style: TextStyle(
-                                            color: Color.fromARGB(
-                                                255, 105, 97, 94),
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12,
-                                          )),
+                                              color: Color.fromARGB(
+                                                  255, 105, 97, 94),
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 12,
+                                              height: 1)),
                                     ],
                                   ),
                                   buttonTitle: 'View Scheduled',
@@ -174,20 +177,23 @@ class HomeView extends StackedView<HomeViewModel> {
                               child: renderCard(
                                   child: Row(
                                     children: [
-                                      renderCircleWithText(
-                                          circleBgColor: const Color.fromARGB(
-                                              255, 255, 237, 201),
-                                          textColor: const Color.fromARGB(
-                                              255, 147, 97, 0),
-                                          text: '18'),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: renderCircleWithText(
+                                            circleBgColor: const Color.fromARGB(
+                                                255, 255, 237, 201),
+                                            textColor: const Color.fromARGB(
+                                                255, 147, 97, 0),
+                                            text: '18'),
+                                      ),
                                       horizontalSpaceSmall,
                                       const Text('Upcoming\nFollow ups',
                                           style: TextStyle(
-                                            color: Color.fromARGB(
-                                                255, 105, 97, 94),
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12,
-                                          )),
+                                              color: Color.fromARGB(
+                                                  255, 105, 97, 94),
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 12,
+                                              height: 1)),
                                     ],
                                   ),
                                   buttonTitle: 'View Follow ups',
@@ -260,6 +266,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 12,
+                                                    height: 2.2,
                                                     fontWeight:
                                                         FontWeight.w400),
                                               ),
@@ -279,14 +286,15 @@ class HomeView extends StackedView<HomeViewModel> {
                                 )
                               ],
                             )),
+                        verticalSpaceMedium
                       ],
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
+            ],
+          )
+        ],
       ),
     );
   }
@@ -294,7 +302,8 @@ class HomeView extends StackedView<HomeViewModel> {
 //app bar
   ListTile renderCustomAppBar() {
     return ListTile(
-        contentPadding: const EdgeInsets.only(left: 12),
+        contentPadding: const EdgeInsets.only(left: 15, right: 10),
+        horizontalTitleGap: 8,
         title: const Text(
           'Welcome',
           style: TextStyle(
@@ -326,23 +335,23 @@ class HomeView extends StackedView<HomeViewModel> {
             children: [
               const Icon(
                 Icons.power_settings_new_outlined,
-                size: 20,
+                size: 25,
                 color: Colors.white,
               ),
-              Spacer(),
+              horizontalSpaceSmall,
               SizedBox(
-                width: 30,
+                width: 40,
                 child: Stack(
                   alignment: Alignment.centerLeft,
                   children: <Widget>[
                     const Icon(
                       Icons.notifications,
-                      size: 20,
+                      size: 25,
                       color: Colors.white,
                     ),
                     Positioned(
                       top: 0,
-                      right: 0,
+                      right: 2,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 4, vertical: 2),
@@ -363,54 +372,9 @@ class HomeView extends StackedView<HomeViewModel> {
                   ],
                 ),
               ),
-              SizedBox(width: 20)
             ],
           ),
-        )
-
-        // : Wrap(
-        //   children: <Widget>[
-        //     const Icon(
-        //       Icons.power_settings_new_outlined,
-        //       size: 20,
-        //       color: Colors.white,
-        //     ),
-        //     SizedBox(
-        //       width: 50,
-        //       child: Stack(
-        //         alignment: Alignment.centerLeft,
-        //         children: <Widget>[
-        //           const Icon(
-        //             Icons.notifications,
-        //             size: 20,
-        //             color: Colors.white,
-        //           ),
-        //           Positioned(
-        //             top: 0,
-        //             right: 12,
-        //             child: Container(
-        //               padding:
-        //                   const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-        //               decoration: BoxDecoration(
-        //                 color: const Color.fromARGB(255, 247, 148, 30),
-        //                 borderRadius: BorderRadius.circular(10),
-        //               ),
-        //               child: const Text(
-        //                 "100",
-        //                 textAlign: TextAlign.center,
-        //                 style: TextStyle(
-        //                     color: Colors.white,
-        //                     fontSize: 8,
-        //                     fontWeight: FontWeight.w400),
-        //               ),
-        //             ),
-        //           ),
-        //         ],
-        //       ),
-        //     ),
-        //   ],
-        // ),
-        );
+        ));
   }
 
 //circle container with image
@@ -431,7 +395,8 @@ class HomeView extends StackedView<HomeViewModel> {
       {Color? circleBgColor, Color? textColor, String? text}) {
     return Container(
       width: 44,
-      height: 44,
+      height: 46,
+      // padding: EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
         color: circleBgColor,
         shape: BoxShape.circle,
@@ -439,7 +404,10 @@ class HomeView extends StackedView<HomeViewModel> {
       child: Center(
         child: Text(text!,
             style: TextStyle(
-                color: textColor, fontWeight: FontWeight.w500, fontSize: 18)),
+                color: textColor,
+                fontWeight: FontWeight.w500,
+                fontSize: 18,
+                height: 2)),
       ),
     );
   }

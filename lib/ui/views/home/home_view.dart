@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 
-
 import '/ui/common/widgets/bottom_bar.dart';
 import '/ui/views/home/graph.dart';
 import '/ui/views/home/pie_chart.dart';

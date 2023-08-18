@@ -15,6 +15,7 @@ ThemeData leadsAppTheme() {
           fontWeight: FontWeight.w700,
           fontSize: 34,
           color: Color.fromARGB(255, 3, 116, 237)),
+      headlineMedium: TextStyle(fontSize: 20, color: Colors.white),
     ),
     pageTransitionsTheme: const PageTransitionsTheme(builders: {
       TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),

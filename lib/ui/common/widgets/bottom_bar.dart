@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:leads/app/app.locator.dart';
+import 'package:leads/app/app.router.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 import '/ui/views/home/home_viewmodel.dart';
 import '../images.dart';
@@ -13,6 +16,7 @@ class BottomBar extends StackedView<HomeViewModel> {
     HomeViewModel viewModel,
     Widget? child,
   ) {
+    NavigationService _navigationService = locator<NavigationService>();
     return SizedBox(
         height: 57,
         child: Stack(children: [
@@ -30,6 +34,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                       child: GestureDetector(
                           onTap: () {
                             viewModel.changeIndex(0);
+                            _navigationService.replaceWithHomeView();
                           },
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -79,6 +84,8 @@ class BottomBar extends StackedView<HomeViewModel> {
                       child: GestureDetector(
                           onTap: () {
                             viewModel.changeIndex(2);
+                            viewModel.changeIndex(0);
+                            _navigationService.replaceWithLeadsView();
                           },
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -103,6 +110,8 @@ class BottomBar extends StackedView<HomeViewModel> {
                       child: GestureDetector(
                           onTap: () {
                             viewModel.changeIndex(3);
+                            viewModel.changeIndex(0);
+                            _navigationService.replaceWithIncomingCallView();
                           },
                           child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,

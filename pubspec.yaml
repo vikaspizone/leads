@@ -27,7 +27,9 @@ flutter:
   assets:
     - assets/
     - assets/bg-images/
+    - assets/images/
     - assets/all-leads-icons/
+    - assets/incoming-call-icons/
   #fonts
   fonts:
     - family: Nexa-Bold

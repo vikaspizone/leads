@@ -3,19 +3,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:leads/ui/common/ui_helpers.dart';
 
 class CustomTile extends StatefulWidget {
-  String personName;
-  String companyName;
-  String location;
-  String? vistDate;
-  String? clientVistDate;
-  String date;
-  String status;
-  Color statusColor;
-  Color statusBorderColor;
+  final String personName;
+  final String companyName;
+  final String location;
+  final String? vistDate;
+  final String? clientVistDate;
+  final String date;
+  final String status;
+  final Color statusColor;
+  final Color statusBorderColor;
 
-  bool isRequired;
-
-  CustomTile({
+  const CustomTile({
     super.key,
     required this.personName,
     required this.companyName,
@@ -26,7 +24,6 @@ class CustomTile extends StatefulWidget {
     required this.status,
     required this.statusBorderColor,
     required this.statusColor,
-    this.isRequired = true,
   });
 
   @override

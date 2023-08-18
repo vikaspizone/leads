@@ -39,4 +39,10 @@ class HomeViewModel extends BaseViewModel {
         valCol: const Color(0xffD25151))
   ];
 
+//change bottom bar index
+  int currentIndex = 0;
+  changeIndex(tabindex) {
+    currentIndex = tabindex;
+    notifyListeners();
+  }
 }

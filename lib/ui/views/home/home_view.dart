@@ -1,11 +1,13 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:leads/ui/views/home/graph.dart';
-import 'package:leads/ui/views/home/pie_chart.dart';
-import 'package:stacked/stacked.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/services.dart';
 
+
+import '/ui/common/widgets/bottom_bar.dart';
+import '/ui/views/home/graph.dart';
+import '/ui/views/home/pie_chart.dart';
+import 'package:stacked/stacked.dart';
 import '/ui/common/app_strings.dart';
 import '/ui/common/images.dart';
 import '/ui/common/ui_helpers.dart';
@@ -21,6 +23,7 @@ class HomeView extends StackedView<HomeViewModel> {
     Widget? child,
   ) {
     return Scaffold(
+      bottomNavigationBar: const BottomBar(),
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: Color.fromARGB(255, 158, 99, 58)),

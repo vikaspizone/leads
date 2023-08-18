@@ -27,11 +27,12 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  assets:
+    - assets/
+    - assets/images/
+
   #fonts
   fonts:
     - family: Nexa-Bold
       fonts:
         - asset: assets/fonts/Nexa-Bold.ttf
-
-  assets:
-    - assets/images/

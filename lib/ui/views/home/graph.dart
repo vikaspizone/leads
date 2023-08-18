@@ -46,9 +46,12 @@ class Graph extends StatelessWidget {
               ),
             ),
             Container(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 height: 150,
                 child: SfCartesianChart(
+                    trackballBehavior: TrackballBehavior(
+                        enable: true, lineWidth: 2, lineDashArray: [5, 5]),
+                    enableAxisAnimation: true,
                     plotAreaBorderColor: Colors.transparent,
                     margin: EdgeInsets.zero,
                     primaryYAxis: NumericAxis(
@@ -129,9 +132,19 @@ class Graph extends StatelessWidget {
                         x: '10.8',
                         y: 10,
                       ),
+                      CartesianChartAnnotation(
+                          widget: Container(
+                              height: 79,
+                              width: 1,
+                              decoration: const BoxDecoration(
+                                  color: Color(0xff9F9F9F))),
+                          coordinateUnit: CoordinateUnit.point,
+                          x: '6.9',
+                          y: 14)
                     ],
                     series: [
                       SplineSeries(
+                          onPointTap: (pointInteractionDetails) {},
                           animationDuration: 2,
                           color: const Color(0xffC8AB56),
                           dataSource: [

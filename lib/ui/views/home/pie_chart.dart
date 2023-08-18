@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 class PieChartPage extends StatelessWidget {
+  const PieChartPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -58,13 +60,6 @@ class PieChartPage extends StatelessWidget {
   }
 
   List<PieChartSectionData> _generateSections() {
-    List<Color> col = [
-      const Color(0xff84C0D8),
-      const Color(0xffFCAC76),
-      const Color(0xff7A57B0),
-      const Color(0xffE77569),
-      const Color(0xffFFC30D),
-    ];
     double size = 18;
     return [
       PieChartSectionData(

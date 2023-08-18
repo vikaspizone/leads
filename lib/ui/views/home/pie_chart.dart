@@ -73,7 +73,7 @@ class PieChartPage extends StatelessWidget {
         ),
       ),
       PieChartSectionData(
-          color: const Color(0xffAA4011), title: '', value: 1, radius: 90),
+          color: const Color(0xffAA4011), title: '', value: 1, radius: 80),
       PieChartSectionData(
         color: const Color(0xffFCAC76),
         value: 15,

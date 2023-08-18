@@ -31,9 +31,9 @@ class HomeView extends StackedView<HomeViewModel> {
         ),
         child: Column(
           children: [
-            verticalSpaceMedium,
+            verticalSpaceLarge,
             renderCustomAppBar(),
-            verticalSpaceSmall,
+            // verticalSpaceSmall,
             Expanded(
               child: SingleChildScrollView(
                 child: Container(

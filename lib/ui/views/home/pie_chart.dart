@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
@@ -173,8 +172,9 @@ class BackSide extends StatelessWidget {
         decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10))),
         width: 360,
-        height: 170,
+        // height: 170,
         child: GridView.builder(
+          physics: NeverScrollableScrollPhysics(),
           itemCount: 6,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               mainAxisExtent: 50,

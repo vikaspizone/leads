@@ -1,7 +1,6 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter/services.dart';
 
 import '/ui/common/widgets/bottom_bar.dart';
 import '/ui/views/home/graph.dart';
@@ -408,7 +407,7 @@ class HomeView extends StackedView<HomeViewModel> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 color: Colors.white,

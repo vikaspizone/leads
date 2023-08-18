@@ -23,12 +23,6 @@ class HomeView extends StackedView<HomeViewModel> {
   ) {
     return Scaffold(
       bottomNavigationBar: const BottomBar(),
-      appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(
-            statusBarColor: Color.fromARGB(255, 158, 99, 58)),
-        elevation: 0,
-        toolbarHeight: 0,
-      ),
       body: Container(
         height: double.infinity,
         decoration: BoxDecoration(
@@ -37,7 +31,7 @@ class HomeView extends StackedView<HomeViewModel> {
         ),
         child: Column(
           children: [
-            //app bar
+            verticalSpaceMedium,
             renderCustomAppBar(),
             verticalSpaceSmall,
             Expanded(

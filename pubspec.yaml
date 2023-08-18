@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_slidable: ^3.0.0
+  flutter_svg: ^2.0.7
   stacked: ^3.4.0
   stacked_services: ^1.1.0
 
@@ -22,7 +24,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
+  assets:
+    - assets/
+    - assets/bg-images/
+    - assets/all-leads-icons/
   #fonts
   fonts:
     - family: Nexa-Bold

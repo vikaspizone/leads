@@ -5,11 +5,11 @@ import 'package:stacked_services/stacked_services.dart';
 import '../../../app/app.locator.dart';
 
 class IncomingCallViewModel extends BaseViewModel {
-  NavigationService _navigationService = locator<NavigationService>();
+  final NavigationService _navigationService = locator<NavigationService>();
 
   //Go to back page
   void goBack() {
-    _navigationService.replaceWithHomeView();
+    _navigationService.clearStackAndShow(Routes.homeView);
   }
 
 //Select Tab

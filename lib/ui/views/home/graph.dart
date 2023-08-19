@@ -46,7 +46,7 @@ class Graph extends StatelessWidget {
               ),
             ),
             Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
                 height: 150,
                 child: SfCartesianChart(
                     trackballBehavior: TrackballBehavior(

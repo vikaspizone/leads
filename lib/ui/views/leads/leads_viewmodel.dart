@@ -10,7 +10,7 @@ class LeadsViewModel extends FormViewModel {
 
   //Go to back page
   void goBack() {
-    _navigationService.replaceWithHomeView();
+    _navigationService.clearStackAndShow(Routes.homeView);
   }
 
   List<FilterModel> filterCategoryList = [

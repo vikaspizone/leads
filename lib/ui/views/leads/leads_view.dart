@@ -71,6 +71,15 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                             topRight: Radius.circular(20))),
                     child: Column(
                       children: [
+                        Container(
+                          width: 50,
+                          height: 3,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: const Color(0xFFD9D9D9)),
+                        ),
+                        verticalSpaceSmall,
+                        verticalSpaceTiny,
                         const TabBar(
                           indicatorSize: TabBarIndicatorSize.tab,
                           padding: EdgeInsets.zero,
@@ -146,7 +155,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                             },
                           ),
                         ),
-                        verticalSpaceTiny,
+                        verticalSpaceSmall,
                         Container(
                           alignment: Alignment.centerLeft,
                           child: Text(
@@ -169,7 +178,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                                     borderRadius: BorderRadius.circular(10),
                                     color: const Color.fromARGB(
                                         255, 245, 148, 30)),
-                                margin: const EdgeInsets.only(bottom: 15),
+                                margin: const EdgeInsets.only(bottom: 20),
                                 child: SlidableTile(
                                   action: [
                                     // SlidableAction(

@@ -22,21 +22,21 @@ class IncomingCallViewModel extends BaseViewModel {
   List<CallRecordModel> leadsList = [
     CallRecordModel(
         callDuration: '10 m 54 s',
-        visitDate: '4th Aug 2023',
+        visitDate: '12 August 2022',
         status: 'Received by : Ravi Kumar',
-        personName: 'Manoj Kumar Tiwari',
+        personName: 'Unknown',
         visitTime: '2.00 PM'),
     CallRecordModel(
         callDuration: '10 m 54 s',
         visitDate: '20th Aug 2023',
         status: 'Received by : Ravi Kumar',
-        personName: 'Sanoj Kumar Tiwari',
+        personName: 'Koushik',
         visitTime: '2.00 AM'),
     CallRecordModel(
         callDuration: '10 m 54 s',
-        visitDate: '29th Aug 2023',
+        visitDate: '12 August 2022',
         status: 'Unanswered',
-        personName: 'Kaushik',
+        personName: 'Manoj Kumar Tiwary',
         visitTime: '1.00 PM'),
   ];
 }

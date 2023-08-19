@@ -43,11 +43,7 @@ class HomeView extends StackedView<HomeViewModel> {
                     child: Column(
                       children: [
                         //leads trend graph
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 2),
-                          child: Graph(),
-                        ),
-
+                        const Graph(),
                         verticalSpaceTiny,
                         //pie chart
                         renderCard(
@@ -303,7 +299,7 @@ class HomeView extends StackedView<HomeViewModel> {
   ListTile renderCustomAppBar() {
     return ListTile(
         contentPadding: const EdgeInsets.only(left: 15, right: 10),
-        horizontalTitleGap: 8,
+        horizontalTitleGap: 3,
         title: const Text(
           'Welcome',
           style: TextStyle(

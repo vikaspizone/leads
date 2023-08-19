@@ -84,12 +84,11 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                             color: Color.fromARGB(255, 67, 67, 67),
                             fontWeight: FontWeight.w400),
                       ),
-                      verticalSpaceTiny,
+                      verticalSpaceSmall,
                       ListView.builder(
                         itemCount: viewModel.leadsList.length,
                         shrinkWrap: true,
                         physics: const BouncingScrollPhysics(),
-                        padding: const EdgeInsets.symmetric(vertical: 10),
                         itemBuilder: (context, index) {
                           return Container(
                             margin: const EdgeInsets.only(bottom: 15),

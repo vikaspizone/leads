@@ -48,7 +48,7 @@ class PieChartPage extends StatelessWidget {
                 color: Color(0xff84C0D8),
               ),
               NameWidget(
-                name: 'Nirmal Kumar',
+                name: 'Nirmal Raj',
                 color: Color(0xffE77569),
               )
             ],

@@ -92,14 +92,21 @@ class CallDetailCard extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          SvgPicture.asset(
-                            Images().incomingCallIcon,
-                            height: 12,
-                          ),
+                          personName == 'Manoj Kumar Tiwary'
+                              ? SvgPicture.asset(
+                                  Images().missCallIcon,
+                                  height: 12,
+                                )
+                              : SvgPicture.asset(
+                                  Images().incomingCallIcon,
+                                  height: 12,
+                                ),
                           horizontalSpaceTiny,
                           Text(callDuration,
                               style: const TextStyle(
-                                  fontSize: 9, color: Color(0xFF818080)))
+                                  height: 3,
+                                  fontSize: 9,
+                                  color: Color(0xFF818080)))
                         ],
                       ),
                       verticalSpaceTiny,

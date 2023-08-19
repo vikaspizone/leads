@@ -27,31 +27,34 @@ class PieChartPage extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 50),
-              NameWidget(
-                name: 'Suyama',
-                color: Color(0xffFFC30D),
-              ),
-              NameWidget(
-                name: 'Manoj Kumar',
-                color: Color(0xff7A57B0),
-              ),
-              NameWidget(
-                name: 'Seshadri',
-                color: Color(0xffFCAC76),
-              ),
-              NameWidget(
-                name: 'Abhishek',
-                color: Color(0xff84C0D8),
-              ),
-              NameWidget(
-                name: 'Nirmal Raj',
-                color: Color(0xffE77569),
-              )
-            ],
+          const Padding(
+            padding: EdgeInsets.only(right: 10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 45),
+                NameWidget(
+                  name: 'Suyama',
+                  color: Color(0xffFFC30D),
+                ),
+                NameWidget(
+                  name: 'Manoj Kumar',
+                  color: Color(0xff7A57B0),
+                ),
+                NameWidget(
+                  name: 'Seshadri',
+                  color: Color(0xffFCAC76),
+                ),
+                NameWidget(
+                  name: 'Abhishek',
+                  color: Color(0xff84C0D8),
+                ),
+                NameWidget(
+                  name: 'Nirmal Raj',
+                  color: Color(0xffE77569),
+                )
+              ],
+            ),
           )
         ],
       ),

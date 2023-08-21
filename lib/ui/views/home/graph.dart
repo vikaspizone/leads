@@ -102,7 +102,7 @@ class Graph extends StatelessWidget {
                           ),
                         ),
                         coordinateUnit: CoordinateUnit.point,
-                        x: '10.84',
+                        x: '10.83',
                         y: 30,
                       ),
                       CartesianChartAnnotation(
@@ -115,7 +115,7 @@ class Graph extends StatelessWidget {
                           ),
                         ),
                         coordinateUnit: CoordinateUnit.point,
-                        x: '10.84',
+                        x: '10.83',
                         y: 20,
                       ),
                       CartesianChartAnnotation(
@@ -128,7 +128,7 @@ class Graph extends StatelessWidget {
                           ),
                         ),
                         coordinateUnit: CoordinateUnit.point,
-                        x: '10.84',
+                        x: '10.83',
                         y: 10,
                       ),
                       CartesianChartAnnotation(

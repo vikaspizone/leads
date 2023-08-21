@@ -11,7 +11,7 @@ class Graph extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(15)),
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         // height: 212,
         child: Column(
           children: [
@@ -62,7 +62,10 @@ class Graph extends StatelessWidget {
                         edgeLabelPlacement: EdgeLabelPlacement.hide,
                         axisLine: const AxisLine(color: Colors.transparent),
                         maximum: 30,
-                        labelStyle: const TextStyle(color: Color(0xff956956)),
+                        labelStyle: const TextStyle(
+                            color: Color(0xff956956),
+                            fontSize: 10,
+                            fontFamily: 'Nexa-Bold'),
                         majorTickLines:
                             const MajorTickLines(color: Colors.transparent),
                         minorTickLines:
@@ -71,7 +74,10 @@ class Graph extends StatelessWidget {
                         axisLine:
                             const AxisLine(color: Color(0xffC3B9B9), width: 1),
                         labelsExtent: double.infinity,
-                        labelStyle: const TextStyle(color: Color(0xff959393)),
+                        labelStyle: const TextStyle(
+                            color: Color(0xff959393),
+                            fontSize: 9,
+                            fontFamily: 'Nexa-Bold'),
                         majorGridLines:
                             const MajorGridLines(color: Colors.transparent),
                         minorGridLines:

@@ -23,26 +23,47 @@ class HomeView extends StackedView<HomeViewModel> {
     var height = MediaQuery.of(context).viewPadding.top;
 
     return Scaffold(
-      bottomNavigationBar: const BottomBar(),
+      bottomNavigationBar: const BottomAppBar(child: BottomBar()),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      floatingActionButton: FloatingActionButton(
-        child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(28),
-                gradient: const LinearGradient(colors: [
-                  Color.fromRGBO(235, 91, 9, 1),
-                  Color.fromRGBO(151, 52, 1, 1)
-                ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
-                boxShadow: const [
-                  BoxShadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.30),
-                      blurRadius: 4,
-                      offset: Offset(0, 4))
-                ]),
-            height: double.infinity,
-            width: double.infinity,
-            child: const Icon(Icons.add, size: 28, color: Colors.white)),
-        onPressed: () {},
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+                gradient: RadialGradient(
+                    tileMode: TileMode.decal,
+                    radius: 12,
+                    center: Alignment.topCenter,
+                    colors: [Colors.transparent, Color(0xfff6f2ed)]),
+                shape: BoxShape.circle),
+            child: FloatingActionButton(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              highlightElevation: 0.0,
+              child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(28),
+                      gradient: const LinearGradient(
+                          colors: [
+                            Color.fromRGBO(235, 91, 9, 1),
+                            Color.fromRGBO(151, 52, 1, 1)
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter),
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.30),
+                            blurRadius: 4,
+                            offset: Offset(0, 4))
+                      ]),
+                  height: 48,
+                  width: 48,
+                  child: const Icon(Icons.add, size: 28, color: Colors.white)),
+              onPressed: () {},
+            ),
+          ),
+          const SizedBox(height: 12)
+        ],
       ),
       body: Stack(
         children: [

@@ -366,7 +366,7 @@ class HomeView extends StackedView<HomeViewModel> {
                       color: Colors.white,
                     ),
                     Positioned(
-                      top: 0,
+                      top: 4,
                       right: 2,
                       child: Container(
                         padding: const EdgeInsets.symmetric(

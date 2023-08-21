@@ -166,7 +166,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                   child: Row(
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: const EdgeInsets.all(6.0),
                                         child: renderCircleWithText(
                                             circleBgColor: const Color.fromARGB(
                                                 255, 255, 221, 201),
@@ -194,7 +194,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                   child: Row(
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: const EdgeInsets.all(6.0),
                                         child: renderCircleWithText(
                                             circleBgColor: const Color.fromARGB(
                                                 255, 255, 237, 201),

@@ -11,42 +11,41 @@ class Graph extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(15)),
-        height: 212,
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        // height: 212,
         child: Column(
           children: [
-            const SizedBox(height: 15),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                children: [
-                  Text('Leads Trend',
-                      style: TextStyle(
-                          color: Color(0xff444444),
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
-                          fontFamily: 'Nexa-Bold')),
-                  Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text('Lead Statics',
-                          style: TextStyle(
-                              color: Color(0xff69615E),
-                              fontSize: 15,
-                              fontFamily: 'Nexa-Bold')),
-                      // SizedBox(height: 2),
-                      Text('Last 12 Days',
-                          style: TextStyle(
-                              color: Color(0xffC4161C),
-                              fontSize: 12,
-                              fontFamily: 'Nexa-Bold')),
-                    ],
-                  ),
-                ],
-              ),
+            const Row(
+              children: [
+                Text('Leads Trend',
+                    style: TextStyle(
+                        color: Color(0xff444444),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        height: 1,
+                        fontFamily: 'Nexa-Bold')),
+                Spacer(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text('Lead Statics',
+                        style: TextStyle(
+                            color: Color(0xff69615E),
+                            fontSize: 12,
+                            height: 1,
+                            fontFamily: 'Nexa-Bold')),
+                    // SizedBox(height: 2),
+                    Text('Last 12 Days',
+                        style: TextStyle(
+                            color: Color(0xffC4161C),
+                            fontSize: 10,
+                            height: 1.1,
+                            fontFamily: 'Nexa-Bold')),
+                  ],
+                ),
+              ],
             ),
-            Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
+            SizedBox(
                 height: 150,
                 child: SfCartesianChart(
                     trackballBehavior: TrackballBehavior(
@@ -57,8 +56,8 @@ class Graph extends StatelessWidget {
                     primaryYAxis: NumericAxis(
                         majorGridLines: const MajorGridLines(
                             color: Color(0xffdad5ce),
-                            width: 2,
-                            dashArray: [4, 4]),
+                            width: 1.5,
+                            dashArray: [3, 3]),
                         visibleMaximum: 40,
                         edgeLabelPlacement: EdgeLabelPlacement.hide,
                         axisLine: const AxisLine(color: Colors.transparent),
@@ -69,8 +68,8 @@ class Graph extends StatelessWidget {
                         minorTickLines:
                             const MinorTickLines(color: Colors.transparent)),
                     primaryXAxis: CategoryAxis(
-                        axisLine: const AxisLine(
-                            color: Color(0xffC3B9B9), width: 1.5),
+                        axisLine:
+                            const AxisLine(color: Color(0xffC3B9B9), width: 1),
                         labelsExtent: double.infinity,
                         labelStyle: const TextStyle(color: Color(0xff959393)),
                         majorGridLines:
@@ -85,8 +84,8 @@ class Graph extends StatelessWidget {
                     annotations: <CartesianChartAnnotation>[
                       CartesianChartAnnotation(
                           widget: Container(
-                              height: 10,
-                              width: 10,
+                              height: 9,
+                              width: 9,
                               decoration: const BoxDecoration(
                                   color: Color(0xffa15034),
                                   shape: BoxShape.circle)),
@@ -95,46 +94,46 @@ class Graph extends StatelessWidget {
                           y: 30),
                       CartesianChartAnnotation(
                         widget: Container(
-                          height: 10,
-                          width: 10,
+                          height: 8,
+                          width: 8,
                           decoration: const BoxDecoration(
                             color: Color(0xffdad5ce),
                             shape: BoxShape.circle,
                           ),
                         ),
                         coordinateUnit: CoordinateUnit.point,
-                        x: '10.8',
+                        x: '10.84',
                         y: 30,
                       ),
                       CartesianChartAnnotation(
                         widget: Container(
-                          height: 10,
-                          width: 10,
+                          height: 8,
+                          width: 8,
                           decoration: const BoxDecoration(
                             color: Color(0xffdad5ce),
                             shape: BoxShape.circle,
                           ),
                         ),
                         coordinateUnit: CoordinateUnit.point,
-                        x: '10.8',
+                        x: '10.84',
                         y: 20,
                       ),
                       CartesianChartAnnotation(
                         widget: Container(
-                          height: 10,
-                          width: 10,
+                          height: 8,
+                          width: 8,
                           decoration: const BoxDecoration(
                             color: Color(0xffdad5ce),
                             shape: BoxShape.circle,
                           ),
                         ),
                         coordinateUnit: CoordinateUnit.point,
-                        x: '10.8',
+                        x: '10.84',
                         y: 10,
                       ),
                       CartesianChartAnnotation(
                           widget: Container(
-                              height: 87,
+                              height: 90,
                               width: 1,
                               decoration: const BoxDecoration(
                                   color: Color(0xff9F9F9F))),
@@ -146,9 +145,10 @@ class Graph extends StatelessWidget {
                       SplineSeries(
                           onPointTap: (pointInteractionDetails) {},
                           animationDuration: 2,
+                          width: 1.2,
                           color: const Color(0xffC8AB56),
                           dataSource: [
-                            SalesData('01', 02),
+                            SalesData('01', 2),
                             SalesData('02', 20),
                             SalesData('03', 20),
                             SalesData('04', 10),
@@ -171,7 +171,7 @@ class Graph extends StatelessWidget {
 
 class ChartData {
   ChartData(this.x, this.y);
-  final String x;
+  final Widget x;
   final double y;
 }
 
@@ -179,6 +179,5 @@ class SalesData {
   SalesData(this.year, this.sales);
 
   final String year;
-
   final double sales;
 }

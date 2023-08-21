@@ -85,7 +85,7 @@ class _CustomTileState extends State<CustomTile>
               child: Stack(
                 children: [
                   Container(
-                    height: isShow ? 105 : 90,
+                    height: isShow ? 95 : 80,
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     decoration: BoxDecoration(
@@ -102,11 +102,14 @@ class _CustomTileState extends State<CustomTile>
                         const SizedBox(width: 10),
                         Text(widget.companyName,
                             style: const TextStyle(
-                                color: Colors.white, fontSize: 11)),
+                                color: Colors.white,
+                                fontSize: 11,
+                                fontFamily: 'Nexa-Bold')),
                         const Expanded(child: SizedBox()),
                         SvgPicture.asset(
                           'assets/all-leads-icons/timer-icon.svg',
-                          height: 15,
+                          height: 13,
+                          width: 13,
                         ),
                       ],
                     ),
@@ -129,14 +132,14 @@ class _CustomTileState extends State<CustomTile>
                             Text(
                               widget.personName,
                               style: const TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 15,
                                   fontFamily: 'Nexa-Bold',
-                                  fontWeight: FontWeight.w500),
+                                  fontWeight: FontWeight.w400),
                             ),
                             horizontalSpaceSmall,
                             SvgPicture.asset(
                               'assets/all-leads-icons/phone-icon.svg',
-                              height: 15,
+                              height: 10,
                             ),
                             const Expanded(child: SizedBox()),
                             widget.status == 'Sold'
@@ -151,10 +154,11 @@ class _CustomTileState extends State<CustomTile>
                                             color: widget.statusBorderColor)),
                                     child: Text(widget.status,
                                         style: const TextStyle(
-                                          fontSize: 12,
-                                        )))
+                                            fontSize: 10,
+                                            fontFamily: 'Nexa-Bold')))
                                 : Container(
                                     width: 90,
+                                    height: 20,
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
                                         color: widget.statusColor,
@@ -163,7 +167,8 @@ class _CustomTileState extends State<CustomTile>
                                             color: widget.statusBorderColor)),
                                     child: Text(widget.status,
                                         style: const TextStyle(
-                                            fontSize: 12, height: 1.7)),
+                                            fontSize: 10,
+                                            fontFamily: 'Nexa-Bold')),
                                   ),
                           ],
                         ),
@@ -171,21 +176,24 @@ class _CustomTileState extends State<CustomTile>
                           children: [
                             SvgPicture.asset(
                               'assets/all-leads-icons/building-icon.svg',
-                              height: 15,
+                              height: 12,
+                              width: 15,
                             ),
                             horizontalSpaceSmall,
                             Text(
                               widget.location,
                               style: const TextStyle(
                                   fontSize: 12,
+                                  fontFamily: 'Nexa-Bold',
+                                  fontWeight: FontWeight.w400,
                                   color: Color.fromARGB(255, 172, 119, 13)),
                             ),
                             const Expanded(child: SizedBox()),
                             Text(
                               widget.date,
                               style: const TextStyle(
-                                  fontSize: 8,
-                                  fontFamily: 'Nexa-Bold',
+                                  fontSize: 7,
+                                  fontFamily: 'nexa-regular',
                                   fontWeight: FontWeight.w300),
                             ),
                             const SizedBox(width: 10)
@@ -200,16 +208,16 @@ class _CustomTileState extends State<CustomTile>
                                   children: [
                                     Container(
                                       alignment: Alignment.center,
-                                      height: 10,
-                                      width: 10,
+                                      height: 8,
+                                      width: 8,
                                       decoration: BoxDecoration(
                                           color: const Color.fromARGB(
                                               255, 135, 209, 82),
                                           borderRadius:
                                               BorderRadius.circular(5)),
                                       child: Container(
-                                        height: 5,
-                                        width: 5,
+                                        height: 4,
+                                        width: 4,
                                         decoration: BoxDecoration(
                                             color: const Color.fromARGB(
                                                 255, 51, 171, 77),
@@ -217,20 +225,21 @@ class _CustomTileState extends State<CustomTile>
                                                 BorderRadius.circular(5)),
                                       ),
                                     ),
-                                    horizontalSpaceSmall,
+                                    horizontalSpaceTiny,
                                     Text(
                                       'Site visited on ${widget.clientVistDate}',
                                       style: const TextStyle(
                                           fontSize: 9,
                                           fontWeight: FontWeight.w400,
-                                          fontFamily: 'Nexa-Bold',
+                                          fontFamily: 'nexa-regular',
                                           color: Color.fromARGB(
                                               255, 126, 126, 126)),
                                     ),
                                     const Expanded(child: SizedBox()),
                                     SvgPicture.asset(
                                       'assets/all-leads-icons/calendar-icon.svg',
-                                      height: 12,
+                                      height: 7,
+                                      width: 7,
                                     ),
                                     horizontalSpaceTiny,
                                     Text(
@@ -238,7 +247,7 @@ class _CustomTileState extends State<CustomTile>
                                       style: const TextStyle(
                                           fontSize: 9,
                                           fontWeight: FontWeight.w400,
-                                          fontFamily: 'Nexa-Bold',
+                                          fontFamily: 'nexa-regular',
                                           color: Color.fromARGB(
                                               255, 126, 126, 126)),
                                     )
@@ -271,12 +280,15 @@ class _CustomTileState extends State<CustomTile>
                           children: [
                             verticalSpaceTiny,
                             SvgPicture.asset(
-                                'assets/all-leads-icons/follow-up-icon.svg'),
+                              'assets/all-leads-icons/follow-up-icon.svg',
+                              height: 20,
+                              width: 20,
+                            ),
                             const Text('Follow Up',
                                 style: TextStyle(
-                                    fontSize: 13,
+                                    fontSize: 10,
                                     fontFamily: 'Nexa-Bold',
-                                    fontWeight: FontWeight.w500))
+                                    fontWeight: FontWeight.w400))
                           ],
                         ),
                       ),
@@ -298,9 +310,9 @@ class _CustomTileState extends State<CustomTile>
                             ),
                             const Text('Archive',
                                 style: TextStyle(
-                                    fontSize: 13,
+                                    fontSize: 10,
                                     fontFamily: 'Nexa-Bold',
-                                    fontWeight: FontWeight.w500))
+                                    fontWeight: FontWeight.w400))
                           ],
                         ),
                       ),
@@ -322,9 +334,9 @@ class _CustomTileState extends State<CustomTile>
                             ),
                             const Text('View',
                                 style: TextStyle(
-                                    fontSize: 13,
+                                    fontSize: 10,
                                     fontFamily: 'Nexa-Bold',
-                                    fontWeight: FontWeight.w500))
+                                    fontWeight: FontWeight.w400))
                           ],
                         ),
                       ),

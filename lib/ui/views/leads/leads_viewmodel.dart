@@ -16,7 +16,7 @@ class LeadsViewModel extends FormViewModel {
   List<FilterModel> filterCategoryList = [
     FilterModel(
         color: const Color.fromARGB(255, 225, 111, 34),
-        isSelected: false,
+        isSelected: true,
         selectedColor: const Color.fromARGB(255, 247, 181, 137),
         textColor: const Color.fromARGB(255, 139, 61, 8),
         title: 'ALL'),

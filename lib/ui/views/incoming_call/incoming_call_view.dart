@@ -119,11 +119,13 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                                             'assets/incoming-call-icons/discard-icon.svg',
                                             height: 20,
                                           ),
+                                          verticalSpaceTiny,
                                           const Text(
                                             'Disqualify',
                                             style: TextStyle(
+                                                fontWeight: FontWeight.w400,
                                                 color: Colors.white,
-                                                fontSize: 12),
+                                                fontSize: 9),
                                           )
                                         ]),
                                   )),
@@ -148,8 +150,9 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                                           const Text(
                                             'Create\nProspect',
                                             style: TextStyle(
+                                                fontWeight: FontWeight.w400,
                                                 color: Colors.white,
-                                                fontSize: 12),
+                                                fontSize: 9),
                                             textAlign: TextAlign.center,
                                           )
                                         ]),
@@ -205,7 +208,6 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                   },
                   child: Container(
                     alignment: Alignment.center,
-                    height: double.infinity,
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     decoration: BoxDecoration(
                         color: viewModel.selectedTab == 'All'
@@ -216,7 +218,7 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                       'All',
                       style: TextStyle(
                         fontFamily: 'Nexa-Bold',
-                        height: 2,
+                        height: 1,
                         fontSize: 12,
                         color: viewModel.selectedTab == 'All'
                             ? Colors.white
@@ -232,7 +234,7 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                   child: Container(
                     alignment: Alignment.center,
                     height: double.infinity,
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                         color: viewModel.selectedTab == 'Identified'
                             ? const Color(0xFFE29C10)
@@ -241,7 +243,7 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                     child: Text('Identified',
                         style: TextStyle(
                             fontFamily: 'Nexa-Bold',
-                            height: 2,
+                            height: 1,
                             fontSize: 12,
                             color: viewModel.selectedTab == 'Identified'
                                 ? Colors.white
@@ -265,7 +267,7 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                       'Unidentified',
                       style: TextStyle(
                         fontFamily: 'Nexa-Bold',
-                        height: 2,
+                        height: 1,
                         fontSize: 12,
                         color: viewModel.selectedTab == 'Unidentified'
                             ? Colors.white

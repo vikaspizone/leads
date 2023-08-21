@@ -41,7 +41,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                 children: [
                   Container(
                     alignment: Alignment.bottomLeft,
-                    height: 90 - MediaQuery.of(context).viewPadding.top,
+                    height: 70 - MediaQuery.of(context).viewPadding.top,
                     child: Row(
                       children: [
                         IconButton(
@@ -54,7 +54,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                           'All Leads',
                           style: TextStyle(
                               color: Colors.white,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w400,
                               fontFamily: 'Nexa-Bold',
                               fontSize: 20),
                         )
@@ -85,19 +85,30 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                           padding: EdgeInsets.zero,
                           labelPadding: EdgeInsets.zero,
                           tabs: [
-                            // Tab(
-                            //   child: Text('Channel Partner'),
-                            // ),
-                            // Tab(
-                            //   child: Text('DST'),
-                            // ),
-                            // Tab(
-                            //   child: Text('Referrals'),
-                            // ),
-                            Text('Channel Partner',
-                                style: TextStyle(fontSize: 13)),
-                            Text('DST', style: TextStyle(fontSize: 13)),
-                            Text('Referrals', style: TextStyle(fontSize: 13))
+                            SizedBox(
+                              height: 25,
+                              child: Text('Channel Partner',
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      fontFamily: 'Nexa-Bold',
+                                      fontWeight: FontWeight.w400)),
+                            ),
+                            SizedBox(
+                              height: 25,
+                              child: Text('DST',
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      fontFamily: 'Nexa-Bold',
+                                      fontWeight: FontWeight.w400)),
+                            ),
+                            SizedBox(
+                              height: 25,
+                              child: Text('Referrals',
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      fontFamily: 'Nexa-Bold',
+                                      fontWeight: FontWeight.w400)),
+                            )
                           ],
                           indicatorWeight: 2,
                           indicatorColor: Color.fromARGB(255, 196, 22, 28),
@@ -130,6 +141,17 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 10),
                                   decoration: BoxDecoration(
+                                      boxShadow: viewModel
+                                              .filterCategoryList[index]
+                                              .isSelected
+                                          ? [
+                                              const BoxShadow(
+                                                  offset: Offset(0, 5),
+                                                  color: Colors.black,
+                                                  blurRadius: 5,
+                                                  spreadRadius: -5)
+                                            ]
+                                          : [],
                                       border: Border.all(
                                           width: 1,
                                           color: viewModel
@@ -144,7 +166,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                                   child: Text(
                                     viewModel.filterCategoryList[index].title,
                                     style: TextStyle(
-                                        fontSize: 10,
+                                        fontSize: 9,
                                         fontFamily: 'Nexa-Bold',
                                         color: viewModel
                                             .filterCategoryList[index]
@@ -212,13 +234,16 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                                           children: [
                                             Icon(
                                               Icons.add_circle,
+                                              size: 18,
                                               color: Colors.white,
                                             ),
                                             Text(
                                               'Follow Up',
                                               style: TextStyle(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontFamily: 'Nexa-Bold',
                                                   color: Colors.white,
-                                                  fontSize: 10),
+                                                  fontSize: 8),
                                             )
                                           ]),
                                     ),

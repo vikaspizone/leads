@@ -45,7 +45,8 @@ class Graph extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            Container(
+                padding: EdgeInsets.symmetric(horizontal: 5),
                 height: 150,
                 child: SfCartesianChart(
                     trackballBehavior: TrackballBehavior(
@@ -71,6 +72,7 @@ class Graph extends StatelessWidget {
                         minorTickLines:
                             const MinorTickLines(color: Colors.transparent)),
                     primaryXAxis: CategoryAxis(
+                        interval: 1,
                         axisLine:
                             const AxisLine(color: Color(0xffC3B9B9), width: 1),
                         labelsExtent: double.infinity,

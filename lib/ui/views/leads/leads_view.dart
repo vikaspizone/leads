@@ -41,7 +41,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                 children: [
                   Container(
                     alignment: Alignment.bottomLeft,
-                    height: 70 - MediaQuery.of(context).viewPadding.top,
+                    height: 90 - MediaQuery.of(context).viewPadding.top,
                     child: Row(
                       children: [
                         IconButton(

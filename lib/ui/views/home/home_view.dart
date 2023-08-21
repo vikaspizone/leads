@@ -56,13 +56,13 @@ class HomeView extends StackedView<HomeViewModel> {
                             blurRadius: 4,
                             offset: Offset(0, 4))
                       ]),
-                  height: 48,
-                  width: 48,
+                  height: 47,
+                  width: 47,
                   child: const Icon(Icons.add, size: 28, color: Colors.white)),
               onPressed: () {},
             ),
           ),
-          const SizedBox(height: 12)
+          const SizedBox(height: 10)
         ],
       ),
       body: Stack(

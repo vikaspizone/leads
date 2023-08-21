@@ -19,4 +19,10 @@ class Images {
   var playIcon = 'assets/images/playIcon.svg';
   var missCallIcon = 'assets/images/misscallIcon.svg';
   var searchIcon = 'assets/images/search.png';
+  var clientImage = 'assets/images/clientImage.png';
+  var boy1 = 'assets/images/boy1.png';
+  var boy2 = 'assets/images/boy2.png';
+  var boy3 = 'assets/images/boy3.png';
+  var girl1 = 'assets/images/girl1.png';
+  var girl2 = 'assets/images/girl2.png';
 }

@@ -62,7 +62,7 @@ class HomeView extends StackedView<HomeViewModel> {
               onPressed: () {},
             ),
           ),
-          const SizedBox(height: 10)
+          const SizedBox(height: 15)
         ],
       ),
       body: Stack(
@@ -256,39 +256,39 @@ class HomeView extends StackedView<HomeViewModel> {
                                         alignment: Alignment.centerLeft,
                                         children: [
                                           renderContainerWithImage(
-                                            child: SvgPicture.asset(
-                                              Images().userImage,
+                                            child: Image.asset(
+                                              Images().girl1,
                                             ),
                                           ),
                                           Positioned(
                                             left: 20,
                                             child: renderContainerWithImage(
-                                              child: SvgPicture.asset(
-                                                Images().userImage,
+                                              child: Image.asset(
+                                                Images().boy1,
                                               ),
                                             ),
                                           ),
                                           Positioned(
                                             left: 40,
                                             child: renderContainerWithImage(
-                                              child: SvgPicture.asset(
-                                                Images().userImage,
+                                              child: Image.asset(
+                                                Images().boy2,
                                               ),
                                             ),
                                           ),
                                           Positioned(
                                             left: 60,
                                             child: renderContainerWithImage(
-                                              child: SvgPicture.asset(
-                                                Images().userImage,
+                                              child: Image.asset(
+                                                Images().boy3,
                                               ),
                                             ),
                                           ),
                                           Positioned(
                                             left: 80,
                                             child: renderContainerWithImage(
-                                              child: SvgPicture.asset(
-                                                Images().userImage,
+                                              child: Image.asset(
+                                                Images().girl2,
                                               ),
                                             ),
                                           ),
@@ -359,8 +359,8 @@ class HomeView extends StackedView<HomeViewModel> {
         ),
         leading: CircleAvatar(
           backgroundColor: Colors.transparent,
-          child: SvgPicture.asset(
-            Images().userImage,
+          child: Image.asset(
+            Images().clientImage,
             height: 34,
             width: 34,
           ),

@@ -139,7 +139,7 @@ class Graph extends StatelessWidget {
                       ),
                       CartesianChartAnnotation(
                           widget: Container(
-                              height: 90,
+                              height: 93,
                               width: 1,
                               decoration: const BoxDecoration(
                                   color: Color(0xff9F9F9F))),

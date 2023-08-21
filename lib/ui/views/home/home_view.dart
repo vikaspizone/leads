@@ -92,7 +92,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                 children: [
                                   Row(children: [
                                     Padding(
-                                      padding: const EdgeInsets.all(4.0),
+                                      padding: const EdgeInsets.all(0),
                                       child: renderCircleWithText(
                                           circleBgColor: const Color.fromARGB(
                                               255, 219, 255, 231),
@@ -109,14 +109,14 @@ class HomeView extends StackedView<HomeViewModel> {
                                               color: Color.fromARGB(
                                                   255, 105, 97, 94),
                                               fontFamily: 'Nexa-Bold',
-                                              letterSpacing: 0.5,
-                                              fontSize: 12,
+                                              fontSize: 13,
                                             ),
                                             children: [
                                               TextSpan(
                                                   text: "\n$users",
                                                   style: TextStyle(
-                                                    fontSize: 8,
+                                                    fontSize: 9,
+                                                    height: 1,
                                                     fontFamily: 'Nexa-Bold',
                                                     color: Color.fromARGB(
                                                         255, 105, 97, 94),
@@ -140,14 +140,13 @@ class HomeView extends StackedView<HomeViewModel> {
                                               color: Color.fromARGB(
                                                   255, 105, 97, 94),
                                               fontFamily: 'Nexa-Bold',
-                                              fontSize: 12,
-                                              letterSpacing: 0.5,
+                                              fontSize: 13,
                                             ),
                                             children: [
                                               TextSpan(
                                                   text: "\n$users",
                                                   style: TextStyle(
-                                                    fontSize: 8,
+                                                    fontSize: 9,
                                                     fontFamily: 'Nexa-Bold',
                                                     color: Color.fromARGB(
                                                         255, 105, 97, 94),
@@ -411,7 +410,7 @@ class HomeView extends StackedView<HomeViewModel> {
   Container renderCircleWithText(
       {Color? circleBgColor, Color? textColor, String? text}) {
     return Container(
-      width: 44,
+      width: 46,
       height: 46,
       // padding: EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
@@ -421,6 +420,7 @@ class HomeView extends StackedView<HomeViewModel> {
       child: Center(
         child: Text(text!,
             style: TextStyle(
+              height: 2,
               color: textColor,
               fontWeight: FontWeight.w500,
               fontFamily: 'Nexa-Bold',
@@ -457,7 +457,7 @@ class HomeView extends StackedView<HomeViewModel> {
             child: child,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
+            padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

@@ -38,3 +38,6 @@ flutter:
     - family: Nexa-Bold
       fonts:
         - asset: assets/fonts/Nexa-Bold.ttf
+    - family: nexa-regular
+      fonts:
+        - asset: assets/fonts/nexa-regular.ttf

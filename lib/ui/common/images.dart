@@ -18,4 +18,5 @@ class Images {
   var incomingCallIcon = 'assets/images/incomingCallIcon.svg';
   var playIcon = 'assets/images/playIcon.svg';
   var missCallIcon = 'assets/images/misscallIcon.svg';
+  var searchIcon = 'assets/images/search.png';
 }

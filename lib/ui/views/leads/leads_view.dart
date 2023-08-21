@@ -95,11 +95,11 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                             //   child: Text('Referrals'),
                             // ),
                             Text('Channel Partner',
-                                style: TextStyle(fontSize: 14)),
-                            Text('DST', style: TextStyle(fontSize: 14)),
-                            Text('Referrals', style: TextStyle(fontSize: 14))
+                                style: TextStyle(fontSize: 13)),
+                            Text('DST', style: TextStyle(fontSize: 13)),
+                            Text('Referrals', style: TextStyle(fontSize: 13))
                           ],
-                          indicatorWeight: 3,
+                          indicatorWeight: 2,
                           indicatorColor: Color.fromARGB(255, 196, 22, 28),
                           labelColor: Colors.black,
                           labelStyle: TextStyle(
@@ -163,7 +163,8 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                             style: const TextStyle(
                                 color: Color.fromARGB(255, 66, 66, 66),
                                 fontWeight: FontWeight.w400,
-                                fontSize: 17),
+                                fontSize: 12,
+                                fontFamily: 'nexa-regular'),
                           ),
                         ),
                         Expanded(

@@ -85,7 +85,7 @@ class _CustomTileState extends State<CustomTile>
               child: Stack(
                 children: [
                   Container(
-                    height: isShow ? 110 : 90,
+                    height: isShow ? 105 : 90,
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     decoration: BoxDecoration(
@@ -113,8 +113,8 @@ class _CustomTileState extends State<CustomTile>
                   ),
                   Container(
                     alignment: Alignment.centerLeft,
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 15),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
@@ -129,7 +129,7 @@ class _CustomTileState extends State<CustomTile>
                             Text(
                               widget.personName,
                               style: const TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 16,
                                   fontFamily: 'Nexa-Bold',
                                   fontWeight: FontWeight.w500),
                             ),
@@ -141,8 +141,8 @@ class _CustomTileState extends State<CustomTile>
                             const Expanded(child: SizedBox()),
                             widget.status == 'Sold'
                                 ? Container(
-                                    width: 80,
-                                    height: 25,
+                                    width: 90,
+                                    height: 22,
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
                                         color: widget.statusColor,
@@ -154,8 +154,7 @@ class _CustomTileState extends State<CustomTile>
                                           fontSize: 12,
                                         )))
                                 : Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 15),
+                                    width: 90,
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
                                         color: widget.statusColor,
@@ -164,7 +163,7 @@ class _CustomTileState extends State<CustomTile>
                                             color: widget.statusBorderColor)),
                                     child: Text(widget.status,
                                         style: const TextStyle(
-                                            fontSize: 12, height: 2)),
+                                            fontSize: 12, height: 1.7)),
                                   ),
                           ],
                         ),
@@ -178,17 +177,18 @@ class _CustomTileState extends State<CustomTile>
                             Text(
                               widget.location,
                               style: const TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 12,
                                   color: Color.fromARGB(255, 172, 119, 13)),
                             ),
                             const Expanded(child: SizedBox()),
                             Text(
                               widget.date,
                               style: const TextStyle(
-                                  fontSize: 10,
+                                  fontSize: 8,
                                   fontFamily: 'Nexa-Bold',
                                   fontWeight: FontWeight.w300),
-                            )
+                            ),
+                            const SizedBox(width: 10)
                           ],
                         ),
                         isShow
@@ -221,7 +221,7 @@ class _CustomTileState extends State<CustomTile>
                                     Text(
                                       'Site visited on ${widget.clientVistDate}',
                                       style: const TextStyle(
-                                          fontSize: 10,
+                                          fontSize: 9,
                                           fontWeight: FontWeight.w400,
                                           fontFamily: 'Nexa-Bold',
                                           color: Color.fromARGB(
@@ -236,7 +236,7 @@ class _CustomTileState extends State<CustomTile>
                                     Text(
                                       'Client visit - ${widget.clientVistDate}',
                                       style: const TextStyle(
-                                          fontSize: 10,
+                                          fontSize: 9,
                                           fontWeight: FontWeight.w400,
                                           fontFamily: 'Nexa-Bold',
                                           color: Color.fromARGB(

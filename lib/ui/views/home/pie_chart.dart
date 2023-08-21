@@ -14,7 +14,7 @@ class PieChartPage extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(
-            width: 170,
+            width: 150,
             height: 220,
             child: PieChart(
               PieChartData(
@@ -27,34 +27,31 @@ class PieChartPage extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const Padding(
-            padding: EdgeInsets.only(right: 10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 45),
-                NameWidget(
-                  name: 'Suyama',
-                  color: Color(0xffFFC30D),
-                ),
-                NameWidget(
-                  name: 'Manoj Kumar',
-                  color: Color(0xff7A57B0),
-                ),
-                NameWidget(
-                  name: 'Seshadri',
-                  color: Color(0xffFCAC76),
-                ),
-                NameWidget(
-                  name: 'Abhishek',
-                  color: Color(0xff84C0D8),
-                ),
-                NameWidget(
-                  name: 'Nirmal Raj',
-                  color: Color(0xffE77569),
-                )
-              ],
-            ),
+          const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 25),
+              NameWidget(
+                name: 'Suyama',
+                color: Color(0xffFFC30D),
+              ),
+              NameWidget(
+                name: 'Manoj Kumar',
+                color: Color(0xff7A57B0),
+              ),
+              NameWidget(
+                name: 'Seshadri',
+                color: Color(0xffFCAC76),
+              ),
+              NameWidget(
+                name: 'Abhishek',
+                color: Color(0xff84C0D8),
+              ),
+              NameWidget(
+                name: 'Nirmal Raj',
+                color: Color(0xffE77569),
+              )
+            ],
           )
         ],
       ),
@@ -72,7 +69,7 @@ class PieChartPage extends StatelessWidget {
         titleStyle: TextStyle(
           color: Colors.white,
           fontSize: size,
-          fontFamily: 'NexaBold',
+          fontFamily: 'Nexa-Bold',
         ),
       ),
       PieChartSectionData(
@@ -85,7 +82,7 @@ class PieChartPage extends StatelessWidget {
         titleStyle: TextStyle(
           color: Colors.white,
           fontSize: size,
-          fontFamily: 'NexaBold',
+          fontFamily: 'Nexa-Bold',
         ),
       ),
       PieChartSectionData(
@@ -98,7 +95,7 @@ class PieChartPage extends StatelessWidget {
         titleStyle: TextStyle(
           color: Colors.white,
           fontSize: size,
-          fontFamily: 'NexaBold',
+          fontFamily: 'Nexa-Bold',
         ),
       ),
       PieChartSectionData(
@@ -111,7 +108,7 @@ class PieChartPage extends StatelessWidget {
         titleStyle: TextStyle(
           color: Colors.white,
           fontSize: size,
-          fontFamily: 'NexaBold',
+          fontFamily: 'Nexa-Bold',
         ),
       ),
       PieChartSectionData(
@@ -120,7 +117,7 @@ class PieChartPage extends StatelessWidget {
         radius: 95,
         title: '30',
         titleStyle: TextStyle(
-            fontFamily: 'NexaBold', color: Colors.white, fontSize: size),
+            fontFamily: 'Nexa-Bold', color: Colors.white, fontSize: size),
       ),
       PieChartSectionData(
           color: const Color(0xff49376D), title: '', value: 1, radius: 88),
@@ -153,7 +150,7 @@ class NameWidget extends StatelessWidget {
           Text(
             name,
             style: const TextStyle(
-                color: Colors.black, fontSize: 12, fontFamily: 'NexaBold'),
+                color: Colors.black, fontSize: 12, fontFamily: 'Nexa-Bold'),
           ),
         ],
       ),
@@ -202,12 +199,12 @@ class BackSide extends StatelessWidget {
                           style: const TextStyle(
                               fontSize: 12,
                               color: Colors.black,
-                              fontFamily: 'NexaBold')),
+                              fontFamily: 'Nexa-Bold')),
                       Text('${gridDetail[index].val}',
                           style: TextStyle(
                               fontSize: 17,
                               color: gridDetail[index].valCol,
-                              fontFamily: 'NexaBold'))
+                              fontFamily: 'Nexa-Bold'))
                     ],
                   ),
                 ),

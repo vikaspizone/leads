@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:leads/ui/common/images.dart';
 
 import '../ui/common/ui_helpers.dart';
 
@@ -10,19 +11,23 @@ class Input extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.only(left: 6),
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(10)),
       child: Row(
         children: [
-          IconButton(
-              onPressed: () {
-                focusNode.requestFocus();
-              },
-              icon: const Icon(
-                Icons.search,
-                color: Color.fromARGB(255, 165, 165, 165),
-              )),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Material(
+              child: InkWell(
+                onTap: () {
+                  focusNode.requestFocus();
+                },
+                child:
+                    Image.asset(Images().searchIcon, width: 18.0, height: 18.0),
+              ),
+            ),
+          ),
           horizontalSpaceTiny,
           Expanded(
             child: TextFormField(

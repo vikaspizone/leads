@@ -24,6 +24,26 @@ class HomeView extends StackedView<HomeViewModel> {
 
     return Scaffold(
       bottomNavigationBar: const BottomBar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButton: FloatingActionButton(
+        child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(28),
+                gradient: const LinearGradient(colors: [
+                  Color.fromRGBO(235, 91, 9, 1),
+                  Color.fromRGBO(151, 52, 1, 1)
+                ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+                boxShadow: const [
+                  BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.30),
+                      blurRadius: 4,
+                      offset: Offset(0, 4))
+                ]),
+            height: double.infinity,
+            width: double.infinity,
+            child: const Icon(Icons.add, size: 28, color: Colors.white)),
+        onPressed: () {},
+      ),
       body: Stack(
         children: [
           SizedBox(
@@ -88,7 +108,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                             style: TextStyle(
                                               color: Color.fromARGB(
                                                   255, 105, 97, 94),
-                                              fontWeight: FontWeight.w500,
+                                              fontFamily: 'Nexa-Bold',
                                               letterSpacing: 0.5,
                                               fontSize: 12,
                                             ),
@@ -97,7 +117,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                                   text: "\n$users",
                                                   style: TextStyle(
                                                     fontSize: 8,
-                                                    fontWeight: FontWeight.w500,
+                                                    fontFamily: 'Nexa-Bold',
                                                     color: Color.fromARGB(
                                                         255, 105, 97, 94),
                                                   ))
@@ -119,7 +139,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                             style: TextStyle(
                                               color: Color.fromARGB(
                                                   255, 105, 97, 94),
-                                              fontWeight: FontWeight.w500,
+                                              fontFamily: 'Nexa-Bold',
                                               fontSize: 12,
                                               letterSpacing: 0.5,
                                             ),
@@ -128,7 +148,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                                   text: "\n$users",
                                                   style: TextStyle(
                                                     fontSize: 8,
-                                                    fontWeight: FontWeight.w500,
+                                                    fontFamily: 'Nexa-Bold',
                                                     color: Color.fromARGB(
                                                         255, 105, 97, 94),
                                                   ))
@@ -159,7 +179,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                           style: TextStyle(
                                               color: Color.fromARGB(
                                                   255, 105, 97, 94),
-                                              fontWeight: FontWeight.w500,
+                                              fontFamily: 'Nexa-Bold',
                                               fontSize: 12,
                                               height: 1)),
                                     ],
@@ -187,7 +207,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                           style: TextStyle(
                                               color: Color.fromARGB(
                                                   255, 105, 97, 94),
-                                              fontWeight: FontWeight.w500,
+                                              fontFamily: 'Nexa-Bold',
                                               fontSize: 12,
                                               height: 1)),
                                     ],
@@ -289,7 +309,7 @@ class HomeView extends StackedView<HomeViewModel> {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
@@ -314,6 +334,7 @@ class HomeView extends StackedView<HomeViewModel> {
               fontSize: 22,
               fontWeight: FontWeight.w500,
               color: Colors.white,
+              fontFamily: 'Nexa-Bold',
               height: 1.2),
         ),
         leading: CircleAvatar(
@@ -400,10 +421,11 @@ class HomeView extends StackedView<HomeViewModel> {
       child: Center(
         child: Text(text!,
             style: TextStyle(
-                color: textColor,
-                fontWeight: FontWeight.w500,
-                fontSize: 18,
-                height: 2)),
+              color: textColor,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'Nexa-Bold',
+              fontSize: 18,
+            )),
       ),
     );
   }

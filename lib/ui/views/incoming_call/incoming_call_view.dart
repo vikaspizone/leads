@@ -78,9 +78,10 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                           focusNode: searchFocusNode), //Search
                       verticalSpaceSmall,
                       const Text(
-                        'Showing 2 records',
+                        'Showing 3 records',
                         style: TextStyle(
-                            fontFamily: 'Nexa-Bold',
+                            fontFamily: 'nexa-regular',
+                            fontSize: 12,
                             color: Color.fromARGB(255, 67, 67, 67),
                             fontWeight: FontWeight.w400),
                       ),

@@ -180,14 +180,32 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                         verticalSpaceSmall,
                         Container(
                           alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Showing ${viewModel.leadsList.length} records',
-                            style: const TextStyle(
-                                color: Color.fromARGB(255, 66, 66, 66),
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                                fontFamily: 'nexa-regular'),
-                          ),
+                          child: RichText(
+                              text: TextSpan(
+                                  text: 'Showing ',
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 66, 66, 66),
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 11,
+                                      fontFamily: 'nexa-regular'),
+                                  children: [
+                                TextSpan(
+                                  text: '${viewModel.leadsList.length}',
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 11,
+                                      fontFamily: 'Nexa-Bold'),
+                                ),
+                                const TextSpan(
+                                  text: ' records',
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 66, 66, 66),
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 11,
+                                      fontFamily: 'nexa-regular'),
+                                ),
+                              ])),
                         ),
                         Expanded(
                           child: ListView.builder(

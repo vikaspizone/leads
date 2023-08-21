@@ -77,14 +77,36 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                           controller: searchController,
                           focusNode: searchFocusNode), //Search
                       verticalSpaceSmall,
-                      const Text(
-                        'Showing 3 records',
-                        style: TextStyle(
-                            fontFamily: 'nexa-regular',
-                            fontSize: 12,
-                            color: Color.fromARGB(255, 67, 67, 67),
-                            fontWeight: FontWeight.w400),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: RichText(
+                            text: TextSpan(
+                                text: 'Showing ',
+                                style: const TextStyle(
+                                    color: Color.fromARGB(255, 66, 66, 66),
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 11,
+                                    fontFamily: 'nexa-regular'),
+                                children: [
+                              TextSpan(
+                                text: '${viewModel.leadsList.length}',
+                                style: const TextStyle(
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11,
+                                    fontFamily: 'Nexa-Bold'),
+                              ),
+                              const TextSpan(
+                                text: ' records',
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 66, 66, 66),
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 11,
+                                    fontFamily: 'nexa-regular'),
+                              ),
+                            ])),
                       ),
+
                       verticalSpaceSmall,
                       ListView.builder(
                         itemCount: viewModel.leadsList.length,

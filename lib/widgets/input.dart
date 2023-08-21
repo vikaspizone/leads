@@ -23,8 +23,7 @@ class Input extends StatelessWidget {
                 onTap: () {
                   focusNode.requestFocus();
                 },
-                child:
-                    Image.asset(Images().searchIcon, width: 18.0, height: 18.0),
+                child: Image.asset(Images().searchIcon, width: 15, height: 15),
               ),
             ),
           ),
@@ -39,7 +38,11 @@ class Input extends StatelessWidget {
               decoration: const InputDecoration(
                 fillColor: Colors.black,
                 hintText: 'Search',
-                hintStyle: TextStyle(color: Color.fromARGB(255, 214, 214, 214)),
+                hintStyle: TextStyle(
+                    color: Color.fromARGB(255, 214, 214, 214),
+                    fontSize: 14,
+                    height: 1,
+                    letterSpacing: 0.5),
                 border: InputBorder.none,
               ),
             ),

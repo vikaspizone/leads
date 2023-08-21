@@ -25,7 +25,7 @@ class CallDetailCard extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 95,
+          height: 90,
           alignment: Alignment.bottomLeft,
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: BoxDecoration(
@@ -33,49 +33,73 @@ class CallDetailCard extends StatelessWidget {
             color: const Color.fromARGB(255, 172, 119, 13),
           ),
           child: Text(status,
-              style: const TextStyle(color: Colors.white, fontSize: 11)),
+              style: const TextStyle(
+                  color: Colors.white, fontSize: 11, fontFamily: 'Nexa-Bold')),
         ),
         Container(
-          height: 70,
+          height: 65,
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10), color: Colors.white),
           child: Row(
             children: [
-              SvgPicture.asset(Images().userImage),
+              SvgPicture.asset(
+                Images().userImage,
+                height: 32,
+                width: 32,
+              ),
               horizontalSpaceSmall,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text('Call from',
-                      style: TextStyle(fontSize: 9, color: Color(0xFF818080))),
+                      style: TextStyle(
+                          fontSize: 8,
+                          color: Color(0xFF818080),
+                          fontFamily: 'nexa-regular')),
                   Row(
                     children: [
-                      Text(personName, style: const TextStyle(fontSize: 15)),
+                      Text(personName,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15,
+                              fontFamily: 'Nexa-Bold')),
                       horizontalSpaceSmall,
-                      SvgPicture.asset(Images().phoneCloudIcon),
+                      SvgPicture.asset(
+                        Images().phoneCloudIcon,
+                        height: 15,
+                        width: 15,
+                      ),
                     ],
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      SvgPicture.asset(Images().calenderIcon),
+                      SvgPicture.asset(
+                        Images().calenderIcon,
+                        height: 10,
+                        width: 10,
+                      ),
                       horizontalSpaceTiny,
                       Text(visitDate,
                           style: const TextStyle(
                               fontFamily: 'Nexa-Bold',
-                              height: 0.5,
-                              fontSize: 10,
+                              height: 1,
+                              fontSize: 9,
                               color: Color(0xFFAB7711))),
                       horizontalSpaceTiny,
-                      SvgPicture.asset(Images().clockIcon),
+                      SvgPicture.asset(
+                        Images().clockIcon,
+                        height: 10,
+                        width: 10,
+                      ),
                       horizontalSpaceTiny,
                       Text(visitTime,
                           style: const TextStyle(
                               fontFamily: 'Nexa-Bold',
-                              height: 0.5,
-                              fontSize: 10,
+                              height: 1,
+                              fontSize: 9,
                               color: Color(0xFFAB7711))),
                     ],
                   ),
@@ -89,28 +113,36 @@ class CallDetailCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          personName == 'Manoj Kumar Tiwary'
-                              ? SvgPicture.asset(
-                                  Images().missCallIcon,
-                                  height: 12,
-                                )
-                              : SvgPicture.asset(
-                                  Images().incomingCallIcon,
-                                  height: 12,
-                                ),
-                          horizontalSpaceTiny,
-                          Text(callDuration,
-                              style: const TextStyle(
-                                  height: 3,
-                                  fontSize: 9,
-                                  color: Color(0xFF818080)))
-                        ],
+                      SizedBox(
+                        height: 15,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            personName == 'Manoj Kumar Tiwary'
+                                ? SvgPicture.asset(
+                                    Images().missCallIcon,
+                                    height: 11,
+                                  )
+                                : SvgPicture.asset(
+                                    Images().incomingCallIcon,
+                                    height: 10,
+                                  ),
+                            horizontalSpaceTiny,
+                            Text(callDuration,
+                                style: const TextStyle(
+                                    height: 1,
+                                    fontSize: 8,
+                                    color: Color(0xFF818080)))
+                          ],
+                        ),
                       ),
                       verticalSpaceTiny,
-                      SvgPicture.asset(Images().playIcon),
+                      SvgPicture.asset(
+                        Images().playIcon,
+                        height: 18,
+                        width: 18,
+                      ),
                     ],
                   ),
                 ),

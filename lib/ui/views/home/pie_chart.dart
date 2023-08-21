@@ -13,7 +13,8 @@ class PieChartPage extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(20))),
       child: Row(
         children: [
-          SizedBox(
+          Container(
+            color: Colors.white,
             width: 150,
             height: 220,
             child: PieChart(
@@ -41,7 +42,7 @@ class PieChartPage extends StatelessWidget {
               ),
               NameWidget(
                 name: 'Seshadri',
-                color: Color(0xffFCAC76),
+                color: Color(0xffFF7012),
               ),
               NameWidget(
                 name: 'Abhishek',
@@ -49,7 +50,7 @@ class PieChartPage extends StatelessWidget {
               ),
               NameWidget(
                 name: 'Nirmal Raj',
-                color: Color(0xffE77569),
+                color: Color(0xffE33624),
               )
             ],
           )
@@ -64,11 +65,12 @@ class PieChartPage extends StatelessWidget {
       PieChartSectionData(
         color: const Color(0xff7A57B0),
         value: 5,
-        radius: 88,
+        radius: 85,
         title: '5',
+        titlePositionPercentageOffset: 0.6,
         titleStyle: TextStyle(
           color: Colors.white,
-          fontSize: size,
+          fontSize: size - 1,
           fontFamily: 'Nexa-Bold',
         ),
       ),
@@ -79,6 +81,7 @@ class PieChartPage extends StatelessWidget {
         value: 15,
         radius: 80,
         title: '15',
+        titlePositionPercentageOffset: 0.6,
         titleStyle: TextStyle(
           color: Colors.white,
           fontSize: size,
@@ -105,6 +108,7 @@ class PieChartPage extends StatelessWidget {
         value: 15,
         radius: 70,
         title: '15',
+        titlePositionPercentageOffset: 0.6,
         titleStyle: TextStyle(
           color: Colors.white,
           fontSize: size,
@@ -113,14 +117,14 @@ class PieChartPage extends StatelessWidget {
       ),
       PieChartSectionData(
         color: const Color(0xffFFC30D),
-        value: 30,
-        radius: 95,
+        value: 25,
+        radius: 90,
         title: '30',
         titleStyle: TextStyle(
             fontFamily: 'Nexa-Bold', color: Colors.white, fontSize: size),
       ),
       PieChartSectionData(
-          color: const Color(0xff49376D), title: '', value: 1, radius: 88),
+          color: const Color(0xff49376D), title: '', value: 1, radius: 85),
     ];
   }
 }
@@ -137,20 +141,24 @@ class NameWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20.0),
+      padding: const EdgeInsets.only(bottom: 12.0),
       child: Row(
         children: [
           Container(
-            height: 15,
-            width: 20,
+            height: 12,
+            width: 18,
             decoration: BoxDecoration(
-                color: color, borderRadius: BorderRadius.circular(5)),
+                color: color, borderRadius: BorderRadius.circular(3)),
           ),
           const SizedBox(width: 12),
           Text(
             name,
             style: const TextStyle(
-                color: Colors.black, fontSize: 12, fontFamily: 'Nexa-Bold'),
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+                fontSize: 13,
+                fontFamily: 'Nexa-Bold'
+                ),
           ),
         ],
       ),

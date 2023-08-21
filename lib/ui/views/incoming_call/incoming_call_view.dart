@@ -131,25 +131,41 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                                       borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(10),
                                         bottomRight: Radius.circular(10),
+                                        topLeft: Radius.circular(10),
+                                        bottomLeft: Radius.circular(10),
                                       ),
                                     ),
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          SvgPicture.asset(
-                                            'assets/incoming-call-icons/discard-icon.svg',
-                                            height: 20,
+                                    child: Container(
+                                      color: const Color.fromARGB(
+                                          255, 245, 148, 30),
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                          color:
+                                              Color.fromARGB(255, 196, 22, 28),
+                                          borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(10),
+                                            bottomRight: Radius.circular(10),
                                           ),
-                                          verticalSpaceTiny,
-                                          const Text(
-                                            'Disqualify',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w400,
-                                                color: Colors.white,
-                                                fontSize: 9),
-                                          )
-                                        ]),
+                                        ),
+                                        child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              SvgPicture.asset(
+                                                'assets/incoming-call-icons/discard-icon.svg',
+                                                height: 20,
+                                              ),
+                                              verticalSpaceTiny,
+                                              const Text(
+                                                'Disqualify',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w400,
+                                                    color: Colors.white,
+                                                    fontSize: 9),
+                                              )
+                                            ]),
+                                      ),
+                                    ),
                                   )),
                                   Expanded(
                                       child: Container(

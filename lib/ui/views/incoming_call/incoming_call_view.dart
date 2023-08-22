@@ -7,7 +7,6 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
 import '../../../widgets/slidable_tile.dart';
-import '../../common/widgets/bottom_bar.dart';
 import '/ui/common/ui_helpers.dart';
 import '../../common/images.dart';
 import 'incoming_call_viewmodel.dart';
@@ -30,224 +29,183 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
         viewModel.goBack();
         return true;
       },
-      child: Scaffold(
-        bottomNavigationBar: const BottomBar(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        floatingActionButton: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                  gradient: RadialGradient(
-                      tileMode: TileMode.decal,
-                      radius: 12,
-                      center: Alignment.topCenter,
-                      colors: [Colors.transparent, Color(0xfff6f2ed)]),
-                  shape: BoxShape.circle),
-              child: FloatingActionButton(
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                highlightElevation: 0.0,
-                child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(28),
-                        gradient: const LinearGradient(
-                            colors: [
-                              Color.fromRGBO(235, 91, 9, 1),
-                              Color.fromRGBO(151, 52, 1, 1)
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter),
-                        boxShadow: const [
-                          BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.30),
-                              blurRadius: 4,
-                              offset: Offset(0, 4))
-                        ]),
-                    height: 47,
-                    width: 47,
-                    child:
-                        const Icon(Icons.add, size: 28, color: Colors.white)),
-                onPressed: () {},
-              ),
+      child: Stack(
+        children: [
+          SizedBox(
+            width: screenWidth(context),
+            child: Image.asset(
+              'assets/bg-images/leads-bg.png',
+              fit: BoxFit.cover,
             ),
-            const SizedBox(height: 10)
-          ],
-        ),
-        backgroundColor: const Color.fromARGB(255, 250, 246, 240),
-        body: Stack(
-          children: [
-            SizedBox(
-              width: screenWidth(context),
-              child: Image.asset(
-                'assets/bg-images/leads-bg.png',
-                fit: BoxFit.cover,
-              ),
-            ),
-            SizedBox(
-              height: screenHeight(context),
-              child: ListView(
-                children: [
-                  Container(
-                    alignment: Alignment.bottomLeft,
-                    height: 90 - MediaQuery.of(context).viewPadding.top,
-                    child: Row(
-                      children: [
-                        IconButton(
-                            onPressed: viewModel.goBack,
-                            icon: const Icon(
-                              Icons.arrow_back,
-                              color: Colors.white,
-                            )),
-                        const Text(
-                          'Incoming Call Records',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Nexa-Bold',
-                              fontSize: 20),
-                        )
-                      ],
-                    ),
+          ),
+          SizedBox(
+            height: screenHeight(context),
+            child: ListView(
+              children: [
+                Container(
+                  alignment: Alignment.bottomLeft,
+                  height: 90 - MediaQuery.of(context).viewPadding.top,
+                  child: Row(
+                    children: [
+                      IconButton(
+                          onPressed: viewModel.goBack,
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                          )),
+                      const Text(
+                        'Incoming Call Records',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Nexa-Bold',
+                            fontSize: 20),
+                      )
+                    ],
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    height: screenHeight(context) - 90,
-                    decoration: const BoxDecoration(
-                        color: Color.fromARGB(255, 250, 246, 240),
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20))),
-                    child: ListView(
-                      children: [
-                        renderSelectBar(viewModel), //Select Bar
-                        verticalSpaceMedium,
-                        Input(
-                            controller: searchController,
-                            focusNode: searchFocusNode), //Search
-                        verticalSpaceSmall,
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          child: RichText(
-                              text: TextSpan(
-                                  text: 'Showing ',
-                                  style: const TextStyle(
-                                      color: Color.fromARGB(255, 66, 66, 66),
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 11,
-                                      fontFamily: 'nexa-regular'),
-                                  children: [
-                                TextSpan(
-                                  text: '${viewModel.leadsList.length}',
-                                  style: const TextStyle(
-                                      color: Color.fromARGB(255, 0, 0, 0),
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 11,
-                                      fontFamily: 'Nexa-Bold'),
-                                ),
-                                const TextSpan(
-                                  text: ' records',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 66, 66, 66),
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 11,
-                                      fontFamily: 'nexa-regular'),
-                                ),
-                              ])),
-                        ),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  height: screenHeight(context) - 90,
+                  decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 250, 246, 240),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20))),
+                  child: ListView(
+                    children: [
+                      renderSelectBar(viewModel), //Select Bar
+                      verticalSpaceMedium,
+                      Input(
+                          controller: searchController,
+                          focusNode: searchFocusNode), //Search
+                      verticalSpaceSmall,
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: RichText(
+                            text: TextSpan(
+                                text: 'Showing ',
+                                style: const TextStyle(
+                                    color: Color.fromARGB(255, 66, 66, 66),
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 11,
+                                    fontFamily: 'nexa-regular'),
+                                children: [
+                              TextSpan(
+                                text: '${viewModel.leadsList.length}',
+                                style: const TextStyle(
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11,
+                                    fontFamily: 'Nexa-Bold'),
+                              ),
+                              const TextSpan(
+                                text: ' records',
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 66, 66, 66),
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 11,
+                                    fontFamily: 'nexa-regular'),
+                              ),
+                            ])),
+                      ),
 
-                        verticalSpaceSmall,
-                        ListView.builder(
-                          itemCount: viewModel.leadsList.length,
-                          shrinkWrap: true,
-                          physics: const BouncingScrollPhysics(),
-                          itemBuilder: (context, index) {
-                            return Container(
-                              margin: const EdgeInsets.only(bottom: 15),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: const Color.fromARGB(255, 196, 22, 28),
-                                  borderRadius: BorderRadius.circular(
-                                    10,
-                                  ),
+                      verticalSpaceSmall,
+                      ListView.builder(
+                        itemCount: viewModel.leadsList.length,
+                        shrinkWrap: true,
+                        physics: const BouncingScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: const EdgeInsets.only(bottom: 15),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 196, 22, 28),
+                                borderRadius: BorderRadius.circular(
+                                  10,
                                 ),
-                                child: SlidableTile(
-                                  action: [
-                                    Expanded(
-                                        child: Container(
-                                      decoration: const BoxDecoration(
-                                        color: Color.fromARGB(255, 196, 22, 28),
-                                        borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(10),
-                                          bottomRight: Radius.circular(10),
-                                          topLeft: Radius.circular(10),
-                                          bottomLeft: Radius.circular(10),
-                                        ),
-                                      ),
+                              ),
+                              child: SlidableTile(
+                                action: [
+                                  Expanded(
                                       child: Container(
-                                        color: const Color.fromARGB(
-                                            255, 245, 148, 30),
-                                        child: Container(
-                                          decoration: const BoxDecoration(
-                                            color: Color.fromARGB(
-                                                255, 196, 22, 28),
-                                            borderRadius: BorderRadius.only(
-                                              topRight: Radius.circular(10),
-                                              bottomRight: Radius.circular(10),
-                                            ),
+                                    decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 196, 22, 28),
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(10),
+                                        bottomRight: Radius.circular(10),
+                                        topLeft: Radius.circular(10),
+                                        bottomLeft: Radius.circular(10),
+                                      ),
+                                    ),
+                                    child: Container(
+                                      color: const Color.fromARGB(
+                                          255, 245, 148, 30),
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                          color:
+                                              Color.fromARGB(255, 196, 22, 28),
+                                          borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(10),
+                                            bottomRight: Radius.circular(10),
                                           ),
-                                          child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                SvgPicture.asset(
-                                                  'assets/incoming-call-icons/discard-icon.svg',
-                                                  height: 20,
-                                                ),
-                                                verticalSpaceTiny,
-                                                const Text(
-                                                  'Disqualify',
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color: Colors.white,
-                                                      fontSize: 9),
-                                                )
-                                              ]),
                                         ),
+                                        child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              SvgPicture.asset(
+                                                'assets/incoming-call-icons/discard-icon.svg',
+                                                height: 20,
+                                              ),
+                                              verticalSpaceTiny,
+                                              const Text(
+                                                'Disqualify',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w400,
+                                                    color: Colors.white,
+                                                    fontSize: 9),
+                                              )
+                                            ]),
                                       ),
-                                    )),
-                                    Expanded(
-                                        child: Container(
-                                      decoration: const BoxDecoration(
-                                        color:
-                                            Color.fromARGB(255, 245, 148, 30),
-                                        borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(10),
-                                          bottomRight: Radius.circular(10),
-                                        ),
+                                    ),
+                                  )),
+                                  Expanded(
+                                      child: Container(
+                                    decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 245, 148, 30),
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(10),
+                                        bottomRight: Radius.circular(10),
                                       ),
-                                      child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            SvgPicture.asset(
-                                              'assets/incoming-call-icons/check-icon.svg',
-                                              height: 20,
-                                            ),
-                                            verticalSpaceTiny,
-                                            const Text(
-                                              'Create\nProspect',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w400,
-                                                  color: Colors.white,
-                                                  fontSize: 9),
-                                              textAlign: TextAlign.center,
-                                            )
-                                          ]),
-                                    )),
-                                  ],
-                                  valueKey: index,
+                                    ),
+                                    child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          SvgPicture.asset(
+                                            'assets/incoming-call-icons/check-icon.svg',
+                                            height: 20,
+                                          ),
+                                          verticalSpaceTiny,
+                                          const Text(
+                                            'Create\nProspect',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w400,
+                                                color: Colors.white,
+                                                fontSize: 9),
+                                            textAlign: TextAlign.center,
+                                          )
+                                        ]),
+                                  )),
+                                ],
+                                valueKey: index,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(
+                                      10,
+                                    ),
+                                  ),
                                   child: CallDetailCard(
                                     callDuration:
                                         viewModel.leadsList[index].callDuration,
@@ -261,19 +219,19 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                                   ),
                                 ),
                               ),
-                            );
-                          },
-                        ),
+                            ),
+                          );
+                        },
+                      ),
 
-                        verticalSpaceSmall,
-                      ],
-                    ),
+                      verticalSpaceSmall,
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

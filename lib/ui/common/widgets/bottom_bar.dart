@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:leads/app/app.locator.dart';
-import 'package:leads/app/app.router.dart';
+import 'package:leads/ui/views/home/home_view.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -36,7 +36,8 @@ class BottomBar extends StackedView<HomeViewModel> {
                         child: GestureDetector(
                             onTap: () {
                               viewModel.changeIndex(0);
-                              _navigationService.replaceWithHomeView();
+                              _navigationService.clearStackAndShowView(
+                                 const HomeView(pageIndex: 0));
                             },
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -92,7 +93,8 @@ class BottomBar extends StackedView<HomeViewModel> {
                         child: GestureDetector(
                             onTap: () {
                               viewModel.changeIndex(2);
-                              _navigationService.navigateTo(Routes.leadsView);
+                              _navigationService.clearStackAndShowView(
+                                 const HomeView(pageIndex: 2));
                             },
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -103,7 +105,8 @@ class BottomBar extends StackedView<HomeViewModel> {
                                       color: currentIndex == 2
                                           ? const Color.fromRGBO(
                                               171, 119, 17, 1)
-                                          : Color.fromRGBO(105, 97, 94, 1)),
+                                          : const Color.fromRGBO(
+                                              105, 97, 94, 1)),
                                   Text("LEADS",
                                       style: TextStyle(
                                           fontSize: 8,
@@ -119,8 +122,8 @@ class BottomBar extends StackedView<HomeViewModel> {
                         child: GestureDetector(
                             onTap: () {
                               viewModel.changeIndex(3);
-                              _navigationService
-                                  .navigateTo(Routes.incomingCallView);
+                              _navigationService.clearStackAndShowView(
+                                 const HomeView(pageIndex: 3));
                             },
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -139,7 +142,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                                           height: 2,
                                           color: currentIndex == 3
                                               ? const Color.fromRGBO(
-                                                  151, 52, 1, 1)
+                                                  171, 119, 17, 1)
                                               : const Color.fromRGBO(
                                                   105, 97, 94, 1)))
                                 ]))),

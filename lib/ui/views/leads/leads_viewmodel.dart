@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:leads/app/app.router.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../app/app.locator.dart';
+import '../home/home_view.dart';
 import '../home/home_viewmodel.dart';
 
 class LeadsViewModel extends FormViewModel {
-  NavigationService _navigationService = locator<NavigationService>();
+  final NavigationService _navigationService = locator<NavigationService>();
   ScrollController scrollController = ScrollController();
   //Go to back page
 
   void goBack() {
     currentIndex = 0;
     notifyListeners();
-    _navigationService.clearStackAndShow(Routes.homeView);
+    _navigationService.clearStackAndShowView(const HomeView(pageIndex: 0));
   }
 
   List<FilterModel> filterCategoryList = [

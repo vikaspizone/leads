@@ -34,7 +34,9 @@ class CallDetailCard extends StatelessWidget {
           ),
           child: Text(status,
               style: const TextStyle(
-                  color: Colors.white, fontSize: 11, fontFamily: 'Nexa-Bold')),
+                  color: Colors.white,
+                  fontSize: 11,
+                  fontFamily: 'Nexa-Bold')),
         ),
         Container(
           height: 65,

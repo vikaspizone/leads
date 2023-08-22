@@ -16,7 +16,7 @@ class SlidableTile extends StatelessWidget {
     return Slidable(
       key: ValueKey(valueKey),
       endActionPane: ActionPane(
-        extentRatio: (0.83 / 5) * action.length,
+        extentRatio: (0.91 / 5) * action.length,
         motion: const ScrollMotion(),
         children: action,
       ),

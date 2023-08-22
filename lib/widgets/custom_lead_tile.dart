@@ -196,7 +196,7 @@ class _CustomTileState extends State<CustomTile>
                                   fontFamily: 'nexa-regular',
                                   fontWeight: FontWeight.w300),
                             ),
-                            const SizedBox(width: 10)
+                            const SizedBox(width: 17)
                           ],
                         ),
                         if (isShow) ...[verticalSpaceTiny],

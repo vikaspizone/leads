@@ -18,8 +18,8 @@ ThemeData leadsAppTheme() {
       headlineMedium: TextStyle(fontSize: 20, color: Colors.white),
     ),
     pageTransitionsTheme: const PageTransitionsTheme(builders: {
-      TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-      TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
+      TargetPlatform.android: ZoomPageTransitionsBuilder(),
+      TargetPlatform.iOS: ZoomPageTransitionsBuilder(),
     }),
   );
 }

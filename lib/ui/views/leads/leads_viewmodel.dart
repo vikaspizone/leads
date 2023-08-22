@@ -64,7 +64,7 @@ class LeadsViewModel extends FormViewModel {
         location: 'Swarnamani',
         clientVisitDate: '3th Aug 2023',
         visitDate: '4th Aug 2023',
-        personName: 'Manoj Kumar Tiwari',
+        personName: 'Manoj Kumar Tiwary',
         status: 'Prospect'),
     LeadsModel(
         backgroundColor: const Color.fromARGB(255, 254, 224, 132),
@@ -74,7 +74,7 @@ class LeadsViewModel extends FormViewModel {
         location: 'Swarnamani',
         clientVisitDate: '17th Aug 2023',
         visitDate: '20th Aug 2023',
-        personName: 'Sanoj Kumar Tiwari',
+        personName: 'Manoj Kumar Tiwary',
         status: 'Warm'),
     LeadsModel(
         backgroundColor: const Color.fromARGB(255, 108, 218, 159),

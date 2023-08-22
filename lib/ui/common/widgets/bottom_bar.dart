@@ -33,7 +33,8 @@ class BottomBar extends StackedView<HomeViewModel> {
                   child: Row(children: [
                     Expanded(
                         // Home page
-                        child: GestureDetector(
+                        child: InkWell(
+                            radius: 0,
                             onTap: () {
                               viewModel.changeIndex(0);
                               _navigationService.clearStackAndShowView(
@@ -62,7 +63,8 @@ class BottomBar extends StackedView<HomeViewModel> {
                                 ]))),
                     Expanded(
                         // Users Page
-                        child: GestureDetector(
+                        child: InkWell(
+                            radius: 0,
                             onTap: () {
                               viewModel.changeIndex(1);
                             },
@@ -90,7 +92,8 @@ class BottomBar extends StackedView<HomeViewModel> {
                                 ]))),
                     Expanded(
                         // Leads page
-                        child: GestureDetector(
+                        child: InkWell(
+                            radius: 0,
                             onTap: () {
                               viewModel.changeIndex(2);
                               _navigationService.clearStackAndShowView(
@@ -119,7 +122,8 @@ class BottomBar extends StackedView<HomeViewModel> {
                                 ]))),
                     Expanded(
                         // Call Records page
-                        child: GestureDetector(
+                        child: InkWell(
+                            radius: 0,
                             onTap: () {
                               viewModel.changeIndex(3);
                               _navigationService.clearStackAndShowView(

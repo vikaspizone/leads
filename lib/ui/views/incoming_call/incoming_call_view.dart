@@ -128,6 +128,7 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                         verticalSpaceSmall,
                         Container(
                           alignment: Alignment.centerLeft,
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: RichText(
                               text: TextSpan(
                                   text: 'Showing ',
@@ -161,6 +162,7 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                           itemCount: viewModel.leadsList.length,
                           shrinkWrap: true,
                           physics: const BouncingScrollPhysics(),
+                          padding: const EdgeInsets.only(bottom: 25),
                           itemBuilder: (context, index) {
                             return Container(
                               margin: const EdgeInsets.only(bottom: 15),

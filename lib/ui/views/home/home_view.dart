@@ -511,7 +511,8 @@ class HomeView extends StackedView<HomeViewModel> {
                           color: Color.fromARGB(255, 58, 50, 67),
                         ),
                       ),
-                    )
+                    ),
+                    if (buttonTitle == viewAll) horizontalSpaceTiny
                   ],
                 ),
               ],

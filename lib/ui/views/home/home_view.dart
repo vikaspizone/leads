@@ -1,6 +1,5 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '/ui/common/widgets/bottom_bar.dart';
 import '/ui/views/home/graph.dart';

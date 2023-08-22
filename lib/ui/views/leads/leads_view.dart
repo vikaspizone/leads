@@ -186,7 +186,8 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                                     onTap: () =>
                                         viewModel.onFilterCategoryTap(index),
                                     child: Container(
-                                      margin: const EdgeInsets.all(5),
+                                      margin: const EdgeInsets.only(
+                                          right: 5, top: 5, bottom: 5),
                                       alignment: Alignment.center,
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 10),
@@ -235,6 +236,8 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                             verticalSpaceSmall,
                             Container(
                               alignment: Alignment.centerLeft,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8),
                               child: RichText(
                                   text: TextSpan(
                                       text: 'Showing ',
@@ -270,7 +273,8 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                               physics: const BouncingScrollPhysics(
                                   decelerationRate:
                                       ScrollDecelerationRate.normal),
-                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              padding:
+                                  const EdgeInsets.only(top: 10, bottom: 25),
                               itemBuilder: (context, index) {
                                 return Container(
                                   decoration: BoxDecoration(

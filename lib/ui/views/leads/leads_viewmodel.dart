@@ -4,12 +4,16 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../app/app.locator.dart';
+import '../home/home_viewmodel.dart';
 
 class LeadsViewModel extends FormViewModel {
   NavigationService _navigationService = locator<NavigationService>();
-
+  ScrollController scrollController = ScrollController();
   //Go to back page
+
   void goBack() {
+    currentIndex = 0;
+    notifyListeners();
     _navigationService.clearStackAndShow(Routes.homeView);
   }
 
@@ -72,6 +76,56 @@ class LeadsViewModel extends FormViewModel {
         visitDate: '20th Aug 2023',
         personName: 'Sanoj Kumar Tiwari',
         status: 'Warm'),
+    LeadsModel(
+        backgroundColor: const Color.fromARGB(255, 108, 218, 159),
+        borderColor: const Color.fromARGB(255, 17, 120, 77),
+        companyName: 'XYZ Properties Ltd.',
+        date: '12th Aug 2023',
+        location: 'Swarnamani',
+        clientVisitDate: '16th Aug 2023',
+        visitDate: '29th Aug 2023',
+        personName: 'Kaushik',
+        status: 'Sold'),
+    LeadsModel(
+        backgroundColor: const Color.fromARGB(255, 108, 218, 159),
+        borderColor: const Color.fromARGB(255, 17, 120, 77),
+        companyName: 'XYZ Properties Ltd.',
+        date: '12th Aug 2023',
+        location: 'Swarnamani',
+        clientVisitDate: '16th Aug 2023',
+        visitDate: '29th Aug 2023',
+        personName: 'Kaushik',
+        status: 'Sold'),
+    LeadsModel(
+        backgroundColor: const Color.fromARGB(255, 108, 218, 159),
+        borderColor: const Color.fromARGB(255, 17, 120, 77),
+        companyName: 'XYZ Properties Ltd.',
+        date: '12th Aug 2023',
+        location: 'Swarnamani',
+        clientVisitDate: '16th Aug 2023',
+        visitDate: '29th Aug 2023',
+        personName: 'Kaushik',
+        status: 'Sold'),
+    LeadsModel(
+        backgroundColor: const Color.fromARGB(255, 108, 218, 159),
+        borderColor: const Color.fromARGB(255, 17, 120, 77),
+        companyName: 'XYZ Properties Ltd.',
+        date: '12th Aug 2023',
+        location: 'Swarnamani',
+        clientVisitDate: '16th Aug 2023',
+        visitDate: '29th Aug 2023',
+        personName: 'Kaushik',
+        status: 'Sold'),
+    LeadsModel(
+        backgroundColor: const Color.fromARGB(255, 108, 218, 159),
+        borderColor: const Color.fromARGB(255, 17, 120, 77),
+        companyName: 'XYZ Properties Ltd.',
+        date: '12th Aug 2023',
+        location: 'Swarnamani',
+        clientVisitDate: '16th Aug 2023',
+        visitDate: '29th Aug 2023',
+        personName: 'Kaushik',
+        status: 'Sold'),
     LeadsModel(
         backgroundColor: const Color.fromARGB(255, 108, 218, 159),
         borderColor: const Color.fromARGB(255, 17, 120, 77),

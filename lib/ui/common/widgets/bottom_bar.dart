@@ -17,7 +17,8 @@ class BottomBar extends StackedView<HomeViewModel> {
     Widget? child,
   ) {
     NavigationService _navigationService = locator<NavigationService>();
-    return SizedBox(
+    return Container(
+        color: Colors.white,
         height: 58,
         child: Stack(
           children: [
@@ -43,7 +44,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                                   SvgPicture.asset(Images().home,
                                       height: 25,
                                       width: 25,
-                                      color: viewModel.currentIndex == 0
+                                      color: currentIndex == 0
                                           ? const Color.fromRGBO(
                                               171, 119, 17, 1)
                                           : const Color.fromRGBO(
@@ -52,7 +53,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                                       style: TextStyle(
                                           fontSize: 8,
                                           height: 2,
-                                          color: viewModel.currentIndex == 0
+                                          color: currentIndex == 0
                                               ? const Color.fromRGBO(
                                                   171, 119, 17, 1)
                                               : const Color.fromRGBO(
@@ -70,7 +71,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                                   SvgPicture.asset(Images().user,
                                       height: 23,
                                       width: 23,
-                                      color: viewModel.currentIndex == 1
+                                      color: currentIndex == 1
                                           ? const Color.fromRGBO(
                                               171, 119, 17, 1)
                                           : const Color.fromRGBO(
@@ -80,7 +81,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                                       style: TextStyle(
                                           fontSize: 8,
                                           height: 2,
-                                          color: viewModel.currentIndex == 1
+                                          color: currentIndex == 1
                                               ? const Color.fromRGBO(
                                                   171, 119, 17, 1)
                                               : const Color.fromRGBO(
@@ -92,7 +93,6 @@ class BottomBar extends StackedView<HomeViewModel> {
                             onTap: () {
                               viewModel.changeIndex(2);
                               _navigationService.navigateTo(Routes.leadsView);
-                              viewModel.changeIndex(0);
                             },
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -100,7 +100,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                                   SvgPicture.asset(Images().lead,
                                       height: 25,
                                       width: 25,
-                                      color: viewModel.currentIndex == 2
+                                      color: currentIndex == 2
                                           ? const Color.fromRGBO(
                                               171, 119, 17, 1)
                                           : Color.fromRGBO(105, 97, 94, 1)),
@@ -108,7 +108,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                                       style: TextStyle(
                                           fontSize: 8,
                                           height: 2,
-                                          color: viewModel.currentIndex == 2
+                                          color: currentIndex == 2
                                               ? const Color.fromRGBO(
                                                   171, 119, 17, 1)
                                               : const Color.fromRGBO(
@@ -121,7 +121,6 @@ class BottomBar extends StackedView<HomeViewModel> {
                               viewModel.changeIndex(3);
                               _navigationService
                                   .navigateTo(Routes.incomingCallView);
-                              viewModel.changeIndex(0);
                             },
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -129,7 +128,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                                   SvgPicture.asset(Images().call,
                                       height: 25,
                                       width: 25,
-                                      color: viewModel.currentIndex == 3
+                                      color: currentIndex == 3
                                           ? const Color.fromRGBO(
                                               171, 119, 17, 1)
                                           : const Color.fromRGBO(
@@ -138,7 +137,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                                       style: TextStyle(
                                           fontSize: 8,
                                           height: 2,
-                                          color: viewModel.currentIndex == 3
+                                          color: currentIndex == 3
                                               ? const Color.fromRGBO(
                                                   151, 52, 1, 1)
                                               : const Color.fromRGBO(

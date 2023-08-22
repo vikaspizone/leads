@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:leads/app/app.router.dart';
+import 'package:leads/ui/views/home/home_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -6,9 +8,11 @@ import '../../../app/app.locator.dart';
 
 class IncomingCallViewModel extends BaseViewModel {
   final NavigationService _navigationService = locator<NavigationService>();
-
+  ScrollController scrollController = ScrollController();
   //Go to back page
   void goBack() {
+    currentIndex = 0;
+    notifyListeners();
     _navigationService.clearStackAndShow(Routes.homeView);
   }
 
@@ -20,6 +24,48 @@ class IncomingCallViewModel extends BaseViewModel {
   }
 
   List<CallRecordModel> leadsList = [
+    CallRecordModel(
+        callDuration: '10 m 54 s',
+        visitDate: '12 August 2022',
+        status: 'Received by : Ravi Kumar',
+        personName: 'Unknown',
+        visitTime: '2.00 PM'),
+    CallRecordModel(
+        callDuration: '10 m 54 s',
+        visitDate: '12 August 2022',
+        status: 'Received by : Ravi Kumar',
+        personName: 'Unknown',
+        visitTime: '2.00 PM'),
+    CallRecordModel(
+        callDuration: '10 m 54 s',
+        visitDate: '12 August 2022',
+        status: 'Received by : Ravi Kumar',
+        personName: 'Unknown',
+        visitTime: '2.00 PM'),
+    CallRecordModel(
+        callDuration: '10 m 54 s',
+        visitDate: '12 August 2022',
+        status: 'Received by : Ravi Kumar',
+        personName: 'Unknown',
+        visitTime: '2.00 PM'),
+    CallRecordModel(
+        callDuration: '10 m 54 s',
+        visitDate: '12 August 2022',
+        status: 'Received by : Ravi Kumar',
+        personName: 'Unknown',
+        visitTime: '2.00 PM'),
+    CallRecordModel(
+        callDuration: '10 m 54 s',
+        visitDate: '12 August 2022',
+        status: 'Received by : Ravi Kumar',
+        personName: 'Unknown',
+        visitTime: '2.00 PM'),
+    CallRecordModel(
+        callDuration: '10 m 54 s',
+        visitDate: '12 August 2022',
+        status: 'Received by : Ravi Kumar',
+        personName: 'Unknown',
+        visitTime: '2.00 PM'),
     CallRecordModel(
         callDuration: '10 m 54 s',
         visitDate: '12 August 2022',

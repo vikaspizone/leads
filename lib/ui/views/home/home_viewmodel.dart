@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:leads/ui/views/home/pie_chart.dart';
 import 'package:stacked/stacked.dart';
 
+int currentIndex = 0;
+
 class HomeViewModel extends BaseViewModel {
+  ScrollController scrollController = ScrollController();
 
-
-
- List<GridItem> gridDetail = [
+  List<GridItem> gridDetail = [
     GridItem(
         gridCol: const Color(0xffDDF7FF),
         text: 'PROSPECT',
@@ -40,7 +41,6 @@ class HomeViewModel extends BaseViewModel {
   ];
 
 //change bottom bar index
-  int currentIndex = 0;
   changeIndex(tabindex) {
     currentIndex = tabindex;
     notifyListeners();

@@ -85,7 +85,7 @@ class _CustomTileState extends State<CustomTile>
               child: Stack(
                 children: [
                   Container(
-                    height: isShow ? 95 : 80,
+                    height: isShow ? 92 : 77,
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     decoration: BoxDecoration(
@@ -99,7 +99,7 @@ class _CustomTileState extends State<CustomTile>
                           'assets/all-leads-icons/handshake-icon.svg',
                           height: 15,
                         ),
-                        const SizedBox(width: 10),
+                        horizontalSpaceTiny,
                         Text(widget.companyName,
                             style: const TextStyle(
                                 color: Colors.white,
@@ -199,6 +199,7 @@ class _CustomTileState extends State<CustomTile>
                             const SizedBox(width: 10)
                           ],
                         ),
+                        if (isShow) ...[verticalSpaceTiny],
                         isShow
                             ? SizeTransition(
                                 axisAlignment: 1.0,
@@ -265,7 +266,7 @@ class _CustomTileState extends State<CustomTile>
               axisAlignment: 1.0,
               sizeFactor: animation,
               child: Container(
-                  height: 50,
+                  height: 45,
                   alignment: Alignment.centerLeft,
                   padding: EdgeInsets.zero,
                   decoration: BoxDecoration(

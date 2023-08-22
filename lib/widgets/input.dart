@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:leads/ui/common/images.dart';
 
 import '../ui/common/ui_helpers.dart';
@@ -23,7 +24,8 @@ class Input extends StatelessWidget {
                 onTap: () {
                   focusNode.requestFocus();
                 },
-                child: Image.asset(Images().searchIcon, width: 15, height: 15),
+                child: SvgPicture.asset(Images().searchIcon,
+                    width: 15, height: 15),
               ),
             ),
           ),
@@ -32,12 +34,13 @@ class Input extends StatelessWidget {
             child: TextFormField(
               focusNode: focusNode,
               controller: controller,
-              cursorColor: Colors.black,
-              cursorHeight: 15,
+              cursorColor: Colors.black54,
+              cursorHeight: 18,
               textAlignVertical: TextAlignVertical.center,
               decoration: const InputDecoration(
                 fillColor: Colors.black,
                 hintText: 'Search',
+                contentPadding: EdgeInsets.only(bottom: 15),
                 hintStyle: TextStyle(
                     color: Color.fromARGB(255, 214, 214, 214),
                     fontSize: 14,

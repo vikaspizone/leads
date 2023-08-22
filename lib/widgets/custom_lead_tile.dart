@@ -85,7 +85,7 @@ class _CustomTileState extends State<CustomTile>
               child: Stack(
                 children: [
                   Container(
-                    height: isShow ? 92 : 77,
+                    height: isShow ? 95 : 80,
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     decoration: BoxDecoration(

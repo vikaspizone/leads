@@ -175,7 +175,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                                 focusNode: searchFocusNode),
                             verticalSpaceSmall,
                             SizedBox(
-                              height: 35,
+                              height: 32,
                               width: screenWidth(context),
                               child: ListView.builder(
                                 itemCount: viewModel.filterCategoryList.length,

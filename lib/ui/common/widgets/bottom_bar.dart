@@ -16,7 +16,7 @@ class BottomBar extends StackedView<HomeViewModel> {
     HomeViewModel viewModel,
     Widget? child,
   ) {
-    NavigationService _navigationService = locator<NavigationService>();
+    NavigationService navigationService = locator<NavigationService>();
     return SizedBox(
         height: 58,
         child: Stack(
@@ -35,7 +35,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                         child: GestureDetector(
                             onTap: () {
                               viewModel.changeIndex(0);
-                              _navigationService.replaceWithHomeView();
+                              navigationService.replaceWithHomeView();
                             },
                             child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -91,7 +91,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                         child: GestureDetector(
                             onTap: () {
                               viewModel.changeIndex(2);
-                              _navigationService.navigateTo(Routes.leadsView);
+                              navigationService.navigateTo(Routes.leadsView);
                               viewModel.changeIndex(0);
                             },
                             child: Column(
@@ -119,7 +119,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                         child: GestureDetector(
                             onTap: () {
                               viewModel.changeIndex(3);
-                              _navigationService
+                              navigationService
                                   .navigateTo(Routes.incomingCallView);
                               viewModel.changeIndex(0);
                             },

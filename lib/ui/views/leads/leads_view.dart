@@ -124,19 +124,22 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                             controller: searchController,
                             focusNode: searchFocusNode),
                         verticalSpaceSmall,
-                        SizedBox(
-                          height: 35,
+                        Container(
+                          height: 30,
                           width: screenWidth(context),
+                          margin: const EdgeInsets.symmetric(horizontal: 3),
                           child: ListView.builder(
                             itemCount: viewModel.filterCategoryList.length,
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
+                            padding: const EdgeInsets.all(0),
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                 onTap: () =>
                                     viewModel.onFilterCategoryTap(index),
                                 child: Container(
-                                  margin: const EdgeInsets.all(5),
+                                  margin: const EdgeInsets.only(
+                                      right: 5, top: 5, bottom: 5),
                                   alignment: Alignment.center,
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 10),
@@ -179,7 +182,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                         ),
                         verticalSpaceSmall,
                         Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 3),
+                          margin: const EdgeInsets.symmetric(horizontal: 7),
                           alignment: Alignment.centerLeft,
                           child: RichText(
                               text: TextSpan(
@@ -244,7 +247,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                                             bottomRight: Radius.circular(10)),
                                       ),
                                       padding: const EdgeInsets.symmetric(
-                                          horizontal: 10),
+                                          horizontal: 5),
                                       child: const Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,

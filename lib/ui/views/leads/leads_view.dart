@@ -179,6 +179,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                         ),
                         verticalSpaceSmall,
                         Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 3),
                           alignment: Alignment.centerLeft,
                           child: RichText(
                               text: TextSpan(
@@ -252,7 +253,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                                           children: [
                                             Icon(
                                               Icons.add_circle,
-                                              size: 18,
+                                              size: 20,
                                               color: Colors.white,
                                             ),
                                             Text(
@@ -261,7 +262,8 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                                                   fontWeight: FontWeight.w400,
                                                   fontFamily: 'Nexa-Bold',
                                                   color: Colors.white,
-                                                  fontSize: 8),
+                                                  height: 1.7,
+                                                  fontSize: 9),
                                             )
                                           ]),
                                     ),

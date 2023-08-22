@@ -138,11 +138,13 @@ class CallDetailCard extends StatelessWidget {
                         ),
                       ),
                       verticalSpaceTiny,
-                      SvgPicture.asset(
-                        Images().playIcon,
-                        height: 18,
-                        width: 18,
-                      ),
+                      personName != 'Manoj Kumar Tiwary'
+                          ? SvgPicture.asset(
+                              Images().playIcon,
+                              height: 18,
+                              width: 18,
+                            )
+                          : const SizedBox(height: 18, width: 18),
                     ],
                   ),
                 ),

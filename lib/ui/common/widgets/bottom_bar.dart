@@ -144,7 +144,7 @@ class BottomBar extends StackedView<HomeViewModel> {
                                           height: 2,
                                           color: currentIndex == 3
                                               ? const Color.fromRGBO(
-                                                  151, 52, 1, 1)
+                                                  171, 119, 17, 1)
                                               : const Color.fromRGBO(
                                                   105, 97, 94, 1)))
                                 ]))),

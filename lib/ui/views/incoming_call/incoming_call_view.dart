@@ -1,3 +1,4 @@
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:leads/ui/views/incoming_call/call_detail_card.dart';
@@ -121,11 +122,13 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                             child: Container(
                               decoration: BoxDecoration(
                                 color: const Color.fromARGB(255, 196, 22, 28),
+                                // color: Colors.green,
                                 borderRadius: BorderRadius.circular(
                                   10,
                                 ),
                               ),
                               child: SlidableTile(
+                                motion: const ScrollMotion(),
                                 action: [
                                   Expanded(
                                       child: Container(

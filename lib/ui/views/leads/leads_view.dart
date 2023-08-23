@@ -43,7 +43,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                         tileMode: TileMode.decal,
                         radius: 12,
                         center: Alignment.topCenter,
-                        colors: [Colors.transparent, Color(0xfff6f2ed)]),
+                        colors: [Colors.transparent, Color(0xFFF9F5EF)]),
                     shape: BoxShape.circle),
                 child: FloatingActionButton(
                   backgroundColor: Colors.transparent,
@@ -65,14 +65,15 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                                 blurRadius: 4,
                                 offset: Offset(0, 4))
                           ]),
-                      height: 47,
-                      width: 47,
-                      child:
-                          const Icon(Icons.add, size: 28, color: Colors.white)),
+                      height: screenDimension(context) / 25.9,
+                      width: screenDimension(context) / 25.9,
+                      child: Icon(Icons.add,
+                          size: screenDimension(context) / 43.5,
+                          color: Colors.white)),
                   onPressed: () {},
                 ),
               ),
-              const SizedBox(height: 10)
+              SizedBox(height: screenDimension(context) / 81)
             ],
           ),
           backgroundColor: const Color.fromARGB(255, 250, 246, 240),

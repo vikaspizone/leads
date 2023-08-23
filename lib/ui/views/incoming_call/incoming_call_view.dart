@@ -43,7 +43,7 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                       tileMode: TileMode.decal,
                       radius: 12,
                       center: Alignment.topCenter,
-                      colors: [Colors.transparent, Color(0xfff6f2ed)]),
+                      colors: [Colors.transparent, Color(0xFFF9F5EF)]),
                   shape: BoxShape.circle),
               child: FloatingActionButton(
                 backgroundColor: Colors.transparent,
@@ -65,14 +65,16 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                               blurRadius: 4,
                               offset: Offset(0, 4))
                         ]),
-                    height: 47,
-                    width: 47,
-                    child:
-                        const Icon(Icons.add, size: 28, color: Colors.white)),
+                    height: screenDimension(context) / 25.9,
+                    width: screenDimension(context) / 25.9,
+                    child: Icon(Icons.add,
+                        size: screenDimension(context) / 43.5,
+                        color: Colors.white)),
                 onPressed: () {},
               ),
             ),
-            const SizedBox(height: 10)
+                  SizedBox(height: screenDimension(context) / 81)
+
           ],
         ),
         backgroundColor: const Color.fromARGB(255, 250, 246, 240),
@@ -166,103 +168,100 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                           padding: const EdgeInsets.only(bottom: 25),
                           itemBuilder: (context, index) {
                             return Container(
+                              clipBehavior: Clip.hardEdge,
                               margin: const EdgeInsets.only(bottom: 15),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: const Color.fromARGB(255, 196, 22, 28),
-                                  borderRadius: BorderRadius.circular(
-                                    10,
-                                  ),
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 196, 22, 28),
+                                borderRadius: BorderRadius.circular(
+                                  10,
                                 ),
-                                child: SlidableTile(
-                                  motion: const ScrollMotion(),
-                                  action: [
-                                    Expanded(
-                                        child: Container(
-                                      decoration: const BoxDecoration(
-                                        color: Color.fromARGB(255, 196, 22, 28),
-                                        borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(10),
-                                          bottomRight: Radius.circular(10),
-                                          topLeft: Radius.circular(10),
-                                          bottomLeft: Radius.circular(10),
-                                        ),
-                                      ),
+                              ),
+                              child: SlidableTile(
+                                motion: const ScrollMotion(),
+                                action: [
+                                  Expanded(
                                       child: Container(
-                                        color: const Color.fromARGB(
-                                            255, 245, 148, 30),
-                                        child: Container(
-                                          decoration: const BoxDecoration(
-                                            color: Color.fromARGB(
-                                                255, 196, 22, 28),
-                                            borderRadius: BorderRadius.only(
-                                              topRight: Radius.circular(10),
-                                              bottomRight: Radius.circular(10),
-                                            ),
+                                    decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 196, 22, 28),
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(10),
+                                        bottomRight: Radius.circular(10),
+                                        topLeft: Radius.circular(10),
+                                        bottomLeft: Radius.circular(10),
+                                      ),
+                                    ),
+                                    child: Container(
+                                      color: const Color.fromARGB(
+                                          255, 245, 148, 30),
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                          color:
+                                              Color.fromARGB(255, 196, 22, 28),
+                                          borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(10),
+                                            bottomRight: Radius.circular(10),
                                           ),
-                                          child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                SvgPicture.asset(
-                                                  'assets/incoming-call-icons/discard-icon.svg',
-                                                  height: 20,
-                                                ),
-                                                verticalSpaceTiny,
-                                                const Text(
-                                                  'Disqualify',
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color: Colors.white,
-                                                      fontSize: 9),
-                                                )
-                                              ]),
                                         ),
+                                        child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              SvgPicture.asset(
+                                                'assets/incoming-call-icons/discard-icon.svg',
+                                                height: 20,
+                                              ),
+                                              verticalSpaceTiny,
+                                              const Text(
+                                                'Disqualify',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w400,
+                                                    color: Colors.white,
+                                                    fontSize: 9),
+                                              )
+                                            ]),
                                       ),
-                                    )),
-                                    Expanded(
-                                        child: Container(
-                                      decoration: const BoxDecoration(
-                                        color:
-                                            Color.fromARGB(255, 245, 148, 30),
-                                        borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(10),
-                                          bottomRight: Radius.circular(10),
-                                        ),
+                                    ),
+                                  )),
+                                  Expanded(
+                                      child: Container(
+                                    decoration: const BoxDecoration(
+                                      color: Color.fromARGB(255, 245, 148, 30),
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(10),
+                                        bottomRight: Radius.circular(10),
                                       ),
-                                      child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            SvgPicture.asset(
-                                              'assets/incoming-call-icons/check-icon.svg',
-                                              height: 20,
-                                            ),
-                                            verticalSpaceTiny,
-                                            const Text(
-                                              'Create\nProspect',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w400,
-                                                  color: Colors.white,
-                                                  fontSize: 9),
-                                              textAlign: TextAlign.center,
-                                            )
-                                          ]),
-                                    )),
-                                  ],
-                                  valueKey: index,
-                                  child: CallDetailCard(
-                                    callDuration:
-                                        viewModel.leadsList[index].callDuration,
-                                    personName:
-                                        viewModel.leadsList[index].personName,
-                                    visitTime:
-                                        viewModel.leadsList[index].visitTime,
-                                    visitDate:
-                                        viewModel.leadsList[index].visitDate,
-                                    status: viewModel.leadsList[index].status,
-                                  ),
+                                    ),
+                                    child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          SvgPicture.asset(
+                                            'assets/incoming-call-icons/check-icon.svg',
+                                            height: 20,
+                                          ),
+                                          verticalSpaceTiny,
+                                          const Text(
+                                            'Create\nProspect',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w400,
+                                                color: Colors.white,
+                                                fontSize: 9),
+                                            textAlign: TextAlign.center,
+                                          )
+                                        ]),
+                                  )),
+                                ],
+                                valueKey: index,
+                                child: CallDetailCard(
+                                  callDuration:
+                                      viewModel.leadsList[index].callDuration,
+                                  personName:
+                                      viewModel.leadsList[index].personName,
+                                  visitTime:
+                                      viewModel.leadsList[index].visitTime,
+                                  visitDate:
+                                      viewModel.leadsList[index].visitDate,
+                                  status: viewModel.leadsList[index].status,
                                 ),
                               ),
                             );

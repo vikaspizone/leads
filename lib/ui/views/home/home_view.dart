@@ -1,7 +1,6 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 
-
 import '/ui/common/widgets/bottom_bar.dart';
 import '/ui/views/home/graph.dart';
 import '/ui/views/home/pie_chart.dart';
@@ -21,20 +20,26 @@ class HomeView extends StackedView<HomeViewModel> {
     Widget? child,
   ) {
     var height = MediaQuery.of(context).viewPadding.top;
-
+    print(screenDimension(context) / 81);
     return Scaffold(
-      bottomNavigationBar: const BottomAppBar(child: BottomBar()),
+      bottomNavigationBar: Container(
+          decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10), topRight: Radius.circular(10))),
+          child: const BottomAppBar(child: BottomBar())),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Container(
             decoration: const BoxDecoration(
+                // color: Color(0xFFF9F5EF),
                 gradient: RadialGradient(
                     tileMode: TileMode.decal,
                     radius: 12,
                     center: Alignment.topCenter,
-                    colors: [Colors.transparent, Color(0xfff6f2ed)]),
+                    colors: [Colors.transparent, Color(0xFFF9F5EF)]),
                 shape: BoxShape.circle),
             child: FloatingActionButton(
               backgroundColor: Colors.transparent,
@@ -56,13 +61,15 @@ class HomeView extends StackedView<HomeViewModel> {
                             blurRadius: 4,
                             offset: Offset(0, 4))
                       ]),
-                  height: 47,
-                  width: 47,
-                  child: const Icon(Icons.add, size: 28, color: Colors.white)),
+                  height: screenDimension(context) / 25.9,
+                  width: screenDimension(context) / 25.9,
+                  child: Icon(Icons.add,
+                      size: screenDimension(context) / 43.5,
+                      color: Colors.white)),
               onPressed: () {},
             ),
           ),
-          const SizedBox(height: 10)
+          SizedBox(height: screenDimension(context) / 81)
         ],
       ),
       body: Stack(
@@ -117,13 +124,14 @@ class HomeView extends StackedView<HomeViewModel> {
                                     Padding(
                                       padding: const EdgeInsets.all(0),
                                       child: renderCircleWithText(
+                                          screenDimension(context),
                                           circleBgColor: const Color.fromARGB(
                                               255, 219, 255, 231),
                                           text: '8',
                                           textColor: const Color.fromARGB(
                                               255, 6, 95, 36)),
                                     ),
-                                    const SizedBox(width: 10),
+                                    horizontalSpaceTiny,
                                     RichText(
                                         textAlign: TextAlign.center,
                                         text: const TextSpan(
@@ -149,12 +157,13 @@ class HomeView extends StackedView<HomeViewModel> {
                                   // horizontalSpaceMedium,
                                   Row(children: [
                                     renderCircleWithText(
+                                        screenDimension(context),
                                         circleBgColor: const Color.fromARGB(
                                             255, 254, 235, 179),
                                         text: '25',
                                         textColor: const Color.fromARGB(
                                             255, 07, 80, 0)),
-                                    const SizedBox(width: 10),
+                                    horizontalSpaceTiny,
                                     RichText(
                                         textAlign: TextAlign.center,
                                         text: const TextSpan(
@@ -190,6 +199,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                       Padding(
                                         padding: const EdgeInsets.all(6.0),
                                         child: renderCircleWithText(
+                                            screenDimension(context),
                                             circleBgColor: const Color.fromARGB(
                                                 255, 255, 221, 201),
                                             textColor: const Color.fromARGB(
@@ -218,6 +228,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                       Padding(
                                         padding: const EdgeInsets.all(6.0),
                                         child: renderCircleWithText(
+                                            screenDimension(context),
                                             circleBgColor: const Color.fromARGB(
                                                 255, 255, 237, 201),
                                             textColor: const Color.fromARGB(
@@ -251,13 +262,14 @@ class HomeView extends StackedView<HomeViewModel> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SizedBox(
-                                      height: 60,
+                                      height: screenDimension(context) / 20,
                                       width:
                                           MediaQuery.of(context).size.width / 2,
                                       child: Stack(
                                         alignment: Alignment.centerLeft,
                                         children: [
                                           renderContainerWithImage(
+                                            screenDimension(context),
                                             child: Image.asset(
                                               Images().girl1,
                                             ),
@@ -265,6 +277,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                           Positioned(
                                             left: 20,
                                             child: renderContainerWithImage(
+                                              screenDimension(context),
                                               child: Image.asset(
                                                 Images().boy1,
                                               ),
@@ -273,6 +286,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                           Positioned(
                                             left: 40,
                                             child: renderContainerWithImage(
+                                              screenDimension(context),
                                               child: Image.asset(
                                                 Images().boy2,
                                               ),
@@ -281,6 +295,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                           Positioned(
                                             left: 60,
                                             child: renderContainerWithImage(
+                                              screenDimension(context),
                                               child: Image.asset(
                                                 Images().boy3,
                                               ),
@@ -289,6 +304,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                           Positioned(
                                             left: 80,
                                             child: renderContainerWithImage(
+                                              screenDimension(context),
                                               child: Image.asset(
                                                 Images().girl2,
                                               ),
@@ -297,18 +313,19 @@ class HomeView extends StackedView<HomeViewModel> {
                                           Positioned(
                                             left: 100,
                                             child: renderContainerWithImage(
+                                                screenDimension(context),
                                                 child: const Center(
-                                              child: Text(
-                                                '+5',
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 12,
-                                                    height: 1.5,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
-                                            )),
+                                                  child: Text(
+                                                    '+5',
+                                                    textAlign: TextAlign.center,
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 12,
+                                                        height: 1.5,
+                                                        fontWeight:
+                                                            FontWeight.w400),
+                                                  ),
+                                                )),
                                           ),
                                         ],
                                       ),
@@ -316,6 +333,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                   ],
                                 ),
                                 renderCircleWithText(
+                                  screenDimension(context),
                                   circleBgColor:
                                       const Color.fromARGB(255, 250, 231, 202),
                                   text: '10',
@@ -417,10 +435,10 @@ class HomeView extends StackedView<HomeViewModel> {
   }
 
 //circle container with image
-  Container renderContainerWithImage({Widget? child}) {
+  Container renderContainerWithImage(screenRation, {Widget? child}) {
     return Container(
-      height: 30,
-      width: 30,
+      height: screenRation / 40.5,
+      width: screenRation / 40.5,
       decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: const Color.fromARGB(255, 247, 148, 30),
@@ -430,11 +448,11 @@ class HomeView extends StackedView<HomeViewModel> {
   }
 
 //circle with number text
-  Container renderCircleWithText(
+  Container renderCircleWithText(screenRation,
       {Color? circleBgColor, Color? textColor, String? text}) {
     return Container(
-      width: 46,
-      height: 46,
+      width: screenRation / 26.4,
+      height: screenRation / 26.4,
       // padding: EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
         color: circleBgColor,

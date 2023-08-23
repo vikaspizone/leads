@@ -442,7 +442,7 @@ class HomeView extends StackedView<HomeViewModel> {
       child: Center(
         child: Text(text!,
             style: TextStyle(
-              height: 2,
+              height: 1.5,
               color: textColor,
               fontWeight: FontWeight.w500,
               fontFamily: 'Nexa-Bold',

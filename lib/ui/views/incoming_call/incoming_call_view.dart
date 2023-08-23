@@ -1,3 +1,4 @@
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:leads/ui/views/incoming_call/call_detail_card.dart';
@@ -174,6 +175,7 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                                   ),
                                 ),
                                 child: SlidableTile(
+                                  motion: const ScrollMotion(),
                                   action: [
                                     Expanded(
                                         child: Container(
@@ -310,7 +312,7 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                       'All',
                       style: TextStyle(
                         fontFamily: 'Nexa-Bold',
-                        height: 1,
+                        height: 1.4,
                         fontSize: 12,
                         color: viewModel.selectedTab == 'All'
                             ? Colors.white
@@ -335,7 +337,7 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                     child: Text('Identified',
                         style: TextStyle(
                             fontFamily: 'Nexa-Bold',
-                            height: 1,
+                            height: 1.4,
                             fontSize: 12,
                             color: viewModel.selectedTab == 'Identified'
                                 ? Colors.white
@@ -359,7 +361,7 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
                       'Unidentified',
                       style: TextStyle(
                         fontFamily: 'Nexa-Bold',
-                        height: 1,
+                        height: 1.4,
                         fontSize: 12,
                         color: viewModel.selectedTab == 'Unidentified'
                             ? Colors.white

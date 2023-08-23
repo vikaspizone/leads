@@ -5,10 +5,12 @@ class SlidableTile extends StatelessWidget {
   final Widget child;
   final int valueKey;
   final List<Widget> action;
+  final Widget motion;
   const SlidableTile(
       {required this.child,
       required this.valueKey,
       required this.action,
+      required this.motion,
       super.key});
 
   @override
@@ -17,7 +19,7 @@ class SlidableTile extends StatelessWidget {
       key: ValueKey(valueKey),
       endActionPane: ActionPane(
         extentRatio: (0.91 / 5) * action.length,
-        motion: const ScrollMotion(),
+        motion: motion,
         children: action,
       ),
       child: child,

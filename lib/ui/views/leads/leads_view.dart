@@ -1,3 +1,4 @@
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -283,6 +284,7 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
                                           255, 245, 148, 30)),
                                   margin: const EdgeInsets.only(bottom: 20),
                                   child: SlidableTile(
+                                    motion: const BehindMotion(),
                                     action: [
                                       // SlidableAction(
                                       //   onPressed: (context) {},

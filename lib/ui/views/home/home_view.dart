@@ -1,5 +1,6 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
+import 'package:leads/ui/common/widgets/floating_action_button.dart';
 
 import '/ui/common/widgets/bottom_bar.dart';
 import '/ui/views/home/graph.dart';
@@ -20,58 +21,11 @@ class HomeView extends StackedView<HomeViewModel> {
     Widget? child,
   ) {
     var height = MediaQuery.of(context).viewPadding.top;
-    print(screenDimension(context) / 81);
     return Scaffold(
-      bottomNavigationBar: Container(
-          decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10), topRight: Radius.circular(10))),
-          child: const BottomAppBar(child: BottomBar())),
+      resizeToAvoidBottomInset: false,
+      bottomNavigationBar: const BottomAppBar(child: BottomBar()),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-                // color: Color(0xFFF9F5EF),
-                gradient: RadialGradient(
-                    tileMode: TileMode.decal,
-                    radius: 12,
-                    center: Alignment.topCenter,
-                    colors: [Colors.transparent, Color(0xFFF9F5EF)]),
-                shape: BoxShape.circle),
-            child: FloatingActionButton(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              highlightElevation: 0.0,
-              child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(28),
-                      gradient: const LinearGradient(
-                          colors: [
-                            Color.fromRGBO(235, 91, 9, 1),
-                            Color.fromRGBO(151, 52, 1, 1)
-                          ],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter),
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Color.fromRGBO(0, 0, 0, 0.30),
-                            blurRadius: 4,
-                            offset: Offset(0, 4))
-                      ]),
-                  height: screenDimension(context) / 25.9,
-                  width: screenDimension(context) / 25.9,
-                  child: Icon(Icons.add,
-                      size: screenDimension(context) / 43.5,
-                      color: Colors.white)),
-              onPressed: () {},
-            ),
-          ),
-          SizedBox(height: screenDimension(context) / 81)
-        ],
-      ),
+      floatingActionButton: const CustomFloatingActionButton(),
       body: Stack(
         children: [
           SizedBox(

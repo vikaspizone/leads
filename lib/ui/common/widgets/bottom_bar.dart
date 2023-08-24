@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:leads/app/app.locator.dart';
-import 'package:leads/app/app.router.dart';
 import 'package:leads/ui/common/ui_helpers.dart';
+import 'package:leads/ui/views/home/home_view.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -30,10 +30,13 @@ class BottomBar extends StackedView<HomeViewModel> {
                   // Home page
                   child: InkWell(
                       radius: 0,
-                      onTap: () {
-                        viewModel.changeIndex(0);
-                        navigationService.replaceWithHomeView();
-                      },
+                      onTap: currentIndex != 0
+                          ? () {
+                              viewModel.changeIndex(0);
+                              navigationService.clearStackAndShowView(
+                                  const HomeView(pageIndex: 0));
+                            }
+                          : () {},
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -55,9 +58,11 @@ class BottomBar extends StackedView<HomeViewModel> {
                   // Users Page
                   child: InkWell(
                       radius: 0,
-                      onTap: () {
-                        viewModel.changeIndex(1);
-                      },
+                      onTap: currentIndex != 1
+                          ? () {
+                              viewModel.changeIndex(1);
+                            }
+                          : () {},
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -80,10 +85,13 @@ class BottomBar extends StackedView<HomeViewModel> {
                   // Leads page
                   child: InkWell(
                       radius: 0,
-                      onTap: () {
-                        viewModel.changeIndex(2);
-                        navigationService.navigateTo(Routes.leadsView);
-                      },
+                      onTap: currentIndex != 2
+                          ? () {
+                              viewModel.changeIndex(2);
+                              navigationService.clearStackAndShowView(
+                                  const HomeView(pageIndex: 2));
+                            }
+                          : () {},
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -105,10 +113,13 @@ class BottomBar extends StackedView<HomeViewModel> {
                   // Call Records page
                   child: InkWell(
                       radius: 0,
-                      onTap: () {
-                        viewModel.changeIndex(3);
-                        navigationService.navigateTo(Routes.incomingCallView);
-                      },
+                      onTap: currentIndex != 3
+                          ? () {
+                              viewModel.changeIndex(3);
+                              navigationService.clearStackAndShowView(
+                                  const HomeView(pageIndex: 3));
+                            }
+                          : () {},
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

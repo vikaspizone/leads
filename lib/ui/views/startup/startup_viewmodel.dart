@@ -1,7 +1,8 @@
 import 'package:stacked/stacked.dart';
 import 'package:leads/app/app.locator.dart';
-import 'package:leads/app/app.router.dart';
 import 'package:stacked_services/stacked_services.dart';
+
+import '../home/home_view.dart';
 
 class StartupViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
@@ -13,6 +14,6 @@ class StartupViewModel extends BaseViewModel {
     // This is where you can make decisions on where your app should navigate when
     // you have custom startup logic
 
-    _navigationService.replaceWithHomeView();
+    _navigationService.clearStackAndShowView(const HomeView(pageIndex: 0));
   }
 }

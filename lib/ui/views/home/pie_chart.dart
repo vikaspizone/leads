@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:leads/ui/common/ui_helpers.dart';
 
 class PieChartPage extends StatelessWidget {
   const PieChartPage({super.key});
@@ -15,8 +16,8 @@ class PieChartPage extends StatelessWidget {
         children: [
           Container(
             color: Colors.white,
-            width: 150,
-            height: 220,
+            width: screenDimension(context) / 7.7,
+            height: screenDimension(context) / 5.24,
             child: PieChart(
               PieChartData(
                 sectionsSpace: 0,
@@ -28,27 +29,27 @@ class PieChartPage extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 25),
-              NameWidget(
+              SizedBox(height: screenDimension(context) / 46),
+              const NameWidget(
                 name: 'Suyama',
                 color: Color(0xffFFC30D),
               ),
-              NameWidget(
+              const NameWidget(
                 name: 'Manoj Kumar',
                 color: Color(0xff7A57B0),
               ),
-              NameWidget(
+              const NameWidget(
                 name: 'Seshadri',
                 color: Color(0xffFF7012),
               ),
-              NameWidget(
+              const NameWidget(
                 name: 'Abhishek',
                 color: Color(0xff84C0D8),
               ),
-              NameWidget(
+              const NameWidget(
                 name: 'Nirmal Raj',
                 color: Color(0xffE33624),
               )
@@ -145,20 +146,19 @@ class NameWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            height: 12,
-            width: 18,
+            height: screenDimension(context) / 96,
+            width: screenDimension(context) / 64,
             decoration: BoxDecoration(
                 color: color, borderRadius: BorderRadius.circular(3)),
           ),
-          const SizedBox(width: 12),
+          SizedBox(width: screenDimension(context) / 96),
           Text(
             name,
-            style: const TextStyle(
+            style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
-                fontSize: 13,
-                fontFamily: 'Nexa-Bold'
-                ),
+                fontSize: screenDimension(context) / 88,
+                fontFamily: 'Nexa-Bold'),
           ),
         ],
       ),
@@ -179,8 +179,7 @@ class BackSide extends StatelessWidget {
     return Container(
         decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10))),
-        width: 360,
-        // height: 170,
+        width: screenDimension(context) / 3.20,
         child: GridView.builder(
           padding: const EdgeInsets.symmetric(vertical: 5),
           shrinkWrap: true,
@@ -204,13 +203,13 @@ class BackSide extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text("${gridDetail[index].text}",
-                          style: const TextStyle(
-                              fontSize: 12,
+                          style: TextStyle(
+                              fontSize: screenDimension(context) / 96,
                               color: Colors.black,
                               fontFamily: 'Nexa-Bold')),
                       Text('${gridDetail[index].val}',
                           style: TextStyle(
-                              fontSize: 17,
+                              fontSize: screenDimension(context) / 67.50,
                               color: gridDetail[index].valCol,
                               fontFamily: 'Nexa-Bold'))
                     ],

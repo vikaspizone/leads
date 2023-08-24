@@ -26,7 +26,7 @@ class HomeView extends StackedView<HomeViewModel> {
     print(sizer / 81);
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        bottomNavigationBar: const BottomAppBar(child: BottomBar()),
+        bottomNavigationBar: const BottomBar(),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: const CustomFloatingActionButton(),
         body: Container(

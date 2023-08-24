@@ -36,7 +36,7 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
         resizeToAvoidBottomInset: false,
         bottomNavigationBar: const BottomBar(),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        floatingActionButton:const CustomFloatingActionButton(),
+        floatingActionButton: const CustomFloatingActionButton(),
         backgroundColor: const Color.fromARGB(255, 250, 246, 240),
         body: Stack(
           children: [

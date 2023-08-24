@@ -15,46 +15,24 @@ class PieChartPage extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            color: Colors.white,
-            width: screenDimension(context) / 7.7,
-            height: screenDimension(context) / 5.24,
-            child: PieChart(
-              PieChartData(
-                sectionsSpace: 0,
-                centerSpaceRadius: 0,
-                startDegreeOffset: 30,
-                sections: _generateSections(),
-                borderData: FlBorderData(show: false),
-              ),
-            ),
-          ),
+              color: Colors.white,
+              width: screenDimension(context) / 7.7,
+              height: screenDimension(context) / 6.24,
+              child: PieChart(PieChartData(
+                  sectionsSpace: 0,
+                  centerSpaceRadius: 0,
+                  startDegreeOffset: 30,
+                  sections: _generateSections(),
+                  borderData: FlBorderData(show: false)))),
           const Spacer(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: screenDimension(context) / 46),
-              const NameWidget(
-                name: 'Suyama',
-                color: Color(0xffFFC30D),
-              ),
-              const NameWidget(
-                name: 'Manoj Kumar',
-                color: Color(0xff7A57B0),
-              ),
-              const NameWidget(
-                name: 'Seshadri',
-                color: Color(0xffFF7012),
-              ),
-              const NameWidget(
-                name: 'Abhishek',
-                color: Color(0xff84C0D8),
-              ),
-              const NameWidget(
-                name: 'Nirmal Raj',
-                color: Color(0xffE33624),
-              )
-            ],
-          )
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            SizedBox(height: screenDimension(context) / 46),
+            const NameWidget(name: 'Suyama', color: Color(0xffFFC30D)),
+            const NameWidget(name: 'Manoj Kumar', color: Color(0xff7A57B0)),
+            const NameWidget(name: 'Seshadri', color: Color(0xffFF7012)),
+            const NameWidget(name: 'Abhishek', color: Color(0xff84C0D8)),
+            const NameWidget(name: 'Nirmal Raj', color: Color(0xffE33624))
+          ])
         ],
       ),
     );
@@ -64,58 +42,44 @@ class PieChartPage extends StatelessWidget {
     double size = 18;
     return [
       PieChartSectionData(
-        color: const Color(0xff7A57B0),
-        value: 5,
-        radius: 85,
-        title: '5',
-        titlePositionPercentageOffset: 0.6,
-        titleStyle: TextStyle(
-          color: Colors.white,
-          fontSize: size - 1,
-          fontFamily: 'Nexa-Bold',
-        ),
-      ),
+          color: const Color(0xff7A57B0),
+          value: 5,
+          radius: 85,
+          title: '5',
+          titlePositionPercentageOffset: 0.6,
+          titleStyle: TextStyle(
+              color: Colors.white,
+              fontSize: size - 1,
+              fontFamily: 'Nexa-Bold')),
       PieChartSectionData(
           color: const Color(0xffAA4011), title: '', value: 1, radius: 80),
       PieChartSectionData(
-        color: const Color(0xffFCAC76),
-        value: 15,
-        radius: 80,
-        title: '15',
-        titlePositionPercentageOffset: 0.6,
-        titleStyle: TextStyle(
-          color: Colors.white,
-          fontSize: size,
-          fontFamily: 'Nexa-Bold',
-        ),
-      ),
+          color: const Color(0xffFCAC76),
+          value: 15,
+          radius: 80,
+          title: '15',
+          titlePositionPercentageOffset: 0.6,
+          titleStyle: TextStyle(
+              color: Colors.white, fontSize: size, fontFamily: 'Nexa-Bold')),
       PieChartSectionData(
           color: const Color(0xff317B8C), title: '', value: 1, radius: 75),
       PieChartSectionData(
-        color: const Color(0xff84C0D8),
-        value: 35,
-        radius: 75,
-        title: '35',
-        titleStyle: TextStyle(
-          color: Colors.white,
-          fontSize: size,
-          fontFamily: 'Nexa-Bold',
-        ),
-      ),
+          color: const Color(0xff84C0D8),
+          value: 35,
+          radius: 75,
+          title: '35',
+          titleStyle: TextStyle(
+              color: Colors.white, fontSize: size, fontFamily: 'Nexa-Bold')),
       PieChartSectionData(
           color: const Color(0xffAA4011), title: '', value: 1, radius: 70),
       PieChartSectionData(
-        color: const Color(0xffE77569),
-        value: 15,
-        radius: 70,
-        title: '15',
-        titlePositionPercentageOffset: 0.6,
-        titleStyle: TextStyle(
-          color: Colors.white,
-          fontSize: size,
-          fontFamily: 'Nexa-Bold',
-        ),
-      ),
+          color: const Color(0xffE77569),
+          value: 15,
+          radius: 70,
+          title: '15',
+          titlePositionPercentageOffset: 0.6,
+          titleStyle: TextStyle(
+              color: Colors.white, fontSize: size, fontFamily: 'Nexa-Bold')),
       PieChartSectionData(
         color: const Color(0xffFFC30D),
         value: 25,
@@ -192,31 +156,27 @@ class BackSide extends StatelessWidget {
               mainAxisSpacing: 8),
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              decoration: BoxDecoration(
-                color: gridDetail[index].gridCol,
-                borderRadius: const BorderRadius.all(Radius.circular(8)),
-              ),
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("${gridDetail[index].text}",
-                          style: TextStyle(
-                              fontSize: screenDimension(context) / 96,
-                              color: Colors.black,
-                              fontFamily: 'Nexa-Bold')),
-                      Text('${gridDetail[index].val}',
-                          style: TextStyle(
-                              fontSize: screenDimension(context) / 67.50,
-                              color: gridDetail[index].valCol,
-                              fontFamily: 'Nexa-Bold'))
-                    ],
-                  ),
-                ),
-              ),
-            );
+                decoration: BoxDecoration(
+                    color: gridDetail[index].gridCol,
+                    borderRadius: const BorderRadius.all(Radius.circular(8))),
+                child: Center(
+                    child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("${gridDetail[index].text}",
+                                  style: TextStyle(
+                                      fontSize: screenDimension(context) / 96,
+                                      color: Colors.black,
+                                      fontFamily: 'Nexa-Bold')),
+                              Text('${gridDetail[index].val}',
+                                  style: TextStyle(
+                                      fontSize:
+                                          screenDimension(context) / 67.50,
+                                      color: gridDetail[index].valCol,
+                                      fontFamily: 'Nexa-Bold'))
+                            ]))));
           },
         ));
   }

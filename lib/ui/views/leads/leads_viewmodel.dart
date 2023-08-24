@@ -7,10 +7,10 @@ import '../../../app/app.locator.dart';
 import '../home/home_viewmodel.dart';
 
 class LeadsViewModel extends FormViewModel {
-  NavigationService _navigationService = locator<NavigationService>();
+ final NavigationService _navigationService = locator<NavigationService>();
   ScrollController scrollController = ScrollController();
+  
   //Go to back page
-
   void goBack() {
     currentIndex = 0;
     notifyListeners();

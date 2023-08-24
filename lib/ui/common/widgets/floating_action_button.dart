@@ -17,6 +17,8 @@ class _CustomFloatingActionButtonState
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Container(
+            height: screenDimension(context) / 20,
+            width: screenDimension(context) / 20,
             decoration: const BoxDecoration(
                 // color: Color(0xFFF9F5EF),
                 gradient: RadialGradient(

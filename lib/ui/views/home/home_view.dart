@@ -23,7 +23,6 @@ class HomeView extends StackedView<HomeViewModel> {
     var topPadding = MediaQuery.of(context).viewPadding.top;
     var sizer = screenDimension(context);
     var spacer = SizedBox(height: sizer / 81);
-    print(sizer / 81);
     return Scaffold(
         resizeToAvoidBottomInset: false,
         bottomNavigationBar: const BottomBar(),
@@ -233,6 +232,7 @@ class HomeView extends StackedView<HomeViewModel> {
                                           left: 100,
                                           child: renderContainerWithImage(
                                               screenDimension(context),
+                                              isOrange: true,
                                               child: const Center(
                                                   child: Text('+5',
                                                       textAlign:
@@ -318,13 +318,16 @@ class HomeView extends StackedView<HomeViewModel> {
   }
 
 //circle container with image
-  Container renderContainerWithImage(screenRation, {Widget? child}) {
+  Container renderContainerWithImage(screenRation,
+      {Widget? child, bool isOrange = false}) {
     return Container(
         height: screenRation / 40.5,
         width: screenRation / 40.5,
         decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: const Color.fromARGB(255, 247, 148, 30),
+            color: isOrange
+                ? const Color.fromARGB(255, 247, 148, 30)
+                : Colors.transparent,
             border: Border.all(color: Colors.white, width: 1)),
         child: child);
   }

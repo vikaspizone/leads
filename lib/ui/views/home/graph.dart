@@ -137,7 +137,7 @@ class Graph extends StatelessWidget {
                       ),
                       CartesianChartAnnotation(
                           widget: Container(
-                              height: screenDimension(context) / 11.6,
+                              height: screenDimension(context) / 10.9,
                               width: screenDimension(context) * 0.001,
                               decoration: const BoxDecoration(
                                   color: Color(0xff9F9F9F))),

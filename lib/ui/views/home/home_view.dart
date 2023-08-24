@@ -15,15 +15,11 @@ class HomeView extends StackedView<HomeViewModel> {
   const HomeView({Key? key}) : super(key: key);
 
   @override
-  Widget builder(
-    BuildContext context,
-    HomeViewModel viewModel,
-    Widget? child,
-  ) {
+  Widget builder(BuildContext context, HomeViewModel viewModel, Widget? child) {
     var topPadding = MediaQuery.of(context).viewPadding.top;
     var sizer = screenDimension(context);
     var spacer = SizedBox(height: sizer / 81);
-    print(sizer / 81);
+
     return Scaffold(
         resizeToAvoidBottomInset: false,
         bottomNavigationBar: const BottomBar(),
@@ -36,7 +32,7 @@ class HomeView extends StackedView<HomeViewModel> {
                     fit: BoxFit.fill)),
             child: Column(children: [
               SizedBox(height: topPadding - 10),
-              renderCustomAppBar(),
+              renderCustomAppBar(screenDimension(context)),
               Expanded(
                   child: Container(
                 clipBehavior: Clip.hardEdge,
@@ -51,7 +47,7 @@ class HomeView extends StackedView<HomeViewModel> {
                     const Graph(),
                     spacer,
                     //Render Pie Chart
-                    renderCard(
+                    renderCard(screenDimension(context),
                         buttonTitle: viewAll,
                         leadsName: 'LEADS BY STAGES',
                         child: FlipCard(
@@ -62,7 +58,7 @@ class HomeView extends StackedView<HomeViewModel> {
                             back: BackSide(gridDetail: viewModel.gridDetail))),
                     spacer,
                     //Users card
-                    renderCard(
+                    renderCard(screenDimension(context),
                         buttonTitle: viewAll,
                         leadsName: users.toUpperCase(),
                         child: Padding(
@@ -80,21 +76,26 @@ class HomeView extends StackedView<HomeViewModel> {
                                 horizontalSpaceTiny,
                                 RichText(
                                     textAlign: TextAlign.center,
-                                    text: const TextSpan(
+                                    text: TextSpan(
                                         text: 'DST',
                                         style: TextStyle(
-                                            color: Color.fromARGB(
+                                            color: const Color.fromARGB(
                                                 255, 105, 97, 94),
                                             fontFamily: 'Nexa-Bold',
-                                            fontSize: 13),
+                                            fontSize:
+                                                screenDimension(context) / 88),
                                         children: [
                                           TextSpan(
                                               text: "\n$users",
                                               style: TextStyle(
-                                                  fontSize: 9,
-                                                  height: 1,
+                                                  fontSize:
+                                                      screenDimension(context) /
+                                                          128,
+                                                  height:
+                                                      screenDimension(context) *
+                                                          0.001,
                                                   fontFamily: 'Nexa-Bold',
-                                                  color: Color.fromARGB(
+                                                  color: const Color.fromARGB(
                                                       255, 105, 97, 94)))
                                         ])),
                               ]),
@@ -108,21 +109,23 @@ class HomeView extends StackedView<HomeViewModel> {
                                 horizontalSpaceTiny,
                                 RichText(
                                     textAlign: TextAlign.center,
-                                    text: const TextSpan(
+                                    text: TextSpan(
                                         text: 'Channel Partner ',
                                         style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 105, 97, 94),
-                                          fontFamily: 'Nexa-Bold',
-                                          fontSize: 13,
-                                        ),
+                                            color: const Color.fromARGB(
+                                                255, 105, 97, 94),
+                                            fontFamily: 'Nexa-Bold',
+                                            fontSize:
+                                                screenDimension(context) / 88),
                                         children: [
                                           TextSpan(
                                               text: "\n$users",
                                               style: TextStyle(
-                                                fontSize: 9,
+                                                fontSize:
+                                                    screenDimension(context) /
+                                                        128,
                                                 fontFamily: 'Nexa-Bold',
-                                                color: Color.fromARGB(
+                                                color: const Color.fromARGB(
                                                     255, 105, 97, 94),
                                               ))
                                         ])),
@@ -135,7 +138,7 @@ class HomeView extends StackedView<HomeViewModel> {
                     Row(
                       children: [
                         Expanded(
-                            child: renderCard(
+                            child: renderCard(screenDimension(context),
                                 child: Row(children: [
                                   Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -148,19 +151,21 @@ class HomeView extends StackedView<HomeViewModel> {
                                               255, 128, 52, 10),
                                           text: '8')),
                                   horizontalSpaceSmall,
-                                  const Text('Site Visits \nScheduled',
+                                  Text('Site Visits \nScheduled',
                                       style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 105, 97, 94),
+                                          color: const Color.fromARGB(
+                                              255, 105, 97, 94),
                                           fontFamily: 'Nexa-Bold',
-                                          fontSize: 12,
-                                          height: 1))
+                                          fontSize:
+                                              screenDimension(context) / 96,
+                                          height:
+                                              screenDimension(context) * 0.001))
                                 ]),
                                 buttonTitle: 'View Scheduled',
                                 leadsName: '')),
                         horizontalSpaceSmall,
                         Expanded(
-                            child: renderCard(
+                            child: renderCard(screenDimension(context),
                                 child: Row(children: [
                                   Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -173,13 +178,15 @@ class HomeView extends StackedView<HomeViewModel> {
                                               255, 147, 97, 0),
                                           text: '18')),
                                   horizontalSpaceSmall,
-                                  const Text('Upcoming\nFollow ups',
+                                  Text('Upcoming\nFollow ups',
                                       style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 105, 97, 94),
+                                          color: const Color.fromARGB(
+                                              255, 105, 97, 94),
                                           fontFamily: 'Nexa-Bold',
-                                          fontSize: 12,
-                                          height: 1))
+                                          fontSize:
+                                              screenDimension(context) / 96,
+                                          height:
+                                              screenDimension(context) * 0.001))
                                 ]),
                                 buttonTitle: 'View Follow ups',
                                 leadsName: ''))
@@ -187,7 +194,7 @@ class HomeView extends StackedView<HomeViewModel> {
                     ),
                     spacer,
                     //My Team Card
-                    renderCard(
+                    renderCard(screenDimension(context),
                         buttonTitle: viewAll,
                         leadsName: 'MY TEAM',
                         child: Row(
@@ -206,41 +213,52 @@ class HomeView extends StackedView<HomeViewModel> {
                                           screenDimension(context),
                                           child: Image.asset(Images().girl1)),
                                       Positioned(
-                                          left: 20,
+                                          left:
+                                              screenDimension(context) / 57.50,
                                           child: renderContainerWithImage(
                                               screenDimension(context),
                                               child:
                                                   Image.asset(Images().boy1))),
                                       Positioned(
-                                          left: 40,
+                                          left:
+                                              screenDimension(context) / 28.75,
                                           child: renderContainerWithImage(
                                               screenDimension(context),
                                               child:
                                                   Image.asset(Images().boy2))),
                                       Positioned(
-                                          left: 60,
+                                          left:
+                                              screenDimension(context) / 19.18,
                                           child: renderContainerWithImage(
                                               screenDimension(context),
                                               child:
                                                   Image.asset(Images().boy3))),
                                       Positioned(
-                                          left: 80,
+                                          left:
+                                              screenDimension(context) / 14.39,
                                           child: renderContainerWithImage(
                                               screenDimension(context),
                                               child:
                                                   Image.asset(Images().girl2))),
                                       Positioned(
-                                          left: 100,
+                                          left: screenDimension(context) /
+                                              11.52,
                                           child: renderContainerWithImage(
                                               screenDimension(context),
-                                              child: const Center(
+                                              child: Center(
                                                   child: Text('+5',
-                                                      textAlign:
-                                                          TextAlign.center,
+                                                      textAlign: TextAlign
+                                                          .center,
                                                       style: TextStyle(
                                                           color: Colors.white,
-                                                          fontSize: 12,
-                                                          height: 1.5,
+                                                          fontSize:
+                                                              screenDimension(
+                                                                      context) /
+                                                                  96,
+                                                          height:
+                                                              screenDimension(
+                                                                      context) *
+                                                                  0.0013,
                                                           fontWeight: FontWeight
                                                               .w400))))),
                                     ],
@@ -265,41 +283,42 @@ class HomeView extends StackedView<HomeViewModel> {
   }
 
 //app bar
-  renderCustomAppBar() {
+  renderCustomAppBar(screenRatio) {
     return ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 15),
         horizontalTitleGap: 3,
-        title: const Text('Welcome',
+        title: Text('Welcome',
             style: TextStyle(
-                fontSize: 15,
+                fontSize: screenRatio * 0.0131,
                 fontWeight: FontWeight.w500,
                 color: Colors.white,
-                height: 0.7)),
-        subtitle: const Text('Ravi Kumar',
+                height: screenRatio * 0.00061)),
+        subtitle: Text('Ravi Kumar',
             style: TextStyle(
-                fontSize: 22,
+                fontSize: screenRatio / 52.25,
                 fontWeight: FontWeight.w500,
                 color: Colors.white,
                 fontFamily: 'Nexa-Bold',
-                height: 1.2)),
+                height: screenRatio * 0.001)),
         leading: CircleAvatar(
             backgroundColor: Colors.transparent,
-            child: Image.asset(Images().clientImage, height: 34, width: 34)),
+            child: Image.asset(Images().clientImage,
+                height: screenRatio / 33.87, width: screenRatio / 33.87)),
         trailing: SizedBox(
-            width: 72,
+            width: screenRatio / 16,
             child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              const Icon(Icons.power_settings_new_outlined,
-                  size: 25, color: Colors.white),
+              Icon(Icons.power_settings_new_outlined,
+                  size: screenRatio / 46.1, color: Colors.white),
               horizontalSpaceSmall,
               SizedBox(
-                  width: 40,
+                  width: screenRatio / 30,
                   child:
                       Stack(alignment: Alignment.centerLeft, children: <Widget>[
-                    const Icon(Icons.notifications,
-                        size: 25, color: Colors.white),
+                    Icon(Icons.notifications,
+                        size: screenRatio * 0.0218, color: Colors.white),
                     Positioned(
-                        top: 4,
-                        right: 2,
+                        top: screenRatio / 288,
+                        right: screenRatio / 576,
                         child: Container(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 4, vertical: 2),
@@ -307,21 +326,21 @@ class HomeView extends StackedView<HomeViewModel> {
                               color: const Color.fromARGB(255, 247, 148, 30),
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: const Text("100",
+                            child: Text("100",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 8,
+                                    fontSize: screenRatio / 143,
                                     fontWeight: FontWeight.w400))))
                   ]))
             ])));
   }
 
 //circle container with image
-  Container renderContainerWithImage(screenRation, {Widget? child}) {
+  Container renderContainerWithImage(screenRatio, {Widget? child}) {
     return Container(
-        height: screenRation / 40.5,
-        width: screenRation / 40.5,
+        height: screenRatio / 40.5,
+        width: screenRatio / 40.5,
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: const Color.fromARGB(255, 247, 148, 30),
@@ -339,15 +358,15 @@ class HomeView extends StackedView<HomeViewModel> {
         child: Center(
             child: Text(text!,
                 style: TextStyle(
-                    height: 1.5,
+                    height: screenRation * 0.001,
                     color: textColor,
                     fontWeight: FontWeight.w500,
                     fontFamily: 'Nexa-Bold',
-                    fontSize: 18))));
+                    fontSize: screenRation / 64))));
   }
 
 //common card
-  Container renderCard(
+  Container renderCard(screenRation,
       {Widget? child, String? buttonTitle, String? leadsName}) {
     return Container(
         decoration: BoxDecoration(
@@ -376,29 +395,30 @@ class HomeView extends StackedView<HomeViewModel> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(leadsName!,
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
-                            fontSize: 13)),
+                            fontSize: screenRation / 88)),
                     Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(buttonTitle!,
-                              style: const TextStyle(
+                              style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 9)),
+                                  fontSize: screenRation / 128)),
                           horizontalSpaceTiny,
                           Container(
-                              width: 12,
-                              height: 15,
+                              width: screenRation / 96,
+                              height: screenRation / 76.50,
                               decoration: const BoxDecoration(
                                   color: Color.fromARGB(255, 247, 170, 101),
                                   shape: BoxShape.circle),
-                              child: const Center(
+                              child: Center(
                                   child: Icon(Icons.chevron_right_outlined,
-                                      size: 10,
-                                      color: Color.fromARGB(255, 58, 50, 67)))),
+                                      size: screenRation / 115.15,
+                                      color: const Color.fromARGB(
+                                          255, 58, 50, 67)))),
                           if (buttonTitle == viewAll) horizontalSpaceTiny
                         ])
                   ]))
@@ -406,8 +426,5 @@ class HomeView extends StackedView<HomeViewModel> {
   }
 
   @override
-  HomeViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
-      HomeViewModel();
+  HomeViewModel viewModelBuilder(BuildContext context) => HomeViewModel();
 }

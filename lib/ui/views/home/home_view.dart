@@ -72,293 +72,304 @@ class HomeView extends StackedView<HomeViewModel> {
           SizedBox(height: screenDimension(context) / 81)
         ],
       ),
-      body: Stack(
-        children: [
-          SizedBox(
-              width: double.infinity,
-              child: Image.asset(Images().backgroundImage, fit: BoxFit.fill)),
-          verticalSpaceLarge,
-          Column(
-            children: [
-              SizedBox(height: height - 5),
-              renderCustomAppBar(),
-              verticalSpaceSmall,
-              Expanded(
-                child: SingleChildScrollView(
-                  physics: const ScrollPhysics(),
-                  controller: viewModel.scrollController,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
-                    child: Column(
-                      children: [
-                        //leads trend graph
-                        const Graph(),
-                        verticalSpaceTiny,
-                        //pie chart
-                        renderCard(
-                          buttonTitle: viewAll,
-                          leadsName: 'LEADS BY STAGES',
-                          child: FlipCard(
-                            direction: FlipDirection
-                                .HORIZONTAL, // Change this to your desired flip direction
-                            flipOnTouch: true,
-                            speed: 1000,
-                            front: const PieChartPage(),
-                            back: BackSide(
-                              gridDetail: viewModel.gridDetail,
-                            ),
-                          ),
-                        ),
-                        //users card
-                        renderCard(
-                            buttonTitle: viewAll,
-                            leadsName: users.toUpperCase(),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(0),
-                                      child: renderCircleWithText(
-                                          screenDimension(context),
-                                          circleBgColor: const Color.fromARGB(
-                                              255, 219, 255, 231),
-                                          text: '8',
-                                          textColor: const Color.fromARGB(
-                                              255, 6, 95, 36)),
-                                    ),
-                                    horizontalSpaceTiny,
-                                    RichText(
-                                        textAlign: TextAlign.center,
-                                        text: const TextSpan(
-                                            text: 'DST',
-                                            style: TextStyle(
-                                              color: Color.fromARGB(
-                                                  255, 105, 97, 94),
-                                              fontFamily: 'Nexa-Bold',
-                                              fontSize: 13,
-                                            ),
-                                            children: [
-                                              TextSpan(
-                                                  text: "\n$users",
-                                                  style: TextStyle(
-                                                    fontSize: 9,
-                                                    height: 1,
-                                                    fontFamily: 'Nexa-Bold',
-                                                    color: Color.fromARGB(
-                                                        255, 105, 97, 94),
-                                                  ))
-                                            ])),
-                                  ]),
-                                  // horizontalSpaceMedium,
-                                  Row(children: [
-                                    renderCircleWithText(
-                                        screenDimension(context),
-                                        circleBgColor: const Color.fromARGB(
-                                            255, 254, 235, 179),
-                                        text: '25',
-                                        textColor: const Color.fromARGB(
-                                            255, 07, 80, 0)),
-                                    horizontalSpaceTiny,
-                                    RichText(
-                                        textAlign: TextAlign.center,
-                                        text: const TextSpan(
-                                            text: 'Channel Partner ',
-                                            style: TextStyle(
-                                              color: Color.fromARGB(
-                                                  255, 105, 97, 94),
-                                              fontFamily: 'Nexa-Bold',
-                                              fontSize: 13,
-                                            ),
-                                            children: [
-                                              TextSpan(
-                                                  text: "\n$users",
-                                                  style: TextStyle(
-                                                    fontSize: 9,
-                                                    fontFamily: 'Nexa-Bold',
-                                                    color: Color.fromARGB(
-                                                        255, 105, 97, 94),
-                                                  ))
-                                            ])),
-                                  ])
-                                ],
-                              ),
-                            )),
-                        //schedule and follow up cards
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: renderCard(
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(6.0),
-                                        child: renderCircleWithText(
-                                            screenDimension(context),
-                                            circleBgColor: const Color.fromARGB(
-                                                255, 255, 221, 201),
-                                            textColor: const Color.fromARGB(
-                                                255, 128, 52, 10),
-                                            text: '8'),
-                                      ),
-                                      horizontalSpaceSmall,
-                                      const Text('Site Visits \nScheduled',
-                                          style: TextStyle(
-                                              color: Color.fromARGB(
-                                                  255, 105, 97, 94),
-                                              fontFamily: 'Nexa-Bold',
-                                              fontSize: 12,
-                                              height: 1)),
-                                    ],
-                                  ),
-                                  buttonTitle: 'View Scheduled',
-                                  leadsName: ''),
-                            ),
-                            horizontalSpaceSmall,
-                            Expanded(
-                              flex: 1,
-                              child: renderCard(
-                                  child: Row(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(6.0),
-                                        child: renderCircleWithText(
-                                            screenDimension(context),
-                                            circleBgColor: const Color.fromARGB(
-                                                255, 255, 237, 201),
-                                            textColor: const Color.fromARGB(
-                                                255, 147, 97, 0),
-                                            text: '18'),
-                                      ),
-                                      horizontalSpaceSmall,
-                                      const Text('Upcoming\nFollow ups',
-                                          style: TextStyle(
-                                              color: Color.fromARGB(
-                                                  255, 105, 97, 94),
-                                              fontFamily: 'Nexa-Bold',
-                                              fontSize: 12,
-                                              height: 1)),
-                                    ],
-                                  ),
-                                  buttonTitle: 'View Follow ups',
-                                  leadsName: ''),
-                            ),
-                          ],
-                        ),
-
-                        //my team card
-                        renderCard(
-                            buttonTitle: viewAll,
-                            leadsName: 'MY TEAM',
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      height: screenDimension(context) / 20,
-                                      width:
-                                          MediaQuery.of(context).size.width / 2,
-                                      child: Stack(
-                                        alignment: Alignment.centerLeft,
-                                        children: [
-                                          renderContainerWithImage(
-                                            screenDimension(context),
-                                            child: Image.asset(
-                                              Images().girl1,
-                                            ),
-                                          ),
-                                          Positioned(
-                                            left: 20,
-                                            child: renderContainerWithImage(
-                                              screenDimension(context),
-                                              child: Image.asset(
-                                                Images().boy1,
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            left: 40,
-                                            child: renderContainerWithImage(
-                                              screenDimension(context),
-                                              child: Image.asset(
-                                                Images().boy2,
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            left: 60,
-                                            child: renderContainerWithImage(
-                                              screenDimension(context),
-                                              child: Image.asset(
-                                                Images().boy3,
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            left: 80,
-                                            child: renderContainerWithImage(
-                                              screenDimension(context),
-                                              child: Image.asset(
-                                                Images().girl2,
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            left: 100,
-                                            child: renderContainerWithImage(
-                                                screenDimension(context),
-                                                child: const Center(
-                                                  child: Text(
-                                                    '+5',
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 12,
-                                                        height: 1.5,
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                )),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                renderCircleWithText(
-                                  screenDimension(context),
-                                  circleBgColor:
-                                      const Color.fromARGB(255, 250, 231, 202),
-                                  text: '10',
-                                  textColor:
-                                      const Color.fromARGB(255, 147, 97, 0),
-                                )
-                              ],
-                            )),
-                        verticalSpaceMedium
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+      body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(Images().backgroundImage), fit: BoxFit.fill)),
+        child: Column(
+            children: [SizedBox(height: height - 10), renderCustomAppBar(),
+                
+            
+            
+            ]),
       ),
+      // body: Stack(
+      //   children: [
+      //     SizedBox(
+      //         width: double.infinity,
+      //         child: Image.asset(Images().backgroundImage, fit: BoxFit.fill)),
+      //     verticalSpaceLarge,
+      //     Column(
+      //       children: [
+      //         SizedBox(height: height - 5),
+      //         renderCustomAppBar(),
+      //         verticalSpaceSmall,
+      //         Expanded(
+      //           child: SingleChildScrollView(
+      //             physics: const ScrollPhysics(),
+      //             controller: viewModel.scrollController,
+      //             child: Padding(
+      //               padding:
+      //                   const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+      //               child: Column(
+      //                 children: [
+      //                   //leads trend graph
+      //                   const Graph(),
+      //                   verticalSpaceTiny,
+      //                   //pie chart
+      //                   renderCard(
+      //                     buttonTitle: viewAll,
+      //                     leadsName: 'LEADS BY STAGES',
+      //                     child: FlipCard(
+      //                       direction: FlipDirection
+      //                           .HORIZONTAL, // Change this to your desired flip direction
+      //                       flipOnTouch: true,
+      //                       speed: 1000,
+      //                       front: const PieChartPage(),
+      //                       back: BackSide(
+      //                         gridDetail: viewModel.gridDetail,
+      //                       ),
+      //                     ),
+      //                   ),
+      //                   //users card
+      //                   renderCard(
+      //                       buttonTitle: viewAll,
+      //                       leadsName: users.toUpperCase(),
+      //                       child: Padding(
+      //                         padding: const EdgeInsets.all(8),
+      //                         child: Row(
+      //                           mainAxisAlignment:
+      //                               MainAxisAlignment.spaceBetween,
+      //                           children: [
+      //                             Row(children: [
+      //                               Padding(
+      //                                 padding: const EdgeInsets.all(0),
+      //                                 child: renderCircleWithText(
+      //                                     screenDimension(context),
+      //                                     circleBgColor: const Color.fromARGB(
+      //                                         255, 219, 255, 231),
+      //                                     text: '8',
+      //                                     textColor: const Color.fromARGB(
+      //                                         255, 6, 95, 36)),
+      //                               ),
+      //                               horizontalSpaceTiny,
+      //                               RichText(
+      //                                   textAlign: TextAlign.center,
+      //                                   text: const TextSpan(
+      //                                       text: 'DST',
+      //                                       style: TextStyle(
+      //                                         color: Color.fromARGB(
+      //                                             255, 105, 97, 94),
+      //                                         fontFamily: 'Nexa-Bold',
+      //                                         fontSize: 13,
+      //                                       ),
+      //                                       children: [
+      //                                         TextSpan(
+      //                                             text: "\n$users",
+      //                                             style: TextStyle(
+      //                                               fontSize: 9,
+      //                                               height: 1,
+      //                                               fontFamily: 'Nexa-Bold',
+      //                                               color: Color.fromARGB(
+      //                                                   255, 105, 97, 94),
+      //                                             ))
+      //                                       ])),
+      //                             ]),
+      //                             // horizontalSpaceMedium,
+      //                             Row(children: [
+      //                               renderCircleWithText(
+      //                                   screenDimension(context),
+      //                                   circleBgColor: const Color.fromARGB(
+      //                                       255, 254, 235, 179),
+      //                                   text: '25',
+      //                                   textColor: const Color.fromARGB(
+      //                                       255, 07, 80, 0)),
+      //                               horizontalSpaceTiny,
+      //                               RichText(
+      //                                   textAlign: TextAlign.center,
+      //                                   text: const TextSpan(
+      //                                       text: 'Channel Partner ',
+      //                                       style: TextStyle(
+      //                                         color: Color.fromARGB(
+      //                                             255, 105, 97, 94),
+      //                                         fontFamily: 'Nexa-Bold',
+      //                                         fontSize: 13,
+      //                                       ),
+      //                                       children: [
+      //                                         TextSpan(
+      //                                             text: "\n$users",
+      //                                             style: TextStyle(
+      //                                               fontSize: 9,
+      //                                               fontFamily: 'Nexa-Bold',
+      //                                               color: Color.fromARGB(
+      //                                                   255, 105, 97, 94),
+      //                                             ))
+      //                                       ])),
+      //                             ])
+      //                           ],
+      //                         ),
+      //                       )),
+      //                   //schedule and follow up cards
+      //                   Row(
+      //                     children: [
+      //                       Expanded(
+      //                         flex: 1,
+      //                         child: renderCard(
+      //                             child: Row(
+      //                               children: [
+      //                                 Padding(
+      //                                   padding: const EdgeInsets.all(6.0),
+      //                                   child: renderCircleWithText(
+      //                                       screenDimension(context),
+      //                                       circleBgColor: const Color.fromARGB(
+      //                                           255, 255, 221, 201),
+      //                                       textColor: const Color.fromARGB(
+      //                                           255, 128, 52, 10),
+      //                                       text: '8'),
+      //                                 ),
+      //                                 horizontalSpaceSmall,
+      //                                 const Text('Site Visits \nScheduled',
+      //                                     style: TextStyle(
+      //                                         color: Color.fromARGB(
+      //                                             255, 105, 97, 94),
+      //                                         fontFamily: 'Nexa-Bold',
+      //                                         fontSize: 12,
+      //                                         height: 1)),
+      //                               ],
+      //                             ),
+      //                             buttonTitle: 'View Scheduled',
+      //                             leadsName: ''),
+      //                       ),
+      //                       horizontalSpaceSmall,
+      //                       Expanded(
+      //                         flex: 1,
+      //                         child: renderCard(
+      //                             child: Row(
+      //                               children: [
+      //                                 Padding(
+      //                                   padding: const EdgeInsets.all(6.0),
+      //                                   child: renderCircleWithText(
+      //                                       screenDimension(context),
+      //                                       circleBgColor: const Color.fromARGB(
+      //                                           255, 255, 237, 201),
+      //                                       textColor: const Color.fromARGB(
+      //                                           255, 147, 97, 0),
+      //                                       text: '18'),
+      //                                 ),
+      //                                 horizontalSpaceSmall,
+      //                                 const Text('Upcoming\nFollow ups',
+      //                                     style: TextStyle(
+      //                                         color: Color.fromARGB(
+      //                                             255, 105, 97, 94),
+      //                                         fontFamily: 'Nexa-Bold',
+      //                                         fontSize: 12,
+      //                                         height: 1)),
+      //                               ],
+      //                             ),
+      //                             buttonTitle: 'View Follow ups',
+      //                             leadsName: ''),
+      //                       ),
+      //                     ],
+      //                   ),
+
+      //                   //my team card
+      //                   renderCard(
+      //                       buttonTitle: viewAll,
+      //                       leadsName: 'MY TEAM',
+      //                       child: Row(
+      //                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //                         children: [
+      //                           Row(
+      //                             mainAxisAlignment: MainAxisAlignment.start,
+      //                             children: [
+      //                               SizedBox(
+      //                                 height: screenDimension(context) / 20,
+      //                                 width:
+      //                                     MediaQuery.of(context).size.width / 2,
+      //                                 child: Stack(
+      //                                   alignment: Alignment.centerLeft,
+      //                                   children: [
+      //                                     renderContainerWithImage(
+      //                                       screenDimension(context),
+      //                                       child: Image.asset(
+      //                                         Images().girl1,
+      //                                       ),
+      //                                     ),
+      //                                     Positioned(
+      //                                       left: 20,
+      //                                       child: renderContainerWithImage(
+      //                                         screenDimension(context),
+      //                                         child: Image.asset(
+      //                                           Images().boy1,
+      //                                         ),
+      //                                       ),
+      //                                     ),
+      //                                     Positioned(
+      //                                       left: 40,
+      //                                       child: renderContainerWithImage(
+      //                                         screenDimension(context),
+      //                                         child: Image.asset(
+      //                                           Images().boy2,
+      //                                         ),
+      //                                       ),
+      //                                     ),
+      //                                     Positioned(
+      //                                       left: 60,
+      //                                       child: renderContainerWithImage(
+      //                                         screenDimension(context),
+      //                                         child: Image.asset(
+      //                                           Images().boy3,
+      //                                         ),
+      //                                       ),
+      //                                     ),
+      //                                     Positioned(
+      //                                       left: 80,
+      //                                       child: renderContainerWithImage(
+      //                                         screenDimension(context),
+      //                                         child: Image.asset(
+      //                                           Images().girl2,
+      //                                         ),
+      //                                       ),
+      //                                     ),
+      //                                     Positioned(
+      //                                       left: 100,
+      //                                       child: renderContainerWithImage(
+      //                                           screenDimension(context),
+      //                                           child: const Center(
+      //                                             child: Text(
+      //                                               '+5',
+      //                                               textAlign: TextAlign.center,
+      //                                               style: TextStyle(
+      //                                                   color: Colors.white,
+      //                                                   fontSize: 12,
+      //                                                   height: 1.5,
+      //                                                   fontWeight:
+      //                                                       FontWeight.w400),
+      //                                             ),
+      //                                           )),
+      //                                     ),
+      //                                   ],
+      //                                 ),
+      //                               ),
+      //                             ],
+      //                           ),
+      //                           renderCircleWithText(
+      //                             screenDimension(context),
+      //                             circleBgColor:
+      //                                 const Color.fromARGB(255, 250, 231, 202),
+      //                             text: '10',
+      //                             textColor:
+      //                                 const Color.fromARGB(255, 147, 97, 0),
+      //                           )
+      //                         ],
+      //                       )),
+      //                   verticalSpaceMedium
+      //                 ],
+      //               ),
+      //             ),
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ],
+      // ),
     );
   }
 
 //app bar
-  ListTile renderCustomAppBar() {
+  renderCustomAppBar() {
     return ListTile(
-        contentPadding: const EdgeInsets.only(left: 15, right: 10),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 15),
         horizontalTitleGap: 3,
         title: const Text(
           'Welcome',
@@ -386,7 +397,7 @@ class HomeView extends StackedView<HomeViewModel> {
           ),
         ),
         trailing: SizedBox(
-          width: 80,
+          width: 72,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [

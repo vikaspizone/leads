@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:leads/app/app.router.dart';
 import 'package:leads/ui/views/home/home_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../app/app.locator.dart';
+import '../home/home_view.dart';
 
 class IncomingCallViewModel extends BaseViewModel {
   final NavigationService _navigationService = locator<NavigationService>();
@@ -13,7 +13,7 @@ class IncomingCallViewModel extends BaseViewModel {
   void goBack() {
     currentIndex = 0;
     notifyListeners();
-    _navigationService.clearStackAndShow(Routes.homeView);
+    _navigationService.clearStackAndShowView(const HomeView(pageIndex: 0));
   }
 
 //Select Tab

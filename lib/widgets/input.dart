@@ -12,6 +12,7 @@ class Input extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: screenDimension(context) / 24,
       padding: const EdgeInsets.only(left: 6),
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(10)),

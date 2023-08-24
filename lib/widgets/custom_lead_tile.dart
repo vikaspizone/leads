@@ -82,128 +82,104 @@ class _CustomTileState extends State<CustomTile>
 
                 setState(() {});
               },
-              child: Stack(
+              child: Column(
                 children: [
                   Container(
-                    height: isShow
-                        ? screenDimension(context) / 12.83
-                        : screenDimension(context) / 14.8,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
                       color: const Color.fromARGB(255, 172, 119, 13),
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/all-leads-icons/handshake-icon.svg',
-                          height: 15,
-                        ),
-                        horizontalSpaceTiny,
-                        Text(widget.companyName,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 11,
-                                fontFamily: 'Nexa-Bold')),
-                        const Expanded(child: SizedBox()),
-                        SvgPicture.asset(
-                          'assets/all-leads-icons/timer-icon.svg',
-                          height: 13,
-                          width: 13,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 15),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Text(
-                              widget.personName,
-                              style: const TextStyle(
-                                  fontSize: 15,
-                                  fontFamily: 'Nexa-Bold',
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            horizontalSpaceSmall,
-                            SvgPicture.asset(
-                              'assets/all-leads-icons/phone-icon.svg',
-                              height: 10,
-                            ),
-                            const Expanded(child: SizedBox()),
-                            widget.status == 'Sold'
-                                ? Container(
-                                    width: 90,
-                                    height: 22,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                        color: widget.statusColor,
-                                        borderRadius: BorderRadius.circular(12),
-                                        border: Border.all(
-                                            color: widget.statusBorderColor)),
-                                    child: Text(widget.status,
-                                        style: const TextStyle(
-                                            fontSize: 10,
-                                            fontFamily: 'Nexa-Bold')))
-                                : Container(
-                                    width: 90,
-                                    height: 20,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                        color: widget.statusColor,
-                                        borderRadius: BorderRadius.circular(12),
-                                        border: Border.all(
-                                            color: widget.statusBorderColor)),
-                                    child: Text(widget.status,
-                                        style: const TextStyle(
-                                            fontSize: 10,
-                                            fontFamily: 'Nexa-Bold')),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 15),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    widget.personName,
+                                    style: const TextStyle(
+                                        fontSize: 15,
+                                        fontFamily: 'Nexa-Bold',
+                                        fontWeight: FontWeight.w400),
                                   ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/all-leads-icons/building-icon.svg',
-                              height: 12,
-                              width: 15,
-                            ),
-                            horizontalSpaceSmall,
-                            Text(
-                              widget.location,
-                              style: const TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: 'Nexa-Bold',
-                                  fontWeight: FontWeight.w400,
-                                  color: Color.fromARGB(255, 172, 119, 13)),
-                            ),
-                            const Expanded(child: SizedBox()),
-                            Text(
-                              widget.date,
-                              style: const TextStyle(
-                                  fontSize: 7,
-                                  fontFamily: 'nexa-regular',
-                                  fontWeight: FontWeight.w300),
-                            ),
-                            const SizedBox(width: 17)
-                          ],
-                        ),
-                        if (isShow) ...[verticalSpaceTiny],
-                        isShow
-                            ? SizeTransition(
+                                  horizontalSpaceSmall,
+                                  SvgPicture.asset(
+                                    'assets/all-leads-icons/phone-icon.svg',
+                                  ),
+                                  const Expanded(child: SizedBox()),
+                                  widget.status == 'Sold'
+                                      ? Container(
+                                          width: 90,
+                                          height: 22,
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                              color: widget.statusColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                              border: Border.all(
+                                                  color: widget
+                                                      .statusBorderColor)),
+                                          child: Text(widget.status,
+                                              style: const TextStyle(
+                                                  fontSize: 10,
+                                                  fontFamily: 'Nexa-Bold')))
+                                      : Container(
+                                          width: 90,
+                                          height: 20,
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                              color: widget.statusColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                              border: Border.all(
+                                                  color: widget
+                                                      .statusBorderColor)),
+                                          child: Text(widget.status,
+                                              style: const TextStyle(
+                                                  fontSize: 10,
+                                                  fontFamily: 'Nexa-Bold')),
+                                        ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  SvgPicture.asset(
+                                    'assets/all-leads-icons/building-icon.svg',
+                                  ),
+                                  horizontalSpaceSmall,
+                                  Text(
+                                    widget.location,
+                                    style: const TextStyle(
+                                        fontSize: 12,
+                                        fontFamily: 'Nexa-Bold',
+                                        fontWeight: FontWeight.w400,
+                                        color:
+                                            Color.fromARGB(255, 172, 119, 13)),
+                                  ),
+                                  const Expanded(child: SizedBox()),
+                                  Text(
+                                    widget.date,
+                                    style: const TextStyle(
+                                        fontSize: 7,
+                                        fontFamily: 'nexa-regular',
+                                        fontWeight: FontWeight.w300),
+                                  ),
+                                  const SizedBox(width: 17)
+                                ],
+                              ),
+                              if (isShow) ...[verticalSpaceTiny],
+                              SizeTransition(
                                 axisAlignment: 1.0,
                                 sizeFactor: animation,
                                 child: Row(
@@ -241,8 +217,6 @@ class _CustomTileState extends State<CustomTile>
                                     const Expanded(child: SizedBox()),
                                     SvgPicture.asset(
                                       'assets/all-leads-icons/calendar-icon.svg',
-                                      height: 7,
-                                      width: 7,
                                     ),
                                     horizontalSpaceTiny,
                                     Text(
@@ -256,8 +230,36 @@ class _CustomTileState extends State<CustomTile>
                                     )
                                   ],
                                 ),
-                              )
-                            : Container(),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 5),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color.fromARGB(255, 172, 119, 13),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                'assets/all-leads-icons/handshake-icon.svg',
+                              ),
+                              horizontalSpaceTiny,
+                              Text(widget.companyName,
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 11,
+                                      fontFamily: 'Nexa-Bold')),
+                              const Expanded(child: SizedBox()),
+                              SvgPicture.asset(
+                                'assets/all-leads-icons/timer-icon.svg',
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -284,8 +286,6 @@ class _CustomTileState extends State<CustomTile>
                             verticalSpaceTiny,
                             SvgPicture.asset(
                               'assets/all-leads-icons/follow-up-icon.svg',
-                              height: 20,
-                              width: 20,
                             ),
                             const Text('Follow Up',
                                 style: TextStyle(
@@ -308,8 +308,6 @@ class _CustomTileState extends State<CustomTile>
                             verticalSpaceTiny,
                             SvgPicture.asset(
                               'assets/all-leads-icons/archive-icon.svg',
-                              height: 20,
-                              width: 20,
                             ),
                             const Text('Archive',
                                 style: TextStyle(
@@ -332,8 +330,6 @@ class _CustomTileState extends State<CustomTile>
                             verticalSpaceTiny,
                             SvgPicture.asset(
                               'assets/all-leads-icons/view-icon.svg',
-                              height: 20,
-                              width: 20,
                             ),
                             const Text('View',
                                 style: TextStyle(

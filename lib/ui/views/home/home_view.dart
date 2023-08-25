@@ -14,8 +14,8 @@ import '/ui/common/ui_helpers.dart';
 import 'home_viewmodel.dart';
 
 class HomeView extends StackedView<HomeViewModel> {
-  final int? pageIndex;
-  const HomeView({this.pageIndex, Key? key}) : super(key: key);
+  final int pageIndex;
+  const HomeView({required this.pageIndex, Key? key}) : super(key: key);
   Widget getViewForIndex(int index) {
     switch (index) {
       case 0:
@@ -42,7 +42,7 @@ class HomeView extends StackedView<HomeViewModel> {
         bottomNavigationBar: const BottomBar(),
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
         floatingActionButton: const CustomFloatingActionButton(),
-        body: getViewForIndex(pageIndex!));
+        body: getViewForIndex(pageIndex));
   }
 
   @override

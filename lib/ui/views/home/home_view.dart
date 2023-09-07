@@ -1,5 +1,6 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:leads/ui/common/widgets/floating_action_button.dart';
 import 'package:leads/ui/views/incoming_call/incoming_call_view.dart';
 import 'package:leads/ui/views/leads/leads_view.dart';
@@ -37,12 +38,18 @@ class HomeView extends StackedView<HomeViewModel> {
     HomeViewModel viewModel,
     Widget? child,
   ) {
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        bottomNavigationBar: const BottomBar(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        floatingActionButton: const CustomFloatingActionButton(),
-        body: getViewForIndex(pageIndex));
+    return WillPopScope(
+      onWillPop: () async {
+        currentIndex != 0 ? viewModel.goBack() : SystemNavigator.pop();
+        return false;
+      },
+      child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          bottomNavigationBar: const BottomBar(),
+          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+          floatingActionButton: const CustomFloatingActionButton(),
+          body: getViewForIndex(pageIndex)),
+    );
   }
 
   @override

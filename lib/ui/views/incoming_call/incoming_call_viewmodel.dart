@@ -13,7 +13,10 @@ class IncomingCallViewModel extends BaseViewModel {
   void goBack() {
     currentIndex = 0;
     notifyListeners();
-    _navigationService.clearStackAndShowView(const HomeView(pageIndex: 0));
+    _navigationService.back();
+                              _navigationService.navigateWithTransition(
+                                  const HomeView(pageIndex: 0),
+                                  duration: Duration.zero);
   }
 
 //Select Tab

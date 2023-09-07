@@ -1,6 +1,7 @@
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
+import 'package:leads/ui/views/home/home_viewmodel.dart';
 import 'package:leads/ui/views/incoming_call/call_detail_card.dart';
 import 'package:leads/ui/views/incoming_call/incoming_call_view.form.dart';
 import 'package:leads/widgets/input.dart';
@@ -26,10 +27,12 @@ class IncomingCallView extends StackedView<IncomingCallViewModel>
     Widget? child,
   ) {
     return WillPopScope(
-      onWillPop: () async {
-        viewModel.goBack();
-        return true;
-      },
+      onWillPop: currentIndex == 0
+          ? null
+          : () async {
+              viewModel.goBack();
+              return true;
+            },
       child: Stack(
         children: [
           SizedBox(

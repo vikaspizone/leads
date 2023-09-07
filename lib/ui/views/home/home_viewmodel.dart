@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:leads/ui/views/home/pie_chart.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
+
+import '../../../app/app.locator.dart';
+import 'home_view.dart';
 
 int currentIndex = 0;
 
 class HomeViewModel extends BaseViewModel {
+  final NavigationService _navigationService = locator<NavigationService>();
   ScrollController scrollController = ScrollController();
+  //Go to back page
+  void goBack() {
+    currentIndex = 0;
+    notifyListeners();
+    _navigationService.back();
+    _navigationService.navigateWithTransition(const HomeView(pageIndex: 0),
+        duration: Duration.zero);
+  }
 
   List<GridItem> gridDetail = [
     GridItem(

@@ -3,6 +3,7 @@ import 'package:stacked/stacked_annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import '../home/home_viewmodel.dart';
 import '/ui/common/ui_helpers.dart';
 import '/ui/views/leads/leads_view.form.dart';
 import '/widgets/input.dart';
@@ -23,10 +24,12 @@ class LeadsView extends StackedView<LeadsViewModel> with $LeadsView {
     Widget? child,
   ) {
     return WillPopScope(
-      onWillPop: () async {
-        viewModel.goBack();
-        return true;
-      },
+      onWillPop: currentIndex == 0
+          ? null
+          : () async {
+              viewModel.goBack();
+              return true;
+            },
       child: DefaultTabController(
         length: 3,
         initialIndex: 0,

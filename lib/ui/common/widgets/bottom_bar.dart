@@ -33,8 +33,10 @@ class BottomBar extends StackedView<HomeViewModel> {
                       onTap: currentIndex != 0
                           ? () {
                               viewModel.changeIndex(0);
-                              navigationService.clearStackAndShowView(
-                                  const HomeView(pageIndex: 0));
+                              navigationService.back();
+                              navigationService.navigateWithTransition(
+                                  const HomeView(pageIndex: 0),
+                                  duration: Duration.zero);
                             }
                           : () {},
                       child: Column(
@@ -88,8 +90,10 @@ class BottomBar extends StackedView<HomeViewModel> {
                       onTap: currentIndex != 2
                           ? () {
                               viewModel.changeIndex(2);
-                              navigationService.clearStackAndShowView(
-                                  const HomeView(pageIndex: 2));
+                              navigationService.back();
+                              navigationService.navigateWithTransition(
+                                  const HomeView(pageIndex: 2),
+                                  duration: Duration.zero);
                             }
                           : () {},
                       child: Column(
@@ -116,8 +120,10 @@ class BottomBar extends StackedView<HomeViewModel> {
                       onTap: currentIndex != 3
                           ? () {
                               viewModel.changeIndex(3);
-                              navigationService.clearStackAndShowView(
-                                  const HomeView(pageIndex: 3));
+                              navigationService.back();
+                              navigationService.navigateWithTransition(
+                                  const HomeView(pageIndex: 3),
+                                  duration: Duration.zero);
                             }
                           : () {},
                       child: Column(

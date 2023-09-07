@@ -13,7 +13,8 @@ class StartupViewModel extends BaseViewModel {
 
     // This is where you can make decisions on where your app should navigate when
     // you have custom startup logic
-
-    _navigationService.clearStackAndShowView(const HomeView(pageIndex: 0));
+    _navigationService.back();
+    _navigationService.navigateWithTransition(const HomeView(pageIndex: 0),
+        duration: Duration.zero);
   }
 }
